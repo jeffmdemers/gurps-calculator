@@ -1,0 +1,38 @@
+<form [formGroup]="diceForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label># of Dice</label>
+        <input type="number" formControlName="numberOfDice" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.numberOfDice.errors }" />
+        <div *ngIf="submitted && f.numberOfDice.errors" class="invalid-feedback">
+            <div *ngIf="f.numberOfDice.errors.required"># of Dice is Required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Modifier</label>
+        <input type="number" formControlName="modifier" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Multiple</label>
+        <input type="number" formControlName="multiple" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label># of Rolls</label>
+        <input type="number" formControlName="numberOfRolls" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Target</label>
+        <input type="number" formControlName="target" class="form-control" />
+    </div>
+    <div class="form-group">
+        <button class="">Roll</button>
+    </div>
+</form>
+<div>
+  <div *ngFor="let result of results">
+    <div>
+      {{result.result}}
+      ({{result.success ? "Success" : "Fail"}} by {{result.absoluteMargin}})
+      [{{result.dieResults.join(',')}}]
+    </div>
+  </div>
+</div>
