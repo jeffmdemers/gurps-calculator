@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { DiceRollerComponent } from './dice-roller/dice-roller.component';
 import { CoreComponent } from './core/core.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { JumpingComponent } from './jumping/jumping.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DiceRollerComponent,
-    CoreComponent
+    CoreComponent,
+    JumpingComponent
   ],
   imports: [
     BrowserModule,

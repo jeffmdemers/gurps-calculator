@@ -10,6 +10,6 @@ export class AppComponent {
   title = 'gurps-calculator';
 
   constructor(private router: Router) {
-    this.router.navigate(['dice-roller']);
+    this.router.navigate(['jumping']);
   }
 }

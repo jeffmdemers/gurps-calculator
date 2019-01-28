@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DiceRoll } from '../shared/models/DiceRoll.model';
+import { DiceRoll } from '../shared/models/dice-roll.model';
 import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
 
 @Component({
