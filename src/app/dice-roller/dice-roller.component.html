@@ -1,38 +1,53 @@
-<form [formGroup]="diceForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-        <label># of Dice</label>
-        <input type="number" formControlName="numberOfDice" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.numberOfDice.errors }" />
-        <div *ngIf="submitted && f.numberOfDice.errors" class="invalid-feedback">
-            <div *ngIf="f.numberOfDice.errors.required"># of Dice is Required</div>
-        </div>
-    </div>
-    <div class="form-group">
-        <label>Modifier</label>
-        <input type="number" formControlName="modifier" class="form-control" />
-    </div>
-
-    <div class="form-group">
-        <label>Multiple</label>
-        <input type="number" formControlName="multiple" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label># of Rolls</label>
-        <input type="number" formControlName="numberOfRolls" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label>Target</label>
-        <input type="number" formControlName="target" class="form-control" />
-    </div>
-    <div class="form-group">
-        <button class="">Roll</button>
-    </div>
-</form>
-<div>
-  <div *ngFor="let result of results">
-    <div>
-      {{result.result}}
-      ({{result.success ? "Success" : "Fail"}} by {{result.absoluteMargin}})
-      [{{result.dieResults.join(',')}}]
-    </div>
-  </div>
+<div id="diceRoller">
+    <mat-card fxFlex.lt-md="90" fxFlex.gt-sm="50" fxFlexOffset.lt-md="5">
+        <mat-card-header>
+            <mat-card-title>
+                Dice Roller
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form [formGroup]="diceForm" (ngSubmit)="onSubmit()" fxLayout="column">
+                <mat-form-field>
+                    <input matInput type="tel" placeholder="# of Dice" formControlName="numberOfDice" maxLength="2" />
+                </mat-form-field>
+                <mat-form-field>
+                    <label>Modifier</label>
+                    <input matInput type="tel" formControlName="modifier" />
+                </mat-form-field>
+                <mat-form-field>
+                    <label>Multiple</label>
+                    <input matInput type="tel" formControlName="multiple" />
+                </mat-form-field>
+                <mat-form-field>
+                    <label># of Rolls</label>
+                    <input matInput type="tel" formControlName="numberOfRolls" />
+                </mat-form-field>
+                <mat-form-field>
+                    <label>Target</label>
+                    <input matInput type="tel" formControlName="target" />
+                </mat-form-field>
+                <button mat-raised-button color="primary">Roll</button>
+            </form>
+            <div id="resultsPanel">
+                <mat-list>
+                    <ng-container *ngFor="let result of results; let last=last;">
+                        <mat-list-item>
+                            <mat-chip-list>
+                                <mat-chip selected [color]="result.success ? 'primary' : 'warn'">
+                                    <h1>{{result.result}}</h1>
+                                </mat-chip>
+                                <mat-chip selected [color]="result.success ? 'primary' : 'warn'" *ngIf="result.absoluteMargin !== null">
+                                    {{(result.success ? '+' : '-')+ result.absoluteMargin}}
+                                </mat-chip>
+                                <mat-chip color="accent" *ngFor="let die of result.dieResults">
+                                    {{die}}
+                                </mat-chip>
+                            </mat-chip-list>
+                        </mat-list-item>
+                        <mat-divider *ngIf="!last"></mat-divider>
+                    </ng-container>
+                </mat-list>
+            </div>
+        </mat-card-content>
+    </mat-card>
 </div>

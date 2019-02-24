@@ -4,6 +4,7 @@ import { DiceRollerComponent } from './dice-roller/dice-roller.component';
 import { JumpingComponent } from './jumping/jumping.component';
 
 const routes: Routes = [
+  { path: '', component: DiceRollerComponent},
   { path: 'dice-roller', component: DiceRollerComponent},
   { path: 'jumping', component: JumpingComponent}
 ];

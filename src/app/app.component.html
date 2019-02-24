@@ -1,2 +1,12 @@
-<router-outlet></router-outlet>
-
+<mat-sidenav-container>
+    <mat-sidenav mode="side" opened [fixedInViewport]="true" [fixedTopGap]="0" [fixedBottomGap]="0">
+        <mat-list>
+            <mat-list-item><a [routerLink]="['/']">Home</a></mat-list-item>
+            <mat-list-item><a [routerLink]="['/dice-roller']">Dice Roller</a></mat-list-item>
+            <mat-list-item><a [routerLink]="['/jumping']">Jumping</a></mat-list-item>
+        </mat-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

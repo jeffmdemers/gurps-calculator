@@ -1,0 +1,30 @@
+<form [formGroup]="jumpingForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+      <label>Basic Move</label>
+      <input type="number" formControlName="basicMove" class="form-control"/>
+  </div>
+  <div class="form-group">
+      <label>Jumping Skill</label>
+      <input type="number" formControlName="jumpingSkill" class="form-control" />
+  </div>
+  <div class="form-group">
+      <label>Yards Run</label>
+      <input type="number" formControlName="yardsRun" class="form-control" />
+  </div>
+  <div class="form-group">
+      <label>Enhanced Move (Ground) Levels</label>
+      <input type="number" formControlName="enhancedMoveLevels" class="form-control" />
+  </div>
+  <div class="form-group">
+      <label>Super Jump Levels</label>
+      <input type="number" formControlName="superJumpLevels" class="form-control" />
+  </div>
+  <div class="form-group">
+      <button class="">Jump!</button>
+  </div>
+</form>
+<div *ngIf="result">
+  <div>Broad Jump: {{result.BroadJump.value}} {{result.BroadJump.descriptor}}</div>
+  <div>High Jump:  {{result.HighJump.value}} {{result.HighJump.descriptor}}</div>
+  <div>In-Air Speed:  {{result.AirSpeed.value}} {{result.AirSpeed.descriptor}}</div>
+</div>
