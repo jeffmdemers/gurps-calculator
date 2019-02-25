@@ -1,30 +1,22 @@
 <div id="diceRoller">
-    <mat-card fxFlex.lt-md="90" fxFlex.gt-sm="50" fxFlexOffset.lt-md="5">
-        <mat-card-header>
-            <mat-card-title>
-                Dice Roller
-            </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
+    <app-standard-card>
+        <div class="standard-card-title">Dice Roller</div>
+        <div class="standard-card-content">
             <form [formGroup]="diceForm" (ngSubmit)="onSubmit()" fxLayout="column">
                 <mat-form-field>
-                    <input matInput type="tel" placeholder="# of Dice" formControlName="numberOfDice" maxLength="2" />
+                    <input matInput type="number" placeholder="# of Dice" formControlName="numberOfDice" maxLength="2" />
                 </mat-form-field>
                 <mat-form-field>
-                    <label>Modifier</label>
-                    <input matInput type="tel" formControlName="modifier" />
+                    <input matInput type="number" formControlName="modifier" placeholder="Modifier" />
                 </mat-form-field>
                 <mat-form-field>
-                    <label>Multiple</label>
-                    <input matInput type="tel" formControlName="multiple" />
+                    <input matInput type="number" formControlName="multiple" placeholder="Multiple" />
                 </mat-form-field>
                 <mat-form-field>
-                    <label># of Rolls</label>
-                    <input matInput type="tel" formControlName="numberOfRolls" />
+                    <input matInput type="number" formControlName="numberOfRolls" placeholder="# of Rolls" />
                 </mat-form-field>
                 <mat-form-field>
-                    <label>Target</label>
-                    <input matInput type="tel" formControlName="target" />
+                    <input matInput type="number" formControlName="target" placeholder="Target" />
                 </mat-form-field>
                 <button mat-raised-button color="primary">Roll</button>
             </form>
@@ -33,13 +25,13 @@
                     <ng-container *ngFor="let result of results; let last=last;">
                         <mat-list-item>
                             <mat-chip-list>
-                                <mat-chip selected [color]="result.success ? 'primary' : 'warn'">
+                                <mat-chip class="primeResult" selected [color]="result.success ? 'primary' : 'warn'">
                                     <h1>{{result.result}}</h1>
                                 </mat-chip>
-                                <mat-chip selected [color]="result.success ? 'primary' : 'warn'" *ngIf="result.absoluteMargin !== null">
+                                <mat-chip *ngIf="result.absoluteMargin !== null">
                                     {{(result.success ? '+' : '-')+ result.absoluteMargin}}
                                 </mat-chip>
-                                <mat-chip color="accent" *ngFor="let die of result.dieResults">
+                                <mat-chip *ngFor="let die of result.dieResults">
                                     {{die}}
                                 </mat-chip>
                             </mat-chip-list>
@@ -48,6 +40,6 @@
                     </ng-container>
                 </mat-list>
             </div>
-        </mat-card-content>
-    </mat-card>
+        </div>
+    </app-standard-card>
 </div>

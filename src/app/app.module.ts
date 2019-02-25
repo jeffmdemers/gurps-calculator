@@ -18,17 +18,19 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
 
 import { DiceRollerComponent } from './dice-roller/dice-roller.component';
-import { CoreComponent } from './core/core.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { JumpingComponent } from './jumping/jumping.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { StandardCardComponent} from './standard-card/standard-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DiceRollerComponent,
-    CoreComponent,
-    JumpingComponent
+    JumpingComponent,
+    SidebarComponent,
+    StandardCardComponent
   ],
   imports: [
     BrowserModule,
