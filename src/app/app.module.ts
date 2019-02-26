@@ -13,6 +13,7 @@ import {MatListModule, MatList} from '@angular/material/list';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
@@ -23,6 +24,8 @@ import { JumpingComponent } from './jumping/jumping.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { StandardCardComponent} from './standard-card/standard-card.component';
+import { IndexSearchComponent } from './index-search/index-search.component';
+import { ThrowingComponent } from './throwing/throwing.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,9 @@ import { StandardCardComponent} from './standard-card/standard-card.component';
     DiceRollerComponent,
     JumpingComponent,
     SidebarComponent,
-    StandardCardComponent
+    StandardCardComponent,
+    IndexSearchComponent,
+    ThrowingComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +52,8 @@ import { StandardCardComponent} from './standard-card/standard-card.component';
     MatDividerModule,
     MatSidenavModule,
     MatBadgeModule,
-    MatChipsModule
+    MatChipsModule,
+    MatToolbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

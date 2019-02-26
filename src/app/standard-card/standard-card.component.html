@@ -1,3 +1,18 @@
-<div class="standard-card" fxFlex.lt-md="90" fxFlex.md="75" fxFlex.lg="50" fxFlex.xl="35" fxFlexOffset.lt-md="5">
-  <ng-content select=".standard-card-content"></ng-content>
+<div class="standard-card">
+  <mat-card fxFlex.lt-md="90" fxFlex.md="75" fxFlex.lg="50" fxFlex.xl="35" fxFlexOffset.lt-md="5">
+    <mat-card-header>
+      <mat-card-title>
+        <ng-content select=".standard-card-title"></ng-content>
+      </mat-card-title>
+      <mat-card-subtitle>
+        <ng-content select=".standard-card-subtitle"></ng-content>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <ng-content select=".standard-card-content"></ng-content>
+    </mat-card-content>
+    <mat-card-actions>
+      <ng-container select=".standard-card-actions"></ng-container>
+    </mat-card-actions>
+  </mat-card>
 </div>

@@ -1,8 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/purple-green.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 html, body{
     margin:0;
     padding:0;
+    background-image: url('/assets/images/backgrounds/mountains.jpg');
+    background-position: left;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     background-color: #303030;
+
+    .mat-drawer-container{
+        background-color: transparent;
+    }
+
+    .mat-drawer{
+        top:64px !important;
+        background-color: rgba(255, 255, 255, 0.50)
+    }
 }
