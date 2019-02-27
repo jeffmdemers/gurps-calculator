@@ -4,7 +4,8 @@
         <div class="standard-card-content">
             <form [formGroup]="diceForm" (ngSubmit)="onSubmit()" fxLayout="column">
                 <mat-form-field>
-                    <input matInput type="number" placeholder="# of Dice" formControlName="numberOfDice" maxLength="2" />
+                    <input matInput type="number" placeholder="# of Dice" formControlName="numberOfDice"
+                        maxLength="2" />
                 </mat-form-field>
                 <mat-form-field>
                     <input matInput type="number" formControlName="modifier" placeholder="Modifier" />
@@ -21,11 +22,21 @@
                 <button mat-raised-button color="primary">Roll</button>
             </form>
             <div id="resultsPanel">
+                <div *ngIf="resultSuccess || resultFailure" style="text-align:left; margin-top:20px">
+                    <mat-icon [matBadge]="resultSuccess" style="color:green;margin-right:10px;">check_circle</mat-icon>
+                    <mat-icon [matBadge]="resultFailure" style="color:red;">cancel</mat-icon>
+                </div>
                 <mat-list>
                     <ng-container *ngFor="let result of results; let last=last;">
                         <mat-list-item>
                             <mat-chip-list>
-                                <mat-chip class="primeResult" selected [color]="result.success ? 'primary' : 'warn'">
+                                <mat-chip class="primeResult">
+                                    <ng-container *ngIf="result.success;else resultFail">
+                                        <mat-icon style="color:green;">check_circle</mat-icon>
+                                    </ng-container>
+                                    <ng-template #resultFail>
+                                        <mat-icon style="color:red">cancel</mat-icon>
+                                    </ng-template>
                                     <h1>{{result.result}}</h1>
                                 </mat-chip>
                                 <mat-chip *ngIf="result.absoluteMargin !== null">

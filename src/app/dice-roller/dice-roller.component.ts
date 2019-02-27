@@ -10,6 +10,9 @@ import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
 export class DiceRollerComponent implements OnInit {
   diceForm: FormGroup;
   results: DiceRoll[];
+  resultSuccess: number;
+  resultFailure: number;
+
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
@@ -35,5 +38,13 @@ export class DiceRollerComponent implements OnInit {
       this.f.numberOfRolls.value,
       this.f.target.value
     );
+
+    if (this.results.length > 1) {
+      this.resultSuccess = this.results.filter(x => x.success).length;
+      this.resultFailure = this.results.filter(x => !x.success).length;
+    } else {
+      this.resultSuccess = null;
+      this.resultFailure = null;
+    }
   }
 }
