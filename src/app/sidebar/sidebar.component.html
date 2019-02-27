@@ -1,6 +1,13 @@
-<mat-list class="sidebar-menu">
-        <mat-list-item><button mat-button routerLink="/">Home</button></mat-list-item>
-        <mat-list-item><button mat-button routerLink="/dice-roller">Dice Roller</button></mat-list-item>
-        <mat-list-item><button mat-button routerLink="/jumping">Jumping</button></mat-list-item>
-        <mat-list-item><button mat-button routerLink="/throwing">Throwing</button></mat-list-item>
-</mat-list>
+
+<mat-nav-list>
+        <a mat-list-item routerLink="/" style="height: 0;"></a>
+        <ng-container *ngFor="let group of menuGroups">
+                <h2 matSubheader *ngIf="group.header"> {{group.header}} </h2>
+                <a *ngFor="let item of group.menuItems" mat-list-item (click)="this.itemSelected()"
+                        [routerLink]="[item.link]">
+                        <mat-icon matListIcon> {{ item.icon }} </mat-icon>
+                        {{item.text}}
+                </a>
+                <mat-divider></mat-divider>
+        </ng-container>
+</mat-nav-list>

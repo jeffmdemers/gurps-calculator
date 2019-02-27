@@ -1,9 +1,17 @@
-<mat-toolbar><img src="/assets/images/logo.gif" style="width:50px;margin-right:15px;"/>GURPS Calculator</mat-toolbar>
 <mat-sidenav-container>
-    <mat-sidenav mode="side" opened [fixedInViewport]="true" [fixedTopGap]="0" [fixedBottomGap]="0">
-        <app-sidebar></app-sidebar>
+    <mat-sidenav #drawer mode="push" opened role="navigation" [fixedInViewport]="true" [fixedTopGap]="0"
+        [fixedBottomGap]="0">
+        <app-sidebar (itemClicked)="drawer.toggle()"></app-sidebar>
     </mat-sidenav>
     <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <mat-toolbar-row>
+                <button mat-icon-button (click)="drawer.toggle()">
+                    <mat-icon>menu</mat-icon>
+                </button>
+                <span> GURPS Calculator </span>
+            </mat-toolbar-row>
+        </mat-toolbar>
         <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>

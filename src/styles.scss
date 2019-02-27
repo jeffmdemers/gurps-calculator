@@ -12,10 +12,14 @@ html, body{
 
     .mat-drawer-container{
         background-color: transparent;
-    }
 
-    .mat-drawer{
-        top:64px !important;
-        background-color: rgba(255, 255, 255, 0.50)
+        .mat-drawer{
+            min-width:300px;
+            background-color: rgba(255, 255, 255, 1.00)
+        }
+
+        .mat-drawer-backdrop{
+            background:transparent;
+        }
     }
 }
