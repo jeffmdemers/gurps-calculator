@@ -397,9 +397,9 @@ THE SOFTWARE.
 
 @angular/material/button
 
-@angular/material/toolbar
-
 @angular/material/sidenav
+
+@angular/material/toolbar
 
 zone.js
 MIT
