@@ -44,8 +44,9 @@ export class SidebarComponent implements OnInit {
   loadMenuItems() {
     const utility_menuItems = [
       new MenuItem('Dice Roller', '/dice-roller', 'casino'),
+      new MenuItem('Collisions', '/collisions', 'directions_run'),
       new MenuItem('Jumping', '/jumping', 'directions_run'),
-      new MenuItem('Throwing', '/throwing', 'gps_not_fixed')
+      new MenuItem('Throwing', '/throwing', 'gps_not_fixed'),
     ];
 
     this.menuGroups = [

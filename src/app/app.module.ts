@@ -27,6 +27,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { StandardCardComponent} from './standard-card/standard-card.component';
 import { IndexSearchComponent } from './index-search/index-search.component';
 import { ThrowingComponent } from './throwing/throwing.component';
+import { CollisionsComponent } from './collisions/collisions.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ThrowingComponent } from './throwing/throwing.component';
     SidebarComponent,
     StandardCardComponent,
     IndexSearchComponent,
-    ThrowingComponent
+    ThrowingComponent,
+    CollisionsComponent
   ],
   imports: [
     BrowserModule,

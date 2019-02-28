@@ -13,7 +13,7 @@ export class DiceRoll {
     }
     return results;
   }
-  rollDice(numberOfDice: number, modifier: number, multiple?: number, target?: number): DiceRoll {
+  rollDice(numberOfDice: number, modifier?: number, multiple?: number, target?: number): DiceRoll {
     let result = 0;
     const dice = new Array(numberOfDice);
     for (let i = 1; i <= numberOfDice; i++) {
