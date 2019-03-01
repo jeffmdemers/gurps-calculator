@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'gurps-calculator';
-  sidebarOpened: boolean;
+  appSelected = 'dice-roller';
   constructor() {
   }
 }

@@ -3,7 +3,7 @@
         [fixedTopGap]="0" [fixedBottomGap]="0">
 
         <mat-form-field>
-            <mat-select (value)="dice-roller" #appSelect>
+            <mat-select [(value)]="appSelected">
                 <mat-option value="dice-roller">Dice Roller</mat-option>
                 <mat-option value="throwing">Throwing</mat-option>
             </mat-select>
@@ -11,10 +11,8 @@
 
         <mat-icon (click)="drawer.toggle()">highlight_off</mat-icon>
         <div class="content">
-            <ng-container [ngSwitch]="appSelect.value">
-                <app-dice-roller *ngSwitchCase="dice-roller" ></app-dice-roller>
-                <app-throwing *ngSwitchCase="throwing"></app-throwing>
-            </ng-container>
+            <app-dice-roller [hidden]="appSelected !== 'dice-roller'"></app-dice-roller>
+            <app-throwing [hidden]="appSelected !== 'throwing'"></app-throwing>
         </div>
     </mat-sidenav>
     <mat-sidenav-content>
