@@ -37,7 +37,7 @@
                                     <ng-template #resultFail>
                                         <mat-icon style="color:red">cancel</mat-icon>
                                     </ng-template>
-                                    <h1>{{result.result}}</h1>
+                                    {{result.result}}
                                 </mat-chip>
                                 <mat-chip *ngIf="result.absoluteMargin !== null">
                                     {{(result.success ? '+' : '-')+ result.absoluteMargin}}

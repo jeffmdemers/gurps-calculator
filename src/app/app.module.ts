@@ -15,6 +15,8 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatSelectModule} from '@angular/material/select';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
@@ -28,6 +30,7 @@ import { StandardCardComponent} from './standard-card/standard-card.component';
 import { IndexSearchComponent } from './index-search/index-search.component';
 import { ThrowingComponent } from './throwing/throwing.component';
 import { CollisionsComponent } from './collisions/collisions.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,8 @@ import { CollisionsComponent } from './collisions/collisions.component';
     StandardCardComponent,
     IndexSearchComponent,
     ThrowingComponent,
-    CollisionsComponent
+    CollisionsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +61,9 @@ import { CollisionsComponent } from './collisions/collisions.component';
     MatBadgeModule,
     MatChipsModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonToggleModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

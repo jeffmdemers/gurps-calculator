@@ -14,7 +14,7 @@ export class CollisionsComponent implements OnInit {
 
   ngOnInit() {
     this.onSubmit();
-    debugger;
+    
   }
 
   onSubmit(){

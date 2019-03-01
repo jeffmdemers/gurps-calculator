@@ -1,0 +1,49 @@
+<div id="home">
+  <div class="titleBar">
+    <h1>Heroes</h1>
+    <span class="topControls">
+      <mat-form-field>
+        <input matInput type='text' placeholder="Filter" (keyup)="filterCards($event)">
+      </mat-form-field>
+    </span>
+  </div>
+  <ng-container *ngTemplateOutlet="cards"></ng-container>
+</div>
+
+<ng-template #cards>
+  <div #cardView>
+    <div class="popular" fxLayout="row" fxShow.gt-xs fxHide.xs>
+      <ng-container *ngFor="let card of popularHeroCards">
+        <ng-container *ngTemplateOutlet="cardPopular; context: {card: card}"></ng-container>
+      </ng-container>
+    </div>
+    <div class="heroList" fxLayout="row wrap">
+      <ng-container *ngFor="let card of popularHeroCards">
+        <ng-container *ngTemplateOutlet="cardList; context: {card:card, popular: true}"></ng-container>
+      </ng-container>
+      <ng-container *ngFor="let card of heroCards">
+        <ng-container *ngTemplateOutlet="cardList; context: {card:card}"></ng-container>
+      </ng-container>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #cardPopular let-card="card">
+  <div class="imageContainer" fxFlex.gt-xs='33.33' [fxHide]="!card.visible">
+    <ng-container *ngTemplateOutlet="cardImage; context: {card:card}"></ng-container>
+  </div>
+</ng-template>
+
+<ng-template #cardList let-card="card" let-popular="popular">
+  <div class="imageContainer" fxFlex.gt-sm='16.66' fxFlex.lt-md='50' [fxHide.gt-xs]="popular || !card.visible"
+    [fxHide]="!card.visible">
+    <ng-container *ngTemplateOutlet="cardImage; context: {card:card}"></ng-container>
+  </div>
+</ng-template>
+
+<ng-template #cardImage let-card="card">
+  <a href="">
+    <img src="{{card.imgSrc}}" title="{{card.name}}" />
+  </a>
+  <h1 class="name">{{card.name}}</h1>
+</ng-template>

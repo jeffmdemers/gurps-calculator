@@ -1,16 +1,16 @@
-.sidebar-menu{
-    mat-list-item{
-        width:150px;
-        height:inherit;
-        ::ng-deep .mat-list-item-content{
-            padding:0;
-            button{
-                width:100%;
-                text-align:left;
+.sidebar-menu {
+    mat-list-item {
+        width: 150px;
+        height: inherit;
+        ::ng-deep .mat-list-item-content {
+            padding: 0;
+            button {
+                width: 100%;
+                text-align: left;
             }
         }
-        button{
-            font-weight:bold;
+        button {
+            font-weight: bold;
         }
     }
 }
