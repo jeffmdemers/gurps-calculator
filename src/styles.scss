@@ -5,6 +5,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  padding-bottom:50px;
   background-image: url("/assets/images/backgrounds/mountains.jpg");
   background-position: left;
   background-repeat: no-repeat;
@@ -28,7 +29,6 @@ body {
     #utilityDrawer.mat-drawer {
       width: 100vw;
       max-width: 500px;
-      background: transparent;
       padding: 5px 10px;
       @media screen and (max-width: 959px) {
         max-width: 100vw;

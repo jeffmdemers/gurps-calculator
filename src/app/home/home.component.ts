@@ -51,9 +51,8 @@ export class HomeComponent implements OnInit {
       {name: 'Markus', imgSrc: '../../assets/images/mock/heroes/1.jpg', visible: true, favorite: true, id: '7'},
       {name: 'Fella', imgSrc: '../../assets/images/mock/heroes/4.jpg', visible: true, favorite: false, id: '4'},
       {name: 'Thanos', imgSrc: '../../assets/images/mock/heroes/7.jpg', visible: true, favorite: false, id: '8'},
-      {name: 'Sidharthiel Evelandreu', imgSrc: '../../assets/images/mock/heroes/5.jpg', visible: true, favorite: false, id: '3'},
+      {name: 'Sidharthiel Evelandreu', imgSrc: '../../assets/images/mock/heroes/2.jpg', visible: true, favorite: false, id: '3'},
       {name: 'Tobias Hawk', imgSrc: '../../assets/images/mock/heroes/4.jpg', visible: true, favorite: false, id: '9'},
-      {name: 'Taligareive ExMordel', imgSrc: '../../assets/images/mock/heroes/5.jpg', visible: true, favorite: false, id: '10'}
     ];
     this.heroCards.sort((a, b) => a.favorite ? -1 : 1);
   }

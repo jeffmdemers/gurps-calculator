@@ -1,13 +1,13 @@
 #home {
+    margin: 0 auto;
     .titleBar {
-        background-color: rgba(255,255,255, .8);
         padding-left: 15px;
         padding-top: 5px;
     }
     .popular {
         .imageContainer {
             height: 60vh;
-            @media screen and (max-width: 599px) {
+            @media screen and (max-width: 959px) {
                 height: 30vh;
             }
         }

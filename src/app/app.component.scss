@@ -2,8 +2,7 @@ $toolbarHeight: 45px;
 
 ::ng-deep {
   mat-sidenav-content {
-    position: relative;
-    top: $toolbarHeight;
+    margin-top: $toolbarHeight;
   }
   mat-toolbar {
     mat-toolbar-row {
@@ -25,6 +24,12 @@ $toolbarHeight: 45px;
     mat-toolbar-row{
         height: $toolbarHeight !important;
         padding:0 5px !important;
+    }
+  }
+
+  mat-sidenav-container {
+    .mat-drawer-backdrop {
+      display:none;
     }
   }
 }
