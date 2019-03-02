@@ -12,11 +12,11 @@ interface HeroCard extends Hero {
 }
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-character-list',
+  templateUrl: './character-list.component.html',
+  styleUrls: ['./character-list.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class CharacterListComponent implements OnInit {
   heroCards: HeroCard[];
 
   constructor() { }

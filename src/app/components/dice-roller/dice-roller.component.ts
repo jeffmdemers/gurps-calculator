@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DiceRoll } from '../shared/models/dice-roll.model';
+
 import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
+import { DiceRoll } from 'src/app/shared/models/dice-roll.model';
 
 @Component({
   selector: 'app-dice-roller',

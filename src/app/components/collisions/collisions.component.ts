@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {  CollisionModelResult, CollisionModel } from '../shared/models/collision.model';
+import { CollisionModel, CollisionModelResult } from 'src/app/shared/models/collision.model';
+
 
 @Component({
   selector: 'app-collisions',
@@ -14,10 +15,10 @@ export class CollisionsComponent implements OnInit {
 
   ngOnInit() {
     this.onSubmit();
-    
+
   }
 
-  onSubmit(){
+  onSubmit() {
     this.result = CollisionModel.calculate(10, 200, true);
   }
 

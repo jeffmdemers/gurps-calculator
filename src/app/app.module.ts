@@ -18,20 +18,23 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatSelectModule} from '@angular/material/select';
 
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {FormsModule} from '@angular/forms';
-
-import { DiceRollerComponent } from './dice-roller/dice-roller.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { JumpingComponent } from './jumping/jumping.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { StandardCardComponent} from './standard-card/standard-card.component';
-import { IndexSearchComponent } from './index-search/index-search.component';
-import { ThrowingComponent } from './throwing/throwing.component';
-import { CollisionsComponent } from './collisions/collisions.component';
-import { HomeComponent } from './home/home.component';
-import { AppSidebarComponent } from './app-sidebar/app-sidebar.component';
+
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { DiceRollerComponent } from './components/dice-roller/dice-roller.component';
+import { JumpingComponent } from './components/jumping/jumping.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { StandardCardComponent } from './components/standard-card/standard-card.component';
+import { IndexSearchComponent } from './components/index-search/index-search.component';
+import { ThrowingComponent } from './components/throwing/throwing.component';
+import { CollisionsComponent } from './components/collisions/collisions.component';
+import { HomeComponent } from './components/home/home.component';
+import { AppSidebarComponent } from './components/app-sidebar/app-sidebar.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CharacterDisplayComponent } from './components/character/character-display/character-display.component';
+import { CharacterListComponent } from './components/character/character-list/character-list.component';
+import { CharactersComponent } from './components/character/characters/characters.component';
 
 @NgModule({
   declarations: [
@@ -44,10 +47,14 @@ import { AppSidebarComponent } from './app-sidebar/app-sidebar.component';
     ThrowingComponent,
     CollisionsComponent,
     HomeComponent,
-    AppSidebarComponent
+    AppSidebarComponent,
+    CharacterDisplayComponent,
+    CharacterListComponent,
+    CharactersComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,

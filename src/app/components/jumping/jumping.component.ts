@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { JumpingModel } from '../shared/models/jump.model';
+import { JumpingModel } from 'src/app/shared/models/jump.model';
+
 
 @Component({
   selector: 'app-jumping',

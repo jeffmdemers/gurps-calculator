@@ -1,4 +1,4 @@
-<div id="home" fxFlex.xl="75" fxFlex.lt-xl="85" fxFlex.md="95" fxFlex.lt-md="100">
+<div id="characterList" fxFlex.xl="75" fxFlex.lt-xl="85" fxFlex.md="95" fxFlex.lt-md="100">
   <div class="titleBar">
     <mat-form-field>
       <input
@@ -39,7 +39,7 @@
 </ng-template>
 
 <ng-template #cardImage let-card="card">
-  <a href="" title="{{ card.name }}">
+  <a [href]="'characters/' + card.id" title="{{ card.name }}">
     <img src="{{ card.imgSrc }}" />
     <h1 class="name">{{ card.name }}</h1>
   </a>

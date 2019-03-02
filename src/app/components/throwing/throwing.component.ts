@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ThrowingModel } from '../shared/models/throwing.model';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { ThrowingModel } from 'src/app/shared/models/throwing.model';
 
 @Component({
   selector: 'app-throwing',
