@@ -350,9 +350,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
-@angular/animations
-MIT
-
 @angular/material
 MIT
 The MIT License
@@ -378,12 +375,15 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
+@angular/material/icon
+
+@angular/animations
+MIT
+
 @angular/material/form-field
 
 @angular/forms
 MIT
-
-@angular/material/icon
 
 @angular/material/divider
 

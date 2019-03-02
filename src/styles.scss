@@ -10,6 +10,15 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-color: #303030;
+    .noselect {
+        -webkit-touch-callout: none; /* iOS Safari */
+          -webkit-user-select: none; /* Safari */
+           -khtml-user-select: none; /* Konqueror HTML */
+             -moz-user-select: none; /* Firefox */
+              -ms-user-select: none; /* Internet Explorer/Edge */
+                  user-select: none; /* Non-prefixed version, currently
+                                        supported by Chrome and Opera */
+      }
     .mat-drawer-container {
         background-color: transparent;
         #navDrawer.mat-drawer {
@@ -23,15 +32,6 @@ body {
             padding:5px 10px;
             @media screen and (max-width: 959px) {
                 max-width:100vw;
-            }
-            .content {
-                padding-top:40px;
-            }
-            mat-icon{
-                position: absolute;
-                right:10px;
-                font-size:32px;
-                cursor: pointer;
             }
         }
         .mat-drawer-backdrop {

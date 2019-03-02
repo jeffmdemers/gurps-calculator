@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
-interface HeroCard {
+interface Hero {
+  id: string;
   name: string;
   imgSrc: string;
+  favorite: boolean;
+}
+
+interface HeroCard extends Hero {
   visible: boolean;
 }
 
@@ -34,26 +39,26 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  favoriteToggle(heroID: string) {
+    const hero = this.allCards.find(h => h.id === heroID);
+    hero.favorite = !hero.favorite;
+  }
+
   mockData() {
     this.popularHeroCards = [
-      {name: 'Siobhan', imgSrc: '../../assets/images/mock/heroes/1.jpg', visible: true},
-      {name: 'Aithen', imgSrc: '../../assets/images/mock/heroes/2.jpg', visible: true},
-      {name: 'Kamacite', imgSrc: '../../assets/images/mock/heroes/3.jpg', visible: true}
+      {name: 'Siobhan', imgSrc: '../../assets/images/mock/heroes/7.jpg', visible: true, favorite: true, id: '1'},
+      {name: 'Aithen', imgSrc: '../../assets/images/mock/heroes/4.jpg', visible: true, favorite: true, id: '2'}
     ];
 
     this.heroCards = [
-      {name: 'Fella', imgSrc: '../../assets/images/mock/heroes/4.jpg', visible: true},
-      {name: 'Avi', imgSrc: '../../assets/images/mock/heroes/5.jpg', visible: true},
-      {name: 'Kark', imgSrc: '../../assets/images/mock/heroes/6.jpg', visible: true},
-      {name: 'Markus', imgSrc: '../../assets/images/mock/heroes/7.jpg', visible: true},
-      {name: 'Thanos', imgSrc: '../../assets/images/mock/heroes/4.jpg', visible: true},
-      {name: 'Sidharthiel Evelandreu', imgSrc: '../../assets/images/mock/heroes/5.jpg', visible: true},
-      {name: 'Malechi', imgSrc: '../../assets/images/mock/heroes/6.jpg', visible: true},
-      {name: 'Alexis', imgSrc: '../../assets/images/mock/heroes/7.jpg', visible: true},
-      {name: 'Sir Aion Crane', imgSrc: '../../assets/images/mock/heroes/4.jpg', visible: true},
-      {name: 'Taligareive ExMordel', imgSrc: '../../assets/images/mock/heroes/5.jpg', visible: true},
-      {name: 'Aerich Stormwaters', imgSrc: '../../assets/images/mock/heroes/6.jpg', visible: true},
-      {name: 'Tobias Hawk', imgSrc: '../../assets/images/mock/heroes/7.jpg', visible: true}
+      {name: 'Fella', imgSrc: '../../assets/images/mock/heroes/4.jpg', visible: true, favorite: false, id: '4'},
+      {name: 'Avi', imgSrc: '../../assets/images/mock/heroes/2.jpg', visible: true, favorite: false, id: '5'},
+      {name: 'Kark', imgSrc: '../../assets/images/mock/heroes/6.jpg', visible: true, favorite: false, id: '6'},
+      {name: 'Markus', imgSrc: '../../assets/images/mock/heroes/1.jpg', visible: true, favorite: false, id: '7'},
+      {name: 'Thanos', imgSrc: '../../assets/images/mock/heroes/7.jpg', visible: true, favorite: false, id: '8'},
+      {name: 'Sidharthiel Evelandreu', imgSrc: '../../assets/images/mock/heroes/5.jpg', visible: true, favorite: false, id: '3'},
+      {name: 'Tobias Hawk', imgSrc: '../../assets/images/mock/heroes/4.jpg', visible: true, favorite: false, id: '9'},
+      {name: 'Taligareive ExMordel', imgSrc: '../../assets/images/mock/heroes/5.jpg', visible: true, favorite: false, id: '10'}
     ];
 
     this.allCards = [...this.popularHeroCards, ...this.heroCards];

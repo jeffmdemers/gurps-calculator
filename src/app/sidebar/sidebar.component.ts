@@ -1,24 +1,13 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
+import { MatSelect } from '@angular/material/select';
 
-class MenuItem {
+class SelectItem {
   text: string;
-  link: string;
-  icon: string;
+  value: string;
 
-  constructor(text: string, link: string, icon: string) {
+  constructor(value: string, text: string) {
     this.text = text;
-    this.link = link;
-    this.icon = icon;
-  }
-}
-
-class MenuGroup {
-  header: string;
-  menuItems: MenuItem[];
-
-  constructor(header: string, menuItems: MenuItem[]) {
-    this.header = header;
-    this.menuItems = menuItems;
+    this.value = value;
   }
 }
 
@@ -28,32 +17,44 @@ class MenuGroup {
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
-  menuGroups: MenuGroup[];
   @Output() itemClicked: EventEmitter<any> = new EventEmitter();
 
+  appSelected = 'dice-roller';
+  appSelections: SelectItem[];
+
   constructor() { }
+  @Output()
+  closeClicked = new EventEmitter();
+
+  @ViewChild('appselect') select: MatSelect;
 
   ngOnInit() {
-    this.loadMenuItems();
+    this.getAppSelections();
   }
 
-  itemSelected() {
-    this.itemClicked.emit();
+  closeClick() {
+    this.closeClicked.emit(true);
   }
 
-  loadMenuItems() {
-    const utility_menuItems = [
-      new MenuItem('Dice Roller', '/dice-roller', 'casino'),
-      new MenuItem('Collisions', '/collisions', 'directions_run'),
-      new MenuItem('Jumping', '/jumping', 'directions_run'),
-      new MenuItem('Throwing', '/throwing', 'gps_not_fixed'),
+  rotateRodeo(skip: number) {
+    const length = this.appSelections.length;
+    let curIndex = this.appSelections.findIndex(x => x.value === this.appSelected);
+    curIndex += skip;
+    if (curIndex > length - 1) {
+      curIndex = 0;
+    } else if (curIndex < 0) {
+      curIndex = length - 1;
+    }
+
+    this.appSelected = this.appSelections[curIndex].value;
+  }
+
+  getAppSelections() {
+    this.appSelections = [
+      new SelectItem('dice-roller', 'Dice Roller'),
+      new SelectItem('collisions', 'Collisions'),
+      new SelectItem('jumping', 'Jumping'),
+      new SelectItem('throwing', 'Throwing'),
     ];
-
-    this.menuGroups = [
-      new MenuGroup('', [new MenuItem('Home', '/', 'home')]),
-      new MenuGroup('Utilities', utility_menuItems)
-    ];
   }
-
-
 }

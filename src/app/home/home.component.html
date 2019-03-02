@@ -1,6 +1,6 @@
 <div id="home">
   <div class="titleBar">
-    <h1>Heroes</h1>
+    <h1>Characters</h1>
     <span class="topControls">
       <mat-form-field>
         <input matInput type='text' placeholder="Filter" (keyup)="filterCards($event)">
@@ -29,21 +29,22 @@
 </ng-template>
 
 <ng-template #cardPopular let-card="card">
-  <div class="imageContainer" fxFlex.gt-xs='33.33' [fxHide]="!card.visible">
+  <div class="imageContainer" fxFlex.gt-xs='50' [fxHide]="!card.visible">
     <ng-container *ngTemplateOutlet="cardImage; context: {card:card}"></ng-container>
   </div>
 </ng-template>
 
 <ng-template #cardList let-card="card" let-popular="popular">
-  <div class="imageContainer" fxFlex.gt-sm='16.66' fxFlex.lt-md='50' [fxHide.gt-xs]="popular || !card.visible"
+  <div class="imageContainer" fxFlex.gt-sm='25' fxFlex.lt-md='50' [fxHide.gt-xs]="popular || !card.visible"
     [fxHide]="!card.visible">
     <ng-container *ngTemplateOutlet="cardImage; context: {card:card}"></ng-container>
   </div>
 </ng-template>
 
 <ng-template #cardImage let-card="card">
-  <a href="">
-    <img src="{{card.imgSrc}}" title="{{card.name}}" />
+  <a href="" title="{{card.name}}">
+    <img src="{{card.imgSrc}}" />
+    <h1 class="name">{{card.name}}</h1>
   </a>
-  <h1 class="name">{{card.name}}</h1>
+  <mat-icon class="favorite noselect" [ngClass]="(card.favorite ? 'active' : '')" (click)="favoriteToggle(card.id)">star</mat-icon>
 </ng-template>

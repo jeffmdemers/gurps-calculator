@@ -1,19 +1,7 @@
 <mat-sidenav-container fxFlexFill>
     <mat-sidenav opened id="utilityDrawer" #drawer mode="side" position="end" role="navigation" [fixedInViewport]="true"
         [fixedTopGap]="0" [fixedBottomGap]="0">
-
-        <mat-form-field>
-            <mat-select [(value)]="appSelected">
-                <mat-option value="dice-roller">Dice Roller</mat-option>
-                <mat-option value="throwing">Throwing</mat-option>
-            </mat-select>
-        </mat-form-field>
-
-        <mat-icon (click)="drawer.toggle()">highlight_off</mat-icon>
-        <div class="content">
-            <app-dice-roller [hidden]="appSelected !== 'dice-roller'"></app-dice-roller>
-            <app-throwing [hidden]="appSelected !== 'throwing'"></app-throwing>
-        </div>
+       <app-sidebar (closeClicked)="drawer.toggle()"></app-sidebar>
     </mat-sidenav>
     <mat-sidenav-content>
         <mat-toolbar color="primary">

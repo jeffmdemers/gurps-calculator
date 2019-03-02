@@ -40,5 +40,15 @@
             color:white;
             background-color: rgba(0,0,0, .60)
         }
+        .favorite{
+            position:absolute;
+            top: 5px;
+            right:5px;
+            color: black;
+            cursor: pointer;
+            &.active{
+                color:gold;
+            }
+        }
     }
 }
