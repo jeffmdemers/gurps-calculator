@@ -9,7 +9,7 @@ app.use(express.static('./dist/gurps-calculator'));
 
 app.get('/*', function(req,res) {
     
-res.sendFile(path.join(__dirname,'/dist/calculator/index.html'));
+res.sendFile(path.join(__dirname,'/dist/gurps-calculator/index.html'));
 });
 
 // Start the app by listening on the default Heroku port
