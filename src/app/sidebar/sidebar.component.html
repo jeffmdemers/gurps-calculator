@@ -1,20 +1,16 @@
-<div id="sidebar">
-        <div class="toolbar">
-                <div class="rodeo">
-                        <mat-icon class="noselect" (click)="rotateRodeo(-1)">keyboard_arrow_left</mat-icon>
-                        <mat-form-field>
-                                <mat-select [(value)]="appSelected" #appselect>
-                                        <mat-option *ngFor="let item of appSelections" [value]="item.value">{{item.text}}</mat-option>
-                                </mat-select>
-                        </mat-form-field>
-                        <mat-icon class="noselect" (click)="rotateRodeo(1)">keyboard_arrow_right</mat-icon>
-                </div>
-                <mat-icon id="btnCloseSideNav" class="noselect" (click)="closeClick()">highlight_off</mat-icon>
-        </div>
-        <div class="content">
-                <app-dice-roller [hidden]="appSelected !== 'dice-roller'"></app-dice-roller>
-                <app-collisions [hidden]="appSelected !== 'collisions'"></app-collisions>
-                <app-jumping [hidden]="appSelected !== 'jumping'"></app-jumping>
-                <app-throwing [hidden]="appSelected !== 'throwing'"></app-throwing>
-        </div>
-</div>
+<mat-nav-list>
+  <a mat-list-item routerLink="/" style="height: 0;"></a>
+  <ng-container *ngFor="let group of menuGroups">
+    <h2 matSubheader *ngIf="group.header">{{ group.header }}</h2>
+    <a
+      *ngFor="let item of group.menuItems"
+      mat-list-item
+      (click)="this.itemSelected()"
+      [routerLink]="[item.link]"
+    >
+      <mat-icon matListIcon> {{ item.icon }} </mat-icon>
+      {{ item.text }}
+    </a>
+    <mat-divider></mat-divider>
+  </ng-container>
+</mat-nav-list>

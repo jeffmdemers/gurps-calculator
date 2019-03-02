@@ -1,17 +1,46 @@
-<mat-sidenav-container fxFlexFill>
-    <mat-sidenav opened id="utilityDrawer" #drawer mode="side" position="end" role="navigation" [fixedInViewport]="true"
-        [fixedTopGap]="0" [fixedBottomGap]="0">
-       <app-sidebar (closeClicked)="drawer.toggle()"></app-sidebar>
-    </mat-sidenav>
-    <mat-sidenav-content>
-        <mat-toolbar color="primary">
-            <mat-toolbar-row>
-                <button mat-icon-button (click)="drawer.toggle()">
-                    <mat-icon>menu</mat-icon>
-                </button>
-                <span> GURPS Calculator </span>
-            </mat-toolbar-row>
-        </mat-toolbar>
-        <router-outlet></router-outlet>
-    </mat-sidenav-content>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button (click)="menuDrawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span> GURPS Calculator </span>
+    <ng-container *ngIf="utilityDrawer.opened; else utilityDrawerClosedIcon">
+      <button mat-icon-button class="btnApps" (click)="utilityDrawer.close()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </ng-container>
+    <ng-template #utilityDrawerClosedIcon>
+      <button mat-icon-button class="btnApps" (click)="utilityDrawer.open()">
+        <mat-icon>apps</mat-icon>
+      </button>
+    </ng-template>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav
+    id="menuDrawer"
+    #menuDrawer
+    mode="over"
+    role="navigation"
+    [fixedInViewport]="true"
+    [fixedTopGap]="0"
+    [fixedBottomGap]="0"
+  >
+    <app-sidebar></app-sidebar>
+  </mat-sidenav>
+  <mat-sidenav
+    id="utilityDrawer"
+    #utilityDrawer
+    mode="side"
+    position="end"
+    [fixedInViewport]="true"
+    [fixedTopGap]="0"
+    [fixedBottomGap]="0"
+    [disableClose]="true"
+  >
+    <app-app-sidebar></app-app-sidebar>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
 </mat-sidenav-container>

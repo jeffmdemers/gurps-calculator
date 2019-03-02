@@ -1,13 +1,24 @@
-import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
-import { MatSelect } from '@angular/material/select';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
-class SelectItem {
+class MenuItem {
   text: string;
-  value: string;
+  link: string;
+  icon: string;
 
-  constructor(value: string, text: string) {
+  constructor(text: string, link: string, icon: string) {
     this.text = text;
-    this.value = value;
+    this.link = link;
+    this.icon = icon;
+  }
+}
+
+class MenuGroup {
+  header: string;
+  menuItems: MenuItem[];
+
+  constructor(header: string, menuItems: MenuItem[]) {
+    this.header = header;
+    this.menuItems = menuItems;
   }
 }
 
@@ -17,44 +28,33 @@ class SelectItem {
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
+  menuGroups: MenuGroup[];
   @Output() itemClicked: EventEmitter<any> = new EventEmitter();
 
-  appSelected = 'dice-roller';
-  appSelections: SelectItem[];
-
   constructor() { }
-  @Output()
-  closeClicked = new EventEmitter();
-
-  @ViewChild('appselect') select: MatSelect;
 
   ngOnInit() {
-    this.getAppSelections();
+    this.loadMenuItems();
   }
 
-  closeClick() {
-    this.closeClicked.emit(true);
+  itemSelected() {
+    this.itemClicked.emit();
   }
 
-  rotateRodeo(skip: number) {
-    const length = this.appSelections.length;
-    let curIndex = this.appSelections.findIndex(x => x.value === this.appSelected);
-    curIndex += skip;
-    if (curIndex > length - 1) {
-      curIndex = 0;
-    } else if (curIndex < 0) {
-      curIndex = length - 1;
-    }
+  loadMenuItems() {
+    const home = [
+      new MenuItem('Home', '/', 'home'),
+      new MenuItem('Settings', '/', 'settings'),
+      new MenuItem('Account', '/', 'account_circle'),
+      new MenuItem('Submit a Bug', '/', 'bug_report'),
+      new MenuItem('Donate', '/', 'attach_money'),
+      new MenuItem('Logout', '/', 'exit_to_app')
+    ];
 
-    this.appSelected = this.appSelections[curIndex].value;
-  }
-
-  getAppSelections() {
-    this.appSelections = [
-      new SelectItem('dice-roller', 'Dice Roller'),
-      new SelectItem('collisions', 'Collisions'),
-      new SelectItem('jumping', 'Jumping'),
-      new SelectItem('throwing', 'Throwing'),
+    this.menuGroups = [
+      new MenuGroup('', home)
     ];
   }
+
+
 }

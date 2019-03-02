@@ -1,0 +1,19 @@
+<div id="sidebar">
+    <div class="toolbar">
+            <div class="rodeo">
+                    <mat-icon class="noselect" (click)="rotateRodeo(-1)">keyboard_arrow_left</mat-icon>
+                    <mat-form-field class="appSelectField">
+                            <mat-select [(value)]="appSelected" #appselect>
+                                    <mat-option *ngFor="let item of appSelections" [value]="item.value">{{item.text}}</mat-option>
+                            </mat-select>
+                    </mat-form-field>
+                    <mat-icon class="noselect" (click)="rotateRodeo(1)">keyboard_arrow_right</mat-icon>
+            </div>
+    </div>
+    <div class="content">
+            <app-dice-roller [hidden]="appSelected !== 'dice-roller'"></app-dice-roller>
+            <app-collisions [hidden]="appSelected !== 'collisions'"></app-collisions>
+            <app-jumping [hidden]="appSelected !== 'jumping'"></app-jumping>
+            <app-throwing [hidden]="appSelected !== 'throwing'"></app-throwing>
+    </div>
+</div>

@@ -1,50 +1,52 @@
 <div id="home">
   <div class="titleBar">
-    <h1>Characters</h1>
-    <span class="topControls">
-      <mat-form-field>
-        <input matInput type='text' placeholder="Filter" (keyup)="filterCards($event)">
-      </mat-form-field>
-    </span>
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        placeholder="Filter"
+        (keyup)="filterCards($event)"
+      />
+    </mat-form-field>
   </div>
   <ng-container *ngTemplateOutlet="cards"></ng-container>
 </div>
 
 <ng-template #cards>
   <div #cardView>
-    <div class="popular" fxLayout="row" fxShow.gt-xs fxHide.xs>
-      <ng-container *ngFor="let card of popularHeroCards">
-        <ng-container *ngTemplateOutlet="cardPopular; context: {card: card}"></ng-container>
-      </ng-container>
-    </div>
-    <div class="heroList" fxLayout="row wrap">
-      <ng-container *ngFor="let card of popularHeroCards">
-        <ng-container *ngTemplateOutlet="cardList; context: {card:card, popular: true}"></ng-container>
-      </ng-container>
+    <div class="popular" fxLayout="row wrap">
       <ng-container *ngFor="let card of heroCards">
-        <ng-container *ngTemplateOutlet="cardList; context: {card:card}"></ng-container>
+        <ng-container
+          *ngTemplateOutlet="cardPopular; context: { card: card }"
+        ></ng-container>
       </ng-container>
     </div>
   </div>
 </ng-template>
 
 <ng-template #cardPopular let-card="card">
-  <div class="imageContainer" fxFlex.gt-xs='50' [fxHide]="!card.visible">
-    <ng-container *ngTemplateOutlet="cardImage; context: {card:card}"></ng-container>
-  </div>
-</ng-template>
-
-<ng-template #cardList let-card="card" let-popular="popular">
-  <div class="imageContainer" fxFlex.gt-sm='25' fxFlex.lt-md='50' [fxHide.gt-xs]="popular || !card.visible"
-    [fxHide]="!card.visible">
-    <ng-container *ngTemplateOutlet="cardImage; context: {card:card}"></ng-container>
+  <div
+    class="imageContainer"
+    fxFlex.gt-sm="33.33"
+    fxFlex.sm="50"
+    fxGlex.xs="100"
+    [fxHide]="!card.visible"
+  >
+    <ng-container
+      *ngTemplateOutlet="cardImage; context: { card: card }"
+    ></ng-container>
   </div>
 </ng-template>
 
 <ng-template #cardImage let-card="card">
-  <a href="" title="{{card.name}}">
-    <img src="{{card.imgSrc}}" />
-    <h1 class="name">{{card.name}}</h1>
+  <a href="" title="{{ card.name }}">
+    <img src="{{ card.imgSrc }}" />
+    <h1 class="name">{{ card.name }}</h1>
   </a>
-  <mat-icon class="favorite noselect" [ngClass]="(card.favorite ? 'active' : '')" (click)="favoriteToggle(card.id)">star</mat-icon>
+  <mat-icon
+    class="favorite noselect"
+    [ngClass]="card.favorite ? 'active' : ''"
+    (click)="favoriteToggle(card.id)"
+    >star</mat-icon
+  >
 </ng-template>

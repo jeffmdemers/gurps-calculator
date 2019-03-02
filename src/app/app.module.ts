@@ -31,6 +31,7 @@ import { IndexSearchComponent } from './index-search/index-search.component';
 import { ThrowingComponent } from './throwing/throwing.component';
 import { CollisionsComponent } from './collisions/collisions.component';
 import { HomeComponent } from './home/home.component';
+import { AppSidebarComponent } from './app-sidebar/app-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { HomeComponent } from './home/home.component';
     IndexSearchComponent,
     ThrowingComponent,
     CollisionsComponent,
-    HomeComponent
+    HomeComponent,
+    AppSidebarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,30 @@
+$toolbarHeight: 45px;
+
+::ng-deep {
+  mat-sidenav-content {
+    position: relative;
+    top: $toolbarHeight;
+  }
+  mat-toolbar {
+    mat-toolbar-row {
+      position: relative;
+      .btnApps {
+        position: absolute;
+        right: 5px;
+      }
+    }
+  }
+  mat-sidenav {
+    margin-top: $toolbarHeight;
+  }
+  mat-toolbar {
+    min-height: $toolbarHeight !important;
+    height: $toolbarHeight !important;
+    position: fixed;
+    z-index: 1000;
+    mat-toolbar-row{
+        height: $toolbarHeight !important;
+        padding:0 5px !important;
+    }
+  }
+}
