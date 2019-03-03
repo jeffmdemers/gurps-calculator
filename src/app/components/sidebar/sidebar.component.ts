@@ -44,6 +44,7 @@ export class SidebarComponent implements OnInit {
   loadMenuItems() {
     const home = [
       new MenuItem('Home', '/', 'home'),
+      new MenuItem('Characters', '/characters', 'home'),
       new MenuItem('Settings', '/', 'settings'),
       new MenuItem('Account', '/', 'account_circle'),
       new MenuItem('Submit a Bug', '/', 'bug_report'),

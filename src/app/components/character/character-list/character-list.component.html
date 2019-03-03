@@ -40,7 +40,7 @@
 
 <ng-template #cardImage let-card="card">
   <a [href]="'characters/' + card.id" title="{{ card.name }}">
-    <img src="{{ card.imgSrc }}" />
+    <img [src]="card.imgSrc" />
     <h1 class="name">{{ card.name }}</h1>
   </a>
   <mat-icon

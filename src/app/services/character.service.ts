@@ -1,32 +1,37 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CharacterService {
-
-  constructor(private http: HttpClient) { }
-
+  api = 'http://qa.gurpscalculator.com/api/';
   userID = 'fc6b8e90-c6ce-4e90-90c3-aae82d43fcd5';
-
-  get(characterID: string): Observable<any> {
-    const headerDict = {
+  headerDict = {
+    headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      'Accept': 'application/json',
-      'Access-Control-Allow-Headers': 'Content-Type',
-    };
+      Accept: 'application/json',
+      'Access-Control-Allow-Headers': 'Content-Type'
+    })
+  };
+  constructor(private http: HttpClient) {}
 
-    const requestOptions = {
-      headers: new HttpHeaders(headerDict)
-    };
+  private get(urlPart) {
     return this.http.get(
-      `http://qa.gurpscalculator.com/api/${this.userID}/GetCharacter/${characterID}`,
-      requestOptions)
-      .pipe(
-        map(c => JSON.parse(c.toString()))
-      );
+      `${this.api}${this.userID}/${urlPart}`,
+      this.headerDict
+    ).pipe(
+      map(c => JSON.parse(c.toString()))
+    );
+  }
+
+  getCharacter(characterID: string): Observable<any> {
+    return this.get(`GetCharacter/${characterID}`);
+  }
+
+  getMyCharacters(): Observable<any> {
+    return this.get(`GetMyCharacters`);
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 interface Hero {
   id: string;
@@ -19,10 +20,24 @@ interface HeroCard extends Hero {
 export class CharacterListComponent implements OnInit {
   heroCards: HeroCard[];
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.mockData();
+    this.get();
+  }
+
+  get() {
+    this.heroCards = this.route.snapshot.data.characters.map(c => {
+      const card: HeroCard = {
+        id: c.ID,
+        name: c.Name,
+        imgSrc: c.Image,
+        favorite: false,
+        visible: true
+      };
+
+      return card;
+    });
   }
 
   filterCards(event) {

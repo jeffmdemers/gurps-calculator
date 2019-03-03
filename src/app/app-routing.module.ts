@@ -7,9 +7,8 @@ import { JumpingComponent } from './components/jumping/jumping.component';
 import { ThrowingComponent } from './components/throwing/throwing.component';
 import { CharacterListComponent } from './components/character/character-list/character-list.component';
 import { CharacterDisplayComponent } from './components/character/character-display/character-display.component';
-import { CharacterResolver } from './resolvers/character.resolver';
+import { CharacterResolver, MyCharactersResolver } from './resolvers/character.resolver';
 import { CharactersComponent } from './components/character/characters/characters.component';
-import { CharacterService } from './services/character.service';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -22,7 +21,11 @@ const routes: Routes = [
     path: 'characters',
     component: CharactersComponent,
     children: [
-      { path: '', component: CharacterListComponent },
+      {
+        path: '',
+        component: CharacterListComponent,
+        resolve: { characters: MyCharactersResolver }
+     },
       {
         path: ':id',
         component: CharacterDisplayComponent,
