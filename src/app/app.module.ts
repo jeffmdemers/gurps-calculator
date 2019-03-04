@@ -34,7 +34,8 @@ import { AppSidebarComponent } from './components/app-sidebar/app-sidebar.compon
 import { HttpClientModule } from '@angular/common/http';
 import { CharacterDisplayComponent } from './components/character/character-display/character-display.component';
 import { CharacterListComponent } from './components/character/character-list/character-list.component';
-import { CharactersComponent } from './components/character/characters/characters.component';
+import { SkillsComponent } from './components/character/character-display/skills/skills.component';
+import { ResultIconComponent } from './components/shared/result-icon/result-icon.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { CharactersComponent } from './components/character/characters/character
     AppSidebarComponent,
     CharacterDisplayComponent,
     CharacterListComponent,
-    CharactersComponent
+    SkillsComponent,
+    ResultIconComponent
   ],
   imports: [
     BrowserModule,

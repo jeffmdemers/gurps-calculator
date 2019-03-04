@@ -31,7 +31,7 @@ export class CharacterListComponent implements OnInit {
       const card: HeroCard = {
         id: c.ID,
         name: c.Name,
-        imgSrc: c.Image,
+        imgSrc: '../../assets/images/mock/heroes/7.jpg',
         favorite: false,
         visible: true
       };
@@ -54,22 +54,6 @@ export class CharacterListComponent implements OnInit {
   favoriteToggle(heroID: string) {
     const hero = this.heroCards.find(h => h.id === heroID);
     hero.favorite = !hero.favorite;
-  }
-
-  mockData() {
-    // when getting from the db, make sure to order by favorite then by name
-    this.heroCards = [
-      {name: 'Siobhan', imgSrc: '../../assets/images/mock/heroes/7.jpg', visible: true, favorite: true, id: '1'},
-      {name: 'Aithen', imgSrc: '../../assets/images/mock/heroes/4.jpg', visible: true, favorite: true, id: '2'},
-      {name: 'Avi', imgSrc: '../../assets/images/mock/heroes/2.jpg', visible: true, favorite: false, id: '5'},
-      {name: 'Kark', imgSrc: '../../assets/images/mock/heroes/6.jpg', visible: true, favorite: false, id: '6'},
-      {name: 'Markus', imgSrc: '../../assets/images/mock/heroes/1.jpg', visible: true, favorite: true, id: '7'},
-      {name: 'Fella', imgSrc: '../../assets/images/mock/heroes/4.jpg', visible: true, favorite: false, id: '4'},
-      {name: 'Thanos', imgSrc: '../../assets/images/mock/heroes/7.jpg', visible: true, favorite: false, id: '8'},
-      {name: 'Sidharthiel Evelandreu', imgSrc: '../../assets/images/mock/heroes/2.jpg', visible: true, favorite: false, id: '3'},
-      {name: 'Tobias Hawk', imgSrc: '../../assets/images/mock/heroes/4.jpg', visible: true, favorite: false, id: '9'},
-    ];
-    this.heroCards.sort((a, b) => a.favorite ? -1 : 1);
   }
 
 }

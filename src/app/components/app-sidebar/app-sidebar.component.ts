@@ -38,7 +38,6 @@ export class AppSidebarComponent implements OnInit {
     } else if (curIndex < 0) {
       curIndex = length - 1;
     }
-
     this.appSelected = this.appSelections[curIndex].value;
   }
 

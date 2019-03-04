@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CharacterService {
+  characterList: any[];
   api = 'http://qa.gurpscalculator.com/api/';
   userID = 'fc6b8e90-c6ce-4e90-90c3-aae82d43fcd5';
   headerDict = {
@@ -32,6 +33,6 @@ export class CharacterService {
   }
 
   getMyCharacters(): Observable<any> {
-    return this.get(`GetMyCharacters`);
+    return this.characterList ? of(this.characterList) : this.get(`GetMyCharacters`).pipe(map(c => this.characterList = c));
   }
 }

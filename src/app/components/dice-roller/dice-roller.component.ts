@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DiceRoll } from 'src/app/shared/models/dice-roll.model';
 
 @Component({
@@ -17,6 +17,10 @@ export class DiceRollerComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.buildForm();
+  }
+
+  buildForm() {
     this.diceForm = this.formBuilder.group({
       numberOfDice: [3, Validators.required],
       modifier: [0],

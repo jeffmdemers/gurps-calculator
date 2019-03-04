@@ -1,0 +1,14 @@
+.skills {
+    .skillItem {
+        padding: 10px 0;
+        cursor: pointer;
+
+        .name {
+            font-weight: 500;
+        }
+
+        .note {
+            padding-top:5px;
+        }
+    }
+}

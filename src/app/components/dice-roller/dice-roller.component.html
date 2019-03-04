@@ -31,12 +31,7 @@
                         <mat-list-item>
                             <mat-chip-list>
                                 <mat-chip class="primeResult">
-                                    <ng-container *ngIf="result.success;else resultFail">
-                                        <mat-icon style="color:green;">check_circle</mat-icon>
-                                    </ng-container>
-                                    <ng-template #resultFail>
-                                        <mat-icon style="color:red">cancel</mat-icon>
-                                    </ng-template>
+                                    <app-result-icon [success]="result.success"></app-result-icon>
                                     {{result.result}}
                                 </mat-chip>
                                 <mat-chip *ngIf="result.absoluteMargin !== null">
