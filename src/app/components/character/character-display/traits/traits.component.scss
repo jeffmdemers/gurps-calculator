@@ -1,8 +1,18 @@
 .traits {
     .traitItem {
-        padding-bottom: 15px;
+        position: relative;
         .name {
             font-weight: 500;
+        }
+        .content {
+            padding: 5px 0;
+            .icon {
+                mat-icon {
+                    position: absolute;
+                    top: 5px;
+                    right:0;
+                }
+            }
         }
     }
 }

@@ -1,0 +1,9 @@
+<div class="rodeo">
+    <mat-icon class="noselect" (click)="rotateRodeo(-1)">keyboard_arrow_left</mat-icon>
+    <mat-form-field class="appSelectField">
+            <mat-select [(value)]="selectedItem" (selectionChange)="selectionChange()" #rodeoSelect>
+                    <mat-option *ngFor="let item of items" [value]="item.value">{{item.text}}</mat-option>
+            </mat-select>
+    </mat-form-field>
+    <mat-icon class="noselect" (click)="rotateRodeo(1)">keyboard_arrow_right</mat-icon>
+</div>

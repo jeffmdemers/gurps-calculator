@@ -1,14 +1,17 @@
-.skills {
-    .skillItem {
-        padding: 10px 0;
-        cursor: pointer;
-
-        .name {
-            font-weight: 500;
-        }
-
-        .note {
-            padding-top:5px;
+::ng-deep {
+    .skills {
+        .skillItem {
+            cursor: pointer;
+            .name {
+                font-weight: 500;
+            }
+            .content {
+                min-height: 40px;
+                padding-top: 10px;
+            }
+            mat-icon {
+                font-size: 18px;
+            }
         }
     }
 }

@@ -37,6 +37,7 @@ import { CharacterListComponent } from './components/character/character-list/ch
 import { SkillsComponent } from './components/character/character-display/skills/skills.component';
 import { ResultIconComponent } from './components/shared/result-icon/result-icon.component';
 import { TraitsComponent } from './components/character/character-display/traits/traits.component';
+import { RodeoComponent } from './components/shared/rodeo/rodeo.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { TraitsComponent } from './components/character/character-display/traits
     CharacterListComponent,
     SkillsComponent,
     ResultIconComponent,
-    TraitsComponent
+    TraitsComponent,
+    RodeoComponent
   ],
   imports: [
     BrowserModule,

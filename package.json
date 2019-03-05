@@ -15,7 +15,7 @@
     "npm": "5.5.1"
   },
   "private": true,
-  "dependencies": {
+  "dependencies": { 
     "@angular-devkit/build-angular": "~0.12.0",
     "@angular/animations": "^7.2.6",
     "@angular/cdk": "^7.3.3",

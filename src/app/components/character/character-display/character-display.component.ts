@@ -27,7 +27,9 @@ export class CharacterDisplayComponent implements OnInit {
       return skill;
     });
 
-    this.character.traits = c.AdvantagesAndDisadvantages.map(t => {
+    this.character.traits = c.AdvantagesAndDisadvantages
+    .sort((a,b) => b.Points - a.Points)
+    .map(t => {
       const trait: Trait = {
         name: t.DescriptionPrimary,
         pointsSpent: t.Points,

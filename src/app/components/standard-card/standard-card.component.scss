@@ -1,3 +1,8 @@
-.standard-card{
-    text-align: center;
+::ng-deep {
+    .standard-card {
+        text-align: center;
+        .mat-card-header-text {
+            margin: 0;
+        }
+    }
 }

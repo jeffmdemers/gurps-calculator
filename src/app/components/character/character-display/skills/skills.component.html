@@ -4,7 +4,7 @@
     <div class="standard-card-content">
       <div class="skillItem" *ngFor="let skill of skills" role="listitem" style="text-align:left;"
         (click)="roll(skill)">
-        <div fxLayout="row" class="noselect">
+        <div fxLayout="row" class="content noselect">
           <div fxFlex="50" class="name">{{skill.name}}</div>
           <div fxFlex="25">{{skill.level}}</div>
           <div fxFlex="25">
