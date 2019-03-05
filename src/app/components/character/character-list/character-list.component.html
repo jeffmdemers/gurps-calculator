@@ -39,7 +39,7 @@
 </ng-template>
 
 <ng-template #cardImage let-card="card">
-  <a [routerLink]="['/characters', card.id]" title="{{ card.name }}">
+  <a [routerLink]="['/characters', card.id]" [title]="card.name">
     <img [src]="card.imgSrc" />
     <h1 class="name">{{ card.name }}</h1>
   </a>

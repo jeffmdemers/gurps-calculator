@@ -36,6 +36,7 @@ import { CharacterDisplayComponent } from './components/character/character-disp
 import { CharacterListComponent } from './components/character/character-list/character-list.component';
 import { SkillsComponent } from './components/character/character-display/skills/skills.component';
 import { ResultIconComponent } from './components/shared/result-icon/result-icon.component';
+import { TraitsComponent } from './components/character/character-display/traits/traits.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { ResultIconComponent } from './components/shared/result-icon/result-icon
     CharacterDisplayComponent,
     CharacterListComponent,
     SkillsComponent,
-    ResultIconComponent
+    ResultIconComponent,
+    TraitsComponent
   ],
   imports: [
     BrowserModule,

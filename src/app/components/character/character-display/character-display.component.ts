@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CharacterService } from 'src/app/services/character.service';
-import { SkillItem } from './skills/skills.component';
+import { Skill, Character, Trait } from 'src/app/shared/models/character.model';
 
 @Component({
   selector: 'app-character-display',
@@ -9,29 +9,34 @@ import { SkillItem } from './skills/skills.component';
   styleUrls: ['./character-display.component.scss']
 })
 export class CharacterDisplayComponent implements OnInit {
-  character: any;
+  character: Character = new Character();
 
   constructor(private route: ActivatedRoute, private characterService: CharacterService) { }
 
   ngOnInit() {
     const c = this.route.snapshot.data.character;
-    c.Skills = c.Skills.map(s => {
-      const skill: SkillItem = {
-        name: s.Description,
+    this.character.skills = c.Skills.map(s => {
+      const skill: Skill = {
+        name: s.DescriptionPrimary,
         level: s.SkillLevel,
         relativeLevel: s.RelativeSkillLevel,
         pointsSpent: s.Points,
-        referencePage: s.Ref
+        referencePage: s.Ref,
+        note: s.DescriptionNotes
       };
-
-      const noteIndex = skill.name.indexOf('<div');
-      if (noteIndex > -1) {
-        skill.note = skill.name.substr(noteIndex);
-        skill.name = skill.name.substr(0, noteIndex);
-      }
       return skill;
     });
-    this.character = c;
+
+    this.character.traits = c.AdvantagesAndDisadvantages.map(t => {
+      const trait: Trait = {
+        name: t.DescriptionPrimary,
+        pointsSpent: t.Points,
+        referencePage: t.Ref,
+        modifierDescription: t.DescriptionModifierNotes
+      };
+
+      return trait;
+    });
   }
 
 }

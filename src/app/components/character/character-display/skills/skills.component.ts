@@ -1,15 +1,6 @@
 import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
-import { DiceRoll } from 'src/app/shared/models/dice-roll.model';
-
-export interface SkillItem {
-  name: string;
-  level: number;
-  relativeLevel: string;
-  pointsSpent: number;
-  referencePage: string;
-  note?: string;
-  result?: DiceRoll;
-}
+import { DiceRoll } from '../../../../shared/models/dice-roll.model';
+import { Skill } from '../../../../shared/models/character.model';
 
 @Component({
   selector: 'app-skills',
@@ -18,13 +9,13 @@ export interface SkillItem {
 })
 export class SkillsComponent implements OnInit {
 
-  @Input() skills: SkillItem[];
+  @Input() skills: Skill[];
   constructor(private cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
   }
 
-  roll(skill: SkillItem) {
+  roll(skill: Skill) {
     skill.result = new DiceRoll().rollDice(3, 0, 0, skill.level);
   }
 

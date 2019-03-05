@@ -1,0 +1,15 @@
+<div class="traits">
+  <app-standard-card>
+    <div class="standard-card-title">Advantages / Disadvantages</div>
+    <div class="standard-card-content">
+      <div class="traitItem" *ngFor="let trait of traits" role="listitem" style="text-align:left;">
+        <div class="noselect">
+          <div class="name">{{trait.name}}</div>
+          <div>{{trait.referencePage}} | {{trait.pointsSpent}}</div>
+          <div>{{trait.modifierDescription}}</div>
+        </div>
+        <mat-divider></mat-divider>
+      </div>
+    </div>
+  </app-standard-card>
+</div>
