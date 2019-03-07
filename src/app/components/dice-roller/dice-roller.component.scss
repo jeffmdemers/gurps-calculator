@@ -3,5 +3,12 @@
         h1{
             width:50px;
         }
+
+        .resultRow {
+            padding-top: 10px;
+            overflow: hidden;
+            height:40px;
+            text-overflow: ellipsis;
+        }
     }
 }

@@ -17,6 +17,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatSelectModule} from '@angular/material/select';
+import {MatSliderModule} from '@angular/material/slider';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -38,6 +39,7 @@ import { SkillsComponent } from './components/character/character-display/skills
 import { ResultIconComponent } from './components/shared/result-icon/result-icon.component';
 import { TraitsComponent } from './components/character/character-display/traits/traits.component';
 import { RodeoComponent } from './components/shared/rodeo/rodeo.component';
+import { HeaderComponent } from './components/character/character-display/header/header.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,8 @@ import { RodeoComponent } from './components/shared/rodeo/rodeo.component';
     SkillsComponent,
     ResultIconComponent,
     TraitsComponent,
-    RodeoComponent
+    RodeoComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -78,7 +81,8 @@ import { RodeoComponent } from './components/shared/rodeo/rodeo.component';
     MatToolbarModule,
     MatIconModule,
     MatButtonToggleModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

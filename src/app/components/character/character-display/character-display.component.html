@@ -1,4 +1,8 @@
-<div style="padding:25px" fxLayout="row" fxLayout.sm="column" fxLayoutGap="20px">
-    <app-skills [skills]="character.skills" fxFlex="50"></app-skills>
-    <app-traits [traits]="character.traits" fxFlex="50"></app-traits>
+<div style="padding:25px" fxLayout="column" fxLayoutGap="20px">
+    <app-character-header [identity]="character.identity" [status]="character.status" fxFlex="100">
+    </app-character-header>
+    <div fxLayout="row" fxLayout.sm="column" fxLayoutGap="20px" fxFlex="100">
+        <app-skills [skills]="character.skills" fxFlex="50"></app-skills>
+        <app-traits [traits]="character.traits" fxFlex="50"></app-traits>
+    </div>
 </div>
