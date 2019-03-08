@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 })
 export class CharacterService {
   characterList: any[];
-  api = 'http://qa.gurpscalculator.com/api/';
+  api = 'https://qa.gurpscalculator.com/api/';
   userID = 'fc6b8e90-c6ce-4e90-90c3-aae82d43fcd5';
   headerDict = {
     headers: new HttpHeaders({
