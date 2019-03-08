@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CharacterService } from 'src/app/services/character.service';
-import { Skill, Character, Trait, Identity, StatusIncrement, StatusLevel } from 'src/app/shared/models/character.model';
+import { Skill, Character, Trait, Identity, StatusIncrement, StatusLevel, Status } from 'src/app/shared/models/character.model';
 
 @Component({
   selector: 'app-character-display',
@@ -39,11 +39,11 @@ export class CharacterDisplayComponent implements OnInit {
 
       return trait;
     });
-debugger;
+
     this.character.identity = <Identity> {
       name: c.Identity.Name,
       title: c.Identity.Title,
-      religion: c.Identity.Religion,
+      religion: c.Identity.Religion
     };
 
     this.character.status = <Status> {
