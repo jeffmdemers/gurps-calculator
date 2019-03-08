@@ -1,0 +1,15 @@
+<div fxLaout="row">
+  <mat-form-field fxFlex="70" class="noselect">
+    <input
+      matInput
+      type="text"
+      [placeholder]="placeholder"
+      [(value)]="displayValue"
+      readonly
+    />
+  </mat-form-field>
+  <span fxFlex="30">
+    <mat-icon (click)="increment(-1)">indeterminate_check_box</mat-icon>
+    <mat-icon (click)="increment(+1)">add_box</mat-icon>
+  </span>
+</div>
