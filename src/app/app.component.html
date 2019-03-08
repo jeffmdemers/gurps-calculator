@@ -6,28 +6,58 @@
     <span> GURPS Calculator </span>
 
     <ng-container *ngIf="utilityDrawer.opened; else utilityDrawerOpenIcon">
-      <button mat-icon-button class="btnApps" (click)="menuDrawer.close();utilityDrawer.close()">
+      <button
+        mat-icon-button
+        class="btnApps"
+        (click)="menuDrawer.close(); utilityDrawer.close()"
+      >
         <mat-icon>close</mat-icon>
       </button>
     </ng-container>
     <ng-template #utilityDrawerOpenIcon>
-      <button mat-icon-button class="btnApps" (click)="menuDrawer.close();utilityDrawer.open()">
+      <button
+        mat-icon-button
+        class="btnApps"
+        (click)="menuDrawer.close(); utilityDrawer.open()"
+      >
         <mat-icon>apps</mat-icon>
       </button>
     </ng-template>
-
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-sidenav-container>
-  <mat-sidenav id="menuDrawer" #menuDrawer mode="over" role="navigation" [fixedInViewport]="true" [fixedTopGap]="0"
-    [fixedBottomGap]="0">
+  <mat-sidenav
+    id="menuDrawer"
+    #menuDrawer
+    mode="over"
+    role="navigation"
+    [fixedInViewport]="true"
+    [fixedTopGap]="0"
+    [fixedBottomGap]="0"
+  >
     <app-sidebar (itemClicked)="menuDrawer.close()"></app-sidebar>
   </mat-sidenav>
-  <mat-sidenav id="utilityDrawer" #utilityDrawer mode="over" position="end" [fixedInViewport]="true" [fixedTopGap]="0"
-    [fixedBottomGap]="0" [disableClose]="true">
+  <mat-sidenav
+    id="utilityDrawer"
+    #utilityDrawer
+    mode="over"
+    position="end"
+    [fixedInViewport]="true"
+    [fixedTopGap]="0"
+    [fixedBottomGap]="0"
+    [disableClose]="true"
+  >
     <app-app-sidebar></app-app-sidebar>
   </mat-sidenav>
   <mat-sidenav-content>
-    <router-outlet></router-outlet>
+    <div
+      fxFlex.xl="75"
+      fxFlex.lt-xl="85"
+      fxFlex.md="95"
+      fxFlex.lt-md="100"
+      style="margin:0 auto"
+    >
+      <router-outlet></router-outlet>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

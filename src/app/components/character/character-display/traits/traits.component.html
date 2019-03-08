@@ -1,23 +1,15 @@
 <div class="traits">
-  <app-standard-card>
-    <div class="standard-card-title">Advantages / Disadvantages</div>
-    <div class="standard-card-content">
-      <div class="traitItem" *ngFor="let trait of traits" role="listitem" style="text-align:left;">
-        <div class="content noselect">
-          <div class="icon">
-            <ng-container *ngIf="trait.pointsSpent < 0; else advantageIcon">
-              <mat-icon style="color:red" title="Disadvantage">remove_circle</mat-icon>
-            </ng-container>
-            <ng-template #advantageIcon>
-              <mat-icon style="color:green" title="Advantage">add_circle</mat-icon>
-            </ng-template>
-          </div>
-          <div class="name">{{trait.name}}</div>
-          <div>{{trait.referencePage}} | {{trait.pointsSpent}}</div>
-          <div>{{trait.modifierDescription}}</div>
-        </div>
-        <mat-divider></mat-divider>
-      </div>
+  <div
+    class="traitItem"
+    *ngFor="let trait of traits"
+    role="listitem"
+    style="text-align:left;"
+  >
+    <div class="content noselect">
+      <div class="name">{{ trait.name }}</div>
+      <div>{{ trait.referencePage }} | {{ trait.pointsSpent }}</div>
+      <div>{{ trait.modifierDescription }}</div>
     </div>
-  </app-standard-card>
+    <mat-divider></mat-divider>
+  </div>
 </div>

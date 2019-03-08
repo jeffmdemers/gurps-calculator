@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CharacterService } from 'src/app/services/character.service';
-import { Skill, Character, Trait, Identity, StatusIncrement, StatusLevel, Status } from 'src/app/shared/models/character.model';
+import { Skill, Character, Trait, Identity } from 'src/app/shared/models/character.model';
+import { Status, StatusIncrement } from 'src/app/shared/models/status.model';
+import { RodeoItem } from '../../shared/rodeo/rodeo.component';
 
 @Component({
   selector: 'app-character-display',
@@ -10,10 +12,14 @@ import { Skill, Character, Trait, Identity, StatusIncrement, StatusLevel, Status
 })
 export class CharacterDisplayComponent implements OnInit {
   character: Character = new Character();
+  screenSelected = 'skills';
+  screenSelections: RodeoItem[];
 
   constructor(private route: ActivatedRoute, private characterService: CharacterService) { }
 
   ngOnInit() {
+    this.getScreenSelections();
+
     const c = this.route.snapshot.data.character;
     this.character.skills = c.Skills.map(s => {
       const skill: Skill = {
@@ -28,7 +34,7 @@ export class CharacterDisplayComponent implements OnInit {
     });
 
     this.character.traits = c.AdvantagesAndDisadvantages
-    .sort((a,b) => b.Points - a.Points)
+    .sort((a, b) => b.Points - a.Points)
     .map(t => {
       const trait: Trait = {
         name: t.DescriptionPrimary,
@@ -46,49 +52,16 @@ export class CharacterDisplayComponent implements OnInit {
       religion: c.Identity.Religion
     };
 
-    this.character.status = <Status> {
-      HP: <StatusIncrement> {
-        Max: c.FpAndHp.HP,
-        Current: c.FpAndHp.CurrentHp,
-        Levels: [
-          <StatusLevel> {
-            name: 'Reeling',
-            threshold: c.FpAndHp.Reeling,
-            description: '1/2 move and dodge'
-          },
-          <StatusLevel> {
-            name: 'Collapse',
-            threshold: c.FpAndHp.HpCollapse,
-            description: 'HT each turn or fall unconcious'
-          },
-          <StatusLevel> {
-            name: 'Dead Check 1',
-            threshold: c.FpAndHp.DeathCheck1,
-            description: 'Immediate Health roll or die'
-          },
-          <StatusLevel> {
-            name: 'Dead Check 2',
-            threshold: c.FpAndHp.DeathCheck2,
-            description: 'Immediate Health roll or die'
-          },
-          <StatusLevel> {
-            name: 'Dead Check 3',
-            threshold: c.FpAndHp.DeathCheck3,
-            description: 'Immediate Health roll or die'
-          },
-          <StatusLevel> {
-            name: 'Dead Check 4',
-            threshold: c.FpAndHp.DeathCheck4,
-            description: 'Immediate Health roll or die'
-          },
-          <StatusLevel> {
-            name: 'Death',
-            threshold: c.FpAndHp.Dead,
-            description: 'Death and Total Bodily Destruction'
-          }
-        ]
-      } 
-    };
+    const fpStatusInc = new StatusIncrement(c.FpAndHp.FP, c.FpAndHp.CurrentFp, StatusIncrement.getFpStatusLevels(c.FpAndHp.FP));
+    const hpStatusInc = new StatusIncrement(c.FpAndHp.HP, c.FpAndHp.CurrentHp, StatusIncrement.getHpStatusLevels(c.FpAndHp.HP));
+    this.character.status = new Status(hpStatusInc, fpStatusInc);
+  }
+
+  getScreenSelections() {
+    this.screenSelections = [
+      new RodeoItem('skills', 'Skills'),
+      new RodeoItem('traits', 'Traits'),
+    ];
   }
 
 }

@@ -1,9 +1,42 @@
 <div class="character-header">
   <app-standard-card>
-    <div class="standard-card-title">{{identity.name}}</div>
+    <div class="standard-card-title">{{ identity.name }}</div>
     <div class="standard-card-content">
-      <div>{{status.HP.Max}} / {{status.HP.Current}}</div>
-      <div>{{status.FP.Max}} / {{status.FP.Current}}</div>
+      <ng-container *ngTemplateOutlet="hpfp"></ng-container>
     </div>
   </app-standard-card>
 </div>
+
+<ng-template #hpfp>
+  <div fxLayout="row" fxLayout.xs="column" fxFlex="100" fxLayoutGap="20px" style="font-size:1.5em">
+    <div fxFlex="50">
+      <app-incrementer
+        placeholder="Hit Points"
+        [(value)]="status.HP.Current"
+        [max]="status.HP.Max"
+        displayMax="true"
+      ></app-incrementer>
+      <ng-container *ngTemplateOutlet="statusLevel; context: {statusIncrement:status.HP}"></ng-container>
+    </div>
+    <div fxFlex="50">
+      <app-incrementer
+        placeholder="Fatigue Points"
+        [(value)]="status.FP.Current"
+        [max]="status.FP.Max"
+        displayMax="true"
+      ></app-incrementer>
+      <ng-container *ngTemplateOutlet="statusLevel; context: {statusIncrement:status.FP}"></ng-container>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template let-statusIncrement="statusIncrement" #statusLevel>
+  <div class="statusLevel" *ngIf="statusIncrement.getStatusLevel()">
+    <mat-chip-list>
+      <mat-chip selected>
+        {{ statusIncrement.getStatusLevel()?.name }}:
+        {{ statusIncrement.getStatusLevel()?.description }}</mat-chip
+      >
+    </mat-chip-list>
+  </div>
+</ng-template>

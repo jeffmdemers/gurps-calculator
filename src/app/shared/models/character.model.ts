@@ -1,27 +1,11 @@
 import { DiceRoll } from './dice-roll.model';
+import { Status } from './status.model';
 
 export class Character {
     identity: Identity;
     status: Status;
     traits: Trait[];
     skills: Skill[];
-}
-
-export interface Status {
-    HP: StatusIncrement;
-    FP: StatusIncrement;
-}
-
-export interface StatusIncrement {
-    Max: number;
-    Current: number;
-    Levels: StatusLevel[];
-}
-
-export interface StatusLevel {
-    name: string;
-    description: string;
-    threshold: number;
 }
 
 export interface Identity {

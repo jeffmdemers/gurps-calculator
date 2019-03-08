@@ -18,6 +18,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSliderModule} from '@angular/material/slider';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -40,6 +41,7 @@ import { ResultIconComponent } from './components/shared/result-icon/result-icon
 import { TraitsComponent } from './components/character/character-display/traits/traits.component';
 import { RodeoComponent } from './components/shared/rodeo/rodeo.component';
 import { HeaderComponent } from './components/character/character-display/header/header.component';
+import { IncrementerComponent } from './components/shared/incrementer/incrementer.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +61,8 @@ import { HeaderComponent } from './components/character/character-display/header
     ResultIconComponent,
     TraitsComponent,
     RodeoComponent,
-    HeaderComponent
+    HeaderComponent,
+    IncrementerComponent
   ],
   imports: [
     BrowserModule,
@@ -82,7 +85,8 @@ import { HeaderComponent } from './components/character/character-display/header
     MatIconModule,
     MatButtonToggleModule,
     MatSelectModule,
-    MatSliderModule
+    MatSliderModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
