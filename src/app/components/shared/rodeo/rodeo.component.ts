@@ -1,7 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { MatSelect } from '@angular/material/select';
-import { DiceRollerComponent } from '../../dice-roller/dice-roller.component';
-import { Routes, Router } from '@angular/router';
 
 export class RodeoItem {
   text: string;
@@ -19,18 +17,23 @@ export class RodeoItem {
   styleUrls: ['./rodeo.component.scss']
 })
 export class RodeoComponent {
-  @Input() items: RodeoItem[];
-  @Input() selectedItem: string;
-  @Output() selectedItemChange: EventEmitter<string> = new EventEmitter();
-  @ViewChild('rodeoSelect') select: MatSelect;
 
-  constructor() { }
+  selected: string;
 
-
-
-  selectionChange() {
-    this.selectedItemChange.emit(this.selectedItem);
+  @Input()
+  get selectedItem(): string { return this.selected; }
+  set selectedItem(val: string) {
+    this.selected = val;
+    this.selectedItemChange.emit(this.selected);
   }
+
+  @Output()
+  selectedItemChange = new EventEmitter<string>();
+
+  @Input()
+  items: RodeoItem[];
+
+  @ViewChild('rodeoSelect') select: MatSelect;
 
   rotateRodeo(skip: number) {
     const length = this.items.length;
@@ -42,7 +45,6 @@ export class RodeoComponent {
       curIndex = length - 1;
     }
     this.selectedItem = this.items[curIndex].value;
-    this.selectedItemChange.emit(this.selectedItem);
   }
 
 }

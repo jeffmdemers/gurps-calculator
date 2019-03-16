@@ -59,8 +59,8 @@ export class CharacterDisplayComponent implements OnInit {
 
   getScreenSelections() {
     this.screenSelections = [
-     // new RodeoItem('skills', 'Skills'),
-     // new RodeoItem('traits', 'Traits'),
+      new RodeoItem('skills', 'Skills'),
+      new RodeoItem('traits', 'Traits'),
     ];
   }
 

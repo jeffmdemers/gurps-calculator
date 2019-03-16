@@ -12,7 +12,6 @@ export class AppSidebarComponent implements OnInit {
   appSelected = 'dice-roller';
   appSelections: RodeoItem[];
 
-  constructor() { }
   ngOnInit() {
     this.getAppSelections();
   }
@@ -23,10 +22,10 @@ export class AppSidebarComponent implements OnInit {
 
   getAppSelections() {
     this.appSelections = [
-      new RodeoItem('app-dice-roller', 'Dice Roller'),
-      new RodeoItem('app-collisions', 'Collisions'),
-      new RodeoItem('app-jumping', 'Jumping'),
-      new RodeoItem('app-throwing', 'Throwing'),
+      new RodeoItem('dice-roller', 'Dice Roller'),
+      new RodeoItem('collisions', 'Collisions'),
+      new RodeoItem('jumping', 'Jumping'),
+      new RodeoItem('throwing', 'Throwing'),
     ];
   }
 
