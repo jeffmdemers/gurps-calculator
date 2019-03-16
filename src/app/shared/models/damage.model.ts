@@ -1,26 +1,22 @@
 import { DiceRoll } from './dice-roll.model';
+import { Strength } from './character.model';
 
-interface IDamage {
-    strength: number;
-    thrust: string;
-    swing: string;
-}
-export class Damage implements IDamage {
-    strength: number;
+export class Damage implements Strength {
+    value: number;
     thrust: string;
     swing: string;
 
-    get DamageChart(): IDamage[] { return this.getDamageChart(); }
+    get DamageChart(): Strength[] { return this.getDamageChart(); }
 
-    Damage(strength: number): IDamage {
+    Damage(strength: number): Damage {
         const dmg = new Damage();
         if (strength > 100) {
             const addDice = Math.floor((strength - 100) / 10);
-            dmg.strength = strength;
+            dmg.value = strength;
             dmg.thrust = `${11 + addDice}d`;
             dmg.swing = `${13 + addDice}d`;
         } else {
-            return this.DamageChart.find(x => x.strength === strength);
+            return this.DamageChart.find(x => x.value === strength) as Damage;
         }
 
         return dmg;
@@ -34,7 +30,7 @@ export class Damage implements IDamage {
         return this.RollDamage(this.swing, AdditionalModifier);
     }
 
-    RollDamage(damageFormula: string, AdditionalModifier: number) {
+    RollDamage(damageFormula: string, AdditionalModifier: number = 0) {
         if (damageFormula) {
             const parts = damageFormula.toUpperCase().split('D');
             const dice = parseInt(parts[0], 10);
@@ -45,265 +41,265 @@ export class Damage implements IDamage {
         }
     }
 
-    private getDamageChart(): IDamage[] {
+    private getDamageChart(): Strength[] {
         return [
             {
-                'strength': 1,
+                'value': 1,
                 'thrust': '1d-6',
                 'swing': '1d-5'
             },
             {
-                'strength': 2,
+                'value': 2,
                 'thrust': '1d-6',
                 'swing': '1d-5'
             },
             {
-                'strength': 3,
+                'value': 3,
                 'thrust': '1d-5',
                 'swing': '1d-4'
             },
             {
-                'strength': 4,
+                'value': 4,
                 'thrust': '1d-5',
                 'swing': '1d-4'
             },
             {
-                'strength': 5,
+                'value': 5,
                 'thrust': '1d-4',
                 'swing': '1d-3'
             },
             {
-                'strength': 6,
+                'value': 6,
                 'thrust': '1d-4',
                 'swing': '1d-3'
             },
             {
-                'strength': 7,
+                'value': 7,
                 'thrust': '1d-3',
                 'swing': '1d-2'
             },
             {
-                'strength': 8,
+                'value': 8,
                 'thrust': '1d-3',
                 'swing': '1d-2'
             },
             {
-                'strength': 9,
+                'value': 9,
                 'thrust': '1d-2',
                 'swing': '1d-1'
             },
             {
-                'strength': 10,
+                'value': 10,
                 'thrust': '1d-2',
                 'swing': '1d'
             },
             {
-                'strength': 11,
+                'value': 11,
                 'thrust': '1d-1',
                 'swing': '1d+1'
             },
             {
-                'strength': 12,
+                'value': 12,
                 'thrust': '1d-1',
                 'swing': '1d+2'
             },
             {
-                'strength': 13,
+                'value': 13,
                 'thrust': '1d',
                 'swing': '2d-1'
             },
             {
-                'strength': 14,
+                'value': 14,
                 'thrust': '1d',
                 'swing': '2d'
             },
             {
-                'strength': 15,
+                'value': 15,
                 'thrust': '1d+1',
                 'swing': '2d+1'
             },
             {
-                'strength': 16,
+                'value': 16,
                 'thrust': '1d+1',
                 'swing': '2d+2'
             },
             {
-                'strength': 17,
+                'value': 17,
                 'thrust': '1d+2',
                 'swing': '3d-1'
             },
             {
-                'strength': 18,
+                'value': 18,
                 'thrust': '1d+2',
                 'swing': '3d'
             },
             {
-                'strength': 19,
+                'value': 19,
                 'thrust': '2d-1',
                 'swing': '3d+1'
             },
             {
-                'strength': 20,
+                'value': 20,
                 'thrust': '2d-1',
                 'swing': '3d+2'
             },
             {
-                'strength': 21,
+                'value': 21,
                 'thrust': '2d',
                 'swing': '4d-1'
             },
             {
-                'strength': 22,
+                'value': 22,
                 'thrust': '2d',
                 'swing': '4d'
             },
             {
-                'strength': 23,
+                'value': 23,
                 'thrust': '2d+1',
                 'swing': '4d+1'
             },
             {
-                'strength': 24,
+                'value': 24,
                 'thrust': '2d+1',
                 'swing': '4d+2'
             },
             {
-                'strength': 25,
+                'value': 25,
                 'thrust': '2d+2',
                 'swing': '5d-1'
             },
             {
-                'strength': 26,
+                'value': 26,
                 'thrust': '2d+2',
                 'swing': '5d'
             },
             {
-                'strength': 27,
+                'value': 27,
                 'thrust': '3d-1',
                 'swing': '5d+1'
             },
             {
-                'strength': 28,
+                'value': 28,
                 'thrust': '3d-1',
                 'swing': '5d+1'
             },
             {
-                'strength': 29,
+                'value': 29,
                 'thrust': '3d',
                 'swing': '5d+2'
             },
             {
-                'strength': 30,
+                'value': 30,
                 'thrust': '3d',
                 'swing': '5d+2'
             },
             {
-                'strength': 31,
+                'value': 31,
                 'thrust': '3d+1',
                 'swing': '6d-1'
             },
             {
-                'strength': 32,
+                'value': 32,
                 'thrust': '3d+1',
                 'swing': '6d-1'
             },
             {
-                'strength': 33,
+                'value': 33,
                 'thrust': '3d+2',
                 'swing': '6d'
             },
             {
-                'strength': 34,
+                'value': 34,
                 'thrust': '3d+2',
                 'swing': '6d'
             },
             {
-                'strength': 35,
+                'value': 35,
                 'thrust': '4d-1',
                 'swing': '6d+1'
             },
             {
-                'strength': 36,
+                'value': 36,
                 'thrust': '4d-1',
                 'swing': '6d+1'
             },
             {
-                'strength': 37,
+                'value': 37,
                 'thrust': '4d',
                 'swing': '6d+2'
             },
             {
-                'strength': 38,
+                'value': 38,
                 'thrust': '4d',
                 'swing': '6d+2'
             },
             {
-                'strength': 39,
+                'value': 39,
                 'thrust': '4d+1',
                 'swing': '7d-1'
             },
             {
-                'strength': 40,
+                'value': 40,
                 'thrust': '4d+1',
                 'swing': '7d-1'
             },
             {
-                'strength': 45,
+                'value': 45,
                 'thrust': '5d',
                 'swing': '7d+1'
             },
             {
-                'strength': 50,
+                'value': 50,
                 'thrust': '5d+2',
                 'swing': '8d-1'
             },
             {
-                'strength': 55,
+                'value': 55,
                 'thrust': '6d',
                 'swing': '8d+1'
             },
             {
-                'strength': 60,
+                'value': 60,
                 'thrust': '7d-1',
                 'swing': '9d'
             },
             {
-                'strength': 65,
+                'value': 65,
                 'thrust': '7d+1',
                 'swing': '9d+2'
             },
             {
-                'strength': 70,
+                'value': 70,
                 'thrust': '8d',
                 'swing': '10d'
             },
             {
-                'strength': 75,
+                'value': 75,
                 'thrust': '8d+2',
                 'swing': '10d+2'
             },
             {
-                'strength': 80,
+                'value': 80,
                 'thrust': '9d',
                 'swing': '11d'
             },
             {
-                'strength': 85,
+                'value': 85,
                 'thrust': '9d+2',
                 'swing': '11d+2'
             },
             {
-                'strength': 90,
+                'value': 90,
                 'thrust': '10d',
                 'swing': '12d'
             },
             {
-                'strength': 95,
+                'value': 95,
                 'thrust': '10d+2',
                 'swing': '12d+2'
             },
             {
-                'strength': 100,
+                'value': 100,
                 'thrust': '11d',
                 'swing': '13d'
             }

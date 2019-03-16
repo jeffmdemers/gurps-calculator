@@ -1,30 +1,10 @@
 <div class="skills">
-  <div
-    class="skillItem"
-    *ngFor="let skill of skills"
-    role="listitem"
-    style="text-align:left;"
-    (click)="roll(skill)"
-  >
-    <div fxLayout="row" class="content noselect">
-      <div fxFlex="70">
-        <div class="name">{{ skill.name }}</div>
-        <div *ngIf="skill.note" class="note">{{ skill.note }}</div></div>
-      <div fxFlex="15">{{ skill.level }}</div>
-      <div fxFlex="15">
-        <ng-container *ngIf="skill.result; else rollIcon">
-          <app-result-icon
-            [success]="skill.result.success"
-            [value]="
-              skill.result.result + ' (' + skill.result.marginOfSuccess + ')'
-            "
-          ></app-result-icon>
-        </ng-container>
-        <ng-template #rollIcon>
-          <mat-icon>refresh</mat-icon>
-        </ng-template>
-      </div>
-    </div>
+  <ng-container *ngFor="let skill of skills">
+    <app-row-roller
+      [name]="skill.name"
+      [notes]="skill.note"
+      [target]="skill.level"
+    ></app-row-roller>
     <mat-divider></mat-divider>
-  </div>
+  </ng-container>
 </div>

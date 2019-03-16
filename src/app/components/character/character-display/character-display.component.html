@@ -13,16 +13,21 @@
       ></app-rodeo>
     </div>
     <div class="standard-card-content">
-      <app-skills
+      <app-character-skills
         [skills]="character.skills"
         fxFlex="100"
         [hidden]="screenSelected !== 'skills'"
-      ></app-skills>
-      <app-traits
+      ></app-character-skills>
+      <app-character-traits
         [traits]="character.traits"
         fxFlex="100"
         [hidden]="screenSelected !== 'traits'"
-      ></app-traits>
+      ></app-character-traits>
+      <app-character-details
+        [attributes]="character.attributes"
+        [hidden]="screenSelected !== 'details'"
+        fxFlex="100"
+      ></app-character-details>
     </div>
   </app-standard-card>
 </div>

@@ -1,0 +1,12 @@
+.content {
+  cursor: pointer;
+  min-height: 40px;
+  padding-top: 10px;
+  text-align: left;
+  .name {
+    font-weight: 500;
+  }
+  mat-icon {
+    font-size: 18px;
+  }
+}

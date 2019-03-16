@@ -3,7 +3,7 @@ import { Trait } from '../../../../shared/models/character.model';
 
 
 @Component({
-  selector: 'app-traits',
+  selector: 'app-character-traits',
   templateUrl: './traits.component.html',
   styleUrls: ['./traits.component.scss']
 })

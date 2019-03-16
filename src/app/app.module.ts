@@ -42,6 +42,9 @@ import { TraitsComponent } from './components/character/character-display/traits
 import { RodeoComponent } from './components/shared/rodeo/rodeo.component';
 import { HeaderComponent } from './components/character/character-display/header/header.component';
 import { IncrementerComponent } from './components/shared/incrementer/incrementer.component';
+import { DetailsComponent } from './components/character/character-display/details/details.component';
+import { CharacterAttributesComponent } from './components/character/character-display/character-attributes/character-attributes.component';
+import { RowRollerComponent } from './components/shared/row-roller/row-roller.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +65,10 @@ import { IncrementerComponent } from './components/shared/incrementer/incremente
     TraitsComponent,
     RodeoComponent,
     HeaderComponent,
-    IncrementerComponent
+    IncrementerComponent,
+    DetailsComponent,
+    CharacterAttributesComponent,
+    RowRollerComponent
   ],
   imports: [
     BrowserModule,

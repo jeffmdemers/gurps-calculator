@@ -11,8 +11,8 @@ import { RodeoItem } from '../../shared/rodeo/rodeo.component';
   styleUrls: ['./character-display.component.scss']
 })
 export class CharacterDisplayComponent implements OnInit {
-  character: Character = new Character();
-  screenSelected = 'skills';
+  character: Character;
+  screenSelected = 'details';
   screenSelections: RodeoItem[];
 
   constructor(private route: ActivatedRoute, private characterService: CharacterService) { }
@@ -21,46 +21,14 @@ export class CharacterDisplayComponent implements OnInit {
     this.getScreenSelections();
 
     const c = this.route.snapshot.data.character;
-    this.character.skills = c.Skills.map(s => {
-      const skill: Skill = {
-        name: s.DescriptionPrimary,
-        level: s.SkillLevel,
-        relativeLevel: s.RelativeSkillLevel,
-        pointsSpent: s.Points,
-        referencePage: s.Ref,
-        note: s.DescriptionNotes
-      };
-      return skill;
-    });
-
-    this.character.traits = c.AdvantagesAndDisadvantages
-    .sort((a, b) => b.Points - a.Points)
-    .map(t => {
-      const trait: Trait = {
-        name: t.DescriptionPrimary,
-        pointsSpent: t.Points,
-        referencePage: t.Ref,
-        modifierDescription: t.DescriptionModifierNotes
-      };
-
-      return trait;
-    });
-
-    this.character.identity = <Identity> {
-      name: c.Identity.Name,
-      title: c.Identity.Title,
-      religion: c.Identity.Religion
-    };
-
-    const fpStatusInc = new StatusIncrement(c.FpAndHp.FP, c.FpAndHp.CurrentFp, StatusIncrement.getFpStatusLevels(c.FpAndHp.FP));
-    const hpStatusInc = new StatusIncrement(c.FpAndHp.HP, c.FpAndHp.CurrentHp, StatusIncrement.getHpStatusLevels(c.FpAndHp.HP));
-    this.character.status = new Status(hpStatusInc, fpStatusInc);
+    this.character = new Character(c);
   }
 
   getScreenSelections() {
     this.screenSelections = [
+      new RodeoItem('details', 'Details'),
       new RodeoItem('skills', 'Skills'),
-      new RodeoItem('traits', 'Traits'),
+      new RodeoItem('traits', 'Traits')
     ];
   }
 
