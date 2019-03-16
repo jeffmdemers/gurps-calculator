@@ -32,11 +32,7 @@
 
 <ng-template let-statusIncrement="statusIncrement" #statusLevel>
   <div class="statusLevel" *ngIf="statusIncrement.getStatusLevel()">
-    <mat-chip-list>
-      <mat-chip selected>
         {{ statusIncrement.getStatusLevel()?.name }}:
-        {{ statusIncrement.getStatusLevel()?.description }}</mat-chip
-      >
-    </mat-chip-list>
+        {{ statusIncrement.getStatusLevel()?.description }}
   </div>
 </ng-template>

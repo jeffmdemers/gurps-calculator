@@ -23,10 +23,10 @@ export class AppSidebarComponent implements OnInit {
 
   getAppSelections() {
     this.appSelections = [
-      new RodeoItem('dice-roller', 'Dice Roller'),
-      new RodeoItem('collisions', 'Collisions'),
-      new RodeoItem('jumping', 'Jumping'),
-      new RodeoItem('throwing', 'Throwing'),
+      new RodeoItem('app-dice-roller', 'Dice Roller'),
+      new RodeoItem('app-collisions', 'Collisions'),
+      new RodeoItem('app-jumping', 'Jumping'),
+      new RodeoItem('app-throwing', 'Throwing'),
     ];
   }
 

@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { MatSelect } from '@angular/material/select';
+import { DiceRollerComponent } from '../../dice-roller/dice-roller.component';
+import { Routes, Router } from '@angular/router';
 
 export class RodeoItem {
   text: string;
@@ -16,16 +18,15 @@ export class RodeoItem {
   templateUrl: './rodeo.component.html',
   styleUrls: ['./rodeo.component.scss']
 })
-export class RodeoComponent implements OnInit {
+export class RodeoComponent {
   @Input() items: RodeoItem[];
   @Input() selectedItem: string;
   @Output() selectedItemChange: EventEmitter<string> = new EventEmitter();
   @ViewChild('rodeoSelect') select: MatSelect;
 
-  ngOnInit(): void {
-  }
-
   constructor() { }
+
+
 
   selectionChange() {
     this.selectedItemChange.emit(this.selectedItem);

@@ -11,11 +11,6 @@ import { CharacterResolver, MyCharactersResolver } from './resolvers/character.r
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'collisions', component: CollisionsComponent },
-  { path: 'dice-roller', component: DiceRollerComponent },
-  { path: 'jumping', component: JumpingComponent },
-  { path: 'throwing', component: ThrowingComponent },
   {
     path: 'characters',
     component: CharacterListComponent,

@@ -27,8 +27,8 @@
 <ng-template #cardPopular let-card="card">
   <div
     class="imageContainer"
-    fxFlex.gt-sm="33.33"
-    fxFlex.sm="100"
+    fxFlex.gt-sm="calc(33.33% - 15px)"
+    fxFlex.sm="50"
     fxGlex.xs="100"
     [fxHide]="!card.visible"
   >
@@ -40,8 +40,8 @@
 
 <ng-template #cardImage let-card="card">
   <a [routerLink]="['/characters', card.id]" [title]="card.name">
-    <img [src]="card.imgSrc" />
-    <h1 class="name">{{ card.name }}</h1>
+    <img [src]="card.imgSrc"/>
+    <div class="name">{{ card.name }}</div>
   </a>
   <mat-icon
     class="favorite noselect"

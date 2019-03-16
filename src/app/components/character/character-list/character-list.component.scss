@@ -4,25 +4,25 @@
         padding-left: 15px;
         padding-top: 5px;
     }
-    .popular {
-        .imageContainer {
-            height: 60vh;
-            @media screen and (max-width: 959px) {
-                height: 30vh;
-            }
-        }
-    }
     .imageContainer {
         position: relative;
         width:100%;
-        min-height: 150px;
         overflow: hidden;
+        background-color: #fff;
+        border:1px solid #aaa;
+        height: 60vh;
+        margin-bottom:15px;
+        margin-right:15px;
+        @media screen and (max-width: 959px) {
+            height: 30vh;
+            margin:0;
+        }
         img {
             min-width:100%;
             min-height:100%;
             margin-left:50%;
             transform: translateX(-50%);
-            object-fit:cover;
+            object-fit: cover;
         }
         .name{
             position:absolute;
@@ -31,7 +31,11 @@
             right:0;
             text-align:center;
             color:white;
-            background-color: rgba(0,0,0, .60)
+            background-color: #3f51b5;
+            font-weight: 300;
+            z-index:50;
+            font-size: 1.7em;
+            padding:10px 0;
         }
         .favorite{
             position:absolute;

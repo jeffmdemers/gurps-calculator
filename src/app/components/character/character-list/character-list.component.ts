@@ -31,7 +31,7 @@ export class CharacterListComponent implements OnInit {
       const card: HeroCard = {
         id: c.ID,
         name: c.Name,
-        imgSrc: '../../assets/images/mock/heroes/7.jpg',
+        imgSrc: `http://images.gurpscalculator.com/characters/${c.ID}.png`,
         favorite: false,
         visible: true
       };
