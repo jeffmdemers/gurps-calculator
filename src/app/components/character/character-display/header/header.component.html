@@ -1,6 +1,6 @@
 <div class="character-header">
   <app-standard-card>
-    <div class="standard-card-title">{{identity.title}} {{ identity.name }}</div>
+    <div class="standard-card-title" innerHtml='{{ identity.name }}'></div>
     <div class="standard-card-content">
       <ng-container *ngTemplateOutlet="hpfp"></ng-container>
     </div>

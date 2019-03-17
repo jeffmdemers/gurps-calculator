@@ -45,6 +45,7 @@ import { IncrementerComponent } from './components/shared/incrementer/incremente
 import { DetailsComponent } from './components/character/character-display/details/details.component';
 import { CharacterAttributesComponent } from './components/character/character-display/character-attributes/character-attributes.component';
 import { RowRollerComponent } from './components/shared/row-roller/row-roller.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { RowRollerComponent } from './components/shared/row-roller/row-roller.co
     IncrementerComponent,
     DetailsComponent,
     CharacterAttributesComponent,
-    RowRollerComponent
+    RowRollerComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

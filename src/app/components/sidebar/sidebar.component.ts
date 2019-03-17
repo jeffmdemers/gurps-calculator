@@ -1,14 +1,25 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { AuthorizeService } from 'src/app/services/authorize.service';
+
+enum MenuItemType {
+  RouterLink,
+  ExternalLink,
+  Command
+}
 
 class MenuItem {
   text: string;
-  link: string;
   icon: string;
+  link?: string;
+  routerLink?: string;
+  command?: Function;
+  type: MenuItemType;
+  isVisible: Function = () => true;
 
-  constructor(text: string, link: string, icon: string) {
+  constructor(text: string, icon, menuItemType: MenuItemType) {
     this.text = text;
-    this.link = link;
     this.icon = icon;
+    this.type = menuItemType;
   }
 }
 
@@ -31,7 +42,11 @@ export class SidebarComponent implements OnInit {
   menuGroups: MenuGroup[];
   @Output() itemClicked: EventEmitter<any> = new EventEmitter();
 
-  constructor() { }
+  get menuItemType() {
+    return MenuItemType;
+  }
+
+  constructor(private authService: AuthorizeService) {}
 
   ngOnInit() {
     this.loadMenuItems();
@@ -42,20 +57,66 @@ export class SidebarComponent implements OnInit {
   }
 
   loadMenuItems() {
-    const home = [
-      new MenuItem('Home', '/', 'home'),
-      new MenuItem('Characters', '/characters', 'home'),
-      new MenuItem('Settings', '/', 'settings'),
-      new MenuItem('Account', '/', 'account_circle'),
-      new MenuItem('Submit a Bug', '/', 'bug_report'),
-      new MenuItem('Donate', '/', 'attach_money'),
-      new MenuItem('Logout', '/', 'exit_to_app')
-    ];
+    const home = new MenuItem('Home', 'home', MenuItemType.RouterLink);
+    home.routerLink = '/';
+
+    const settings = new MenuItem(
+      'Settings',
+      'settings',
+      MenuItemType.RouterLink
+    );
+    settings.routerLink = '/';
+
+    const account = new MenuItem(
+      'Account',
+      'account_circle',
+      MenuItemType.RouterLink
+    );
+    account.routerLink = '/';
+
+    const characters = new MenuItem(
+      'My Characters',
+      'people',
+      MenuItemType.RouterLink
+    );
+    characters.routerLink = '/characters';
+
+    const bugReport = new MenuItem(
+      'Submit a Bug',
+      'bug_report',
+      MenuItemType.ExternalLink
+    );
+    bugReport.link = 'https://github.com/jeffmdemers/gurps-calculator/issues';
+
+    const donate = new MenuItem(
+      'Donate',
+      'attach_money',
+      MenuItemType.ExternalLink
+    );
+    donate.link = 'https://www.paypal.me/codebyclockwork/5';
+
+    const logout = new MenuItem('Logout', 'exit_to_app', MenuItemType.Command);
+    logout.command = () => this.authService.deauthorized();
+
+    const login = new MenuItem('Login', 'lock_open', MenuItemType.RouterLink);
+    login.routerLink = '/login';
+
+    // auth only
+    home.isVisible = () => this.authService.isAuthorized();
+    characters.isVisible = () => this.authService.isAuthorized();
+    settings.isVisible = () => this.authService.isAuthorized();
+    account.isVisible = () => this.authService.isAuthorized();
+    logout.isVisible = () => this.authService.isAuthorized();
+    login.isVisible = () => !this.authService.isAuthorized();
+
+    const homeGroup = [home, characters, login];
+    const settingsGroup = [settings, account, logout];
+    const miscGroup = [bugReport, donate];
 
     this.menuGroups = [
-      new MenuGroup('', home)
+      new MenuGroup('', homeGroup),
+      new MenuGroup('', settingsGroup),
+      new MenuGroup('', miscGroup)
     ];
   }
-
-
 }

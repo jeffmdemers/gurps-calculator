@@ -41,7 +41,7 @@
 <ng-template #cardImage let-card="card">
   <a [routerLink]="['/characters', card.id]" [title]="card.name">
     <img [src]="card.imgSrc"/>
-    <div class="name">{{ card.name }}</div>
+    <div class="name" [innerHtml]="card.name"></div>
   </a>
   <mat-icon
     class="favorite noselect"

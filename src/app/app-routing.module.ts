@@ -1,25 +1,32 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { CollisionsComponent } from './components/collisions/collisions.component';
-import { DiceRollerComponent } from './components/dice-roller/dice-roller.component';
-import { JumpingComponent } from './components/jumping/jumping.component';
-import { ThrowingComponent } from './components/throwing/throwing.component';
 import { CharacterListComponent } from './components/character/character-list/character-list.component';
 import { CharacterDisplayComponent } from './components/character/character-display/character-display.component';
 import { CharacterResolver, MyCharactersResolver } from './resolvers/character.resolver';
+import { LoginComponent } from './components/login/login.component';
+import { AuthorizedGuard } from './guards/authorized.guard';
+import { UnauthorizedGuard } from './guards/unauthorized.guard';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   {
+    path: 'login',
+    component: LoginComponent,
+    canActivate: [UnauthorizedGuard]
+  },
+  {
     path: 'characters',
     component: CharacterListComponent,
     resolve: { characters: MyCharactersResolver },
+    canActivate: [AuthorizedGuard]
   },
   {
     path: 'characters/:id',
     component: CharacterDisplayComponent,
-    resolve: { character: CharacterResolver }
+    resolve: { character: CharacterResolver },
+    canActivate: [AuthorizedGuard]
   }
 ];
 

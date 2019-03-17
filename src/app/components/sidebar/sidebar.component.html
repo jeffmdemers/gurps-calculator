@@ -2,15 +2,48 @@
   <a mat-list-item routerLink="/" style="height: 0;"></a>
   <ng-container *ngFor="let group of menuGroups">
     <h2 matSubheader *ngIf="group.header">{{ group.header }}</h2>
-    <a
-      *ngFor="let item of group.menuItems"
-      mat-list-item
-      (click)="this.itemSelected()"
-      [routerLink]="[item.link]"
-    >
-      <mat-icon matListIcon> {{ item.icon }} </mat-icon>
-      {{ item.text }}
-    </a>
+
+    <ng-container *ngFor="let item of group.menuItems">
+      <ng-container [ngSwitch]="item.type" *ngIf="item.isVisible()">
+        <ng-container *ngSwitchCase="menuItemType.RouterLink">
+          <a
+            mat-list-item
+            (click)="this.itemSelected()"
+            [routerLink]="[item.routerLink]"
+          >
+            <ng-container
+              *ngTemplateOutlet="iconName; context: { $implicit: item }"
+            ></ng-container>
+          </a>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="menuItemType.ExternalLink">
+          <a
+            mat-list-item
+            (click)="this.itemSelected()"
+            [href]="item.link"
+            target="_blank"
+          >
+            <ng-container
+              *ngTemplateOutlet="iconName; context: { $implicit: item }"
+            ></ng-container>
+          </a>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="menuItemType.Command">
+          <a mat-list-item (click)="item.command();">
+            <ng-container
+              *ngTemplateOutlet="iconName; context: { $implicit: item }"
+            ></ng-container>
+          </a>
+        </ng-container>
+      </ng-container>
+    </ng-container>
     <mat-divider></mat-divider>
   </ng-container>
 </mat-nav-list>
+
+<ng-template #iconName let-item>
+  <mat-icon matListIcon> {{ item.icon }} </mat-icon>
+  {{ item.text }}
+</ng-template>
