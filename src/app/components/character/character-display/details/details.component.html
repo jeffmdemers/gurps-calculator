@@ -1,3 +1,13 @@
-<app-character-attributes
-  [attributes]="attributes"
-></app-character-attributes>
+<div>
+  <h3>Attributes</h3>
+  <app-attributes [attributes]="attributes"></app-attributes>
+  <div fxLayout="row" fxLayout.lt-md="column">
+    <div fxFlex="50">
+      <h3>Encumbrance</h3>
+      <app-encumbrance [encumbranceLevels]="encumbranceLevels"></app-encumbrance>
+    </div>
+    <div fxFlex="50">
+      <h3>Lifting and Moving</h3>
+    </div>
+  </div>
+</div>

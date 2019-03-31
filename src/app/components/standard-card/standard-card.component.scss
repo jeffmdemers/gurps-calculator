@@ -1,6 +1,9 @@
 ::ng-deep {
     .standard-card {
         text-align: center;
+        mat-card-content {
+            text-align:left;
+        }
         .mat-card-header-text {
             margin: 0;
         }

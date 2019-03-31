@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Attributes } from 'src/app/shared/models/character.model';
+import { Attributes, Encumbrance } from 'src/app/shared/models/character.model';
 
 @Component({
   selector: 'app-character-details',
@@ -9,6 +9,7 @@ import { Attributes } from 'src/app/shared/models/character.model';
 export class DetailsComponent implements OnInit {
 
   @Input() attributes: Attributes;
+  @Input() encumbranceLevels: Encumbrance;
 
   constructor() { }
 

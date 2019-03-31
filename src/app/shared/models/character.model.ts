@@ -55,12 +55,21 @@ export interface Skill extends Meta {
   note: string;
 }
 
+export interface Encumbrance {
+  dodge: number;
+  level: string;
+  maxLoad: string;
+  move: number;
+  isCurrentLevel: boolean;
+}
+
 export class Character {
   identity: Identity;
   status: Status;
   attributes: Attributes;
   traits: Trait[];
   skills: Skill[];
+  encumbranceLevels: Encumbrance[];
 
   private characterJson: any;
   constructor(characterJson: any) {
@@ -74,6 +83,7 @@ export class Character {
     this.loadIdentity();
     this.loadStatus();
     this.loadAttributes();
+    this.loadEncumbrance();
   }
 
   private loadSkills() {
@@ -150,5 +160,18 @@ export class Character {
               vision: c.Vision
           }
       };
+  }
+
+  private loadEncumbrance() {
+    const c = this.characterJson.EncumberanceMoveAndDodges;
+    this.encumbranceLevels = c.map(e => {
+      return <Encumbrance> {
+        dodge: +e.Dodge,
+        level: e.Level,
+        maxLoad: e.MaxLoad,
+        move: +e.Move,
+        isCurrentLevel: e.isActive
+      };
+    });
   }
 }
