@@ -1,12 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~@angular/material/prebuilt-themes/purple-green.css";
+
 html,
 body {
   margin: 0;
   padding: 0;
   padding-bottom:50px;
-  background-image: url("/assets/images/backgrounds/mountains.jpg");
+  background-image: url("/assets/images/backgrounds/purple-lake.jpg");
   background-position: left;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -20,6 +21,7 @@ body {
     user-select: none; /* Non-prefixed version, currently
                                         supported by Chrome and Opera */
   }
+  
   .mat-drawer-container {
     background-color: transparent;
     #navDrawer.mat-drawer {

@@ -1,0 +1,6 @@
+<div class="content noselect">
+  <div *ngFor="let lm of liftingandMovingItems; last as last">
+    <app-row-roller [name]="lm.label" [target]="lm.value" [readOnly]="true"></app-row-roller>
+    <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
+  </div>
+</div>

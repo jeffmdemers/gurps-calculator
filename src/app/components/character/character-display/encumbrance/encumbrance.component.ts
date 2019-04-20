@@ -7,7 +7,7 @@ import { Encumbrance } from 'src/app/shared/models/character.model';
   styleUrls: ['./encumbrance.component.scss']
 })
 export class EncumbranceComponent implements OnInit {
-  @Input() encumbranceLevels: Encumbrance;
+  @Input() encumbranceLevels: Encumbrance[];
   constructor() { }
 
   ngOnInit() {

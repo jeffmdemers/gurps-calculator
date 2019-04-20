@@ -14,29 +14,29 @@ export interface MetaIdentity {
 }
 
 export interface Attributes {
-    basicMove: number;
-    basicSpeed: number;
-    strength: Strength;
-    intelligence: number;
-    dexterity: number;
-    health: number;
-    will: number;
-    perception: Perception;
-    frightCheck: number;
+  basicMove: number;
+  basicSpeed: number;
+  strength: Strength;
+  intelligence: number;
+  dexterity: number;
+  health: number;
+  will: number;
+  perception: Perception;
+  frightCheck: number;
 }
 
 export interface Perception {
-    value: number;
-    hearing: number;
-    tasteSmell: number;
-    touch: number;
-    vision: number;
+  value: number;
+  hearing: number;
+  tasteSmell: number;
+  touch: number;
+  vision: number;
 }
 
 export interface Strength {
-    value: number;
-    swing: string;
-    thrust: string;
+  value: number;
+  swing: string;
+  thrust: string;
 }
 
 interface Meta {
@@ -63,6 +63,11 @@ export interface Encumbrance {
   isCurrentLevel: boolean;
 }
 
+export interface LiftingAndMovingItem {
+  label: string;
+  value: string;
+}
+
 export class Character {
   identity: Identity;
   status: Status;
@@ -70,6 +75,7 @@ export class Character {
   traits: Trait[];
   skills: Skill[];
   encumbranceLevels: Encumbrance[];
+  liftingAndMovingItems: LiftingAndMovingItem[];
 
   private characterJson: any;
   constructor(characterJson: any) {
@@ -84,6 +90,7 @@ export class Character {
     this.loadStatus();
     this.loadAttributes();
     this.loadEncumbrance();
+    this.loadLiftingAndMoving();
   }
 
   private loadSkills() {
@@ -138,40 +145,48 @@ export class Character {
   }
 
   private loadAttributes() {
-      const c = this.characterJson.Attributes;
-      this.attributes = <Attributes> {
-          basicMove: c.BasicMove,
-          basicSpeed: c.BasicSpeed,
-          dexterity: c.Dexterity,
-          frightCheck: c.FrightCheck,
-          health: c.Health,
-          intelligence: c.Intelligence,
-          will: c.Will,
-          strength: <Strength> {
-              value: c.Strength,
-              swing: c.Swing,
-              thrust: c.Thrust
-          },
-          perception: <Perception> {
-              value: c.Perception,
-              hearing: c.Hearing,
-              touch: c.Touch,
-              tasteSmell: c.TasteAndSmell,
-              vision: c.Vision
-          }
-      };
+    const c = this.characterJson.Attributes;
+    this.attributes = <Attributes>{
+      basicMove: c.BasicMove,
+      basicSpeed: c.BasicSpeed,
+      dexterity: c.Dexterity,
+      frightCheck: c.FrightCheck,
+      health: c.Health,
+      intelligence: c.Intelligence,
+      will: c.Will,
+      strength: <Strength>{
+        value: c.Strength,
+        swing: c.Swing,
+        thrust: c.Thrust
+      },
+      perception: <Perception>{
+        value: c.Perception,
+        hearing: c.Hearing,
+        touch: c.Touch,
+        tasteSmell: c.TasteAndSmell,
+        vision: c.Vision
+      }
+    };
   }
 
   private loadEncumbrance() {
     const c = this.characterJson.EncumberanceMoveAndDodges;
     this.encumbranceLevels = c.map(e => {
-      return <Encumbrance> {
+      return <Encumbrance>{
         dodge: +e.Dodge,
         level: e.Level,
         maxLoad: e.MaxLoad,
         move: +e.Move,
         isCurrentLevel: e.isActive
       };
+    });
+  }
+
+  private loadLiftingAndMoving() {
+    const c = this.characterJson.LiftingAndMovingThings;
+    this.liftingAndMovingItems = Object.keys(c).map(e => <LiftingAndMovingItem>{
+      label: e.replace(/([A-Z])/g, ' $1').trim(),
+      value: c[e]
     });
   }
 }

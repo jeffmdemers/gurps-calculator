@@ -47,6 +47,7 @@ import { RowRollerComponent } from './components/shared/row-roller/row-roller.co
 import { LoginComponent } from './components/login/login.component';
 import { AttributesComponent } from './components/character/character-display/attributes/attributes.component';
 import { EncumbranceComponent } from './components/character/character-display/encumbrance/encumbrance.component';
+import { LiftingAndMovingComponent } from './components/character/character-display/lifting-and-moving/lifting-and-moving.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { EncumbranceComponent } from './components/character/character-display/e
     AttributesComponent,
     RowRollerComponent,
     LoginComponent,
-    EncumbranceComponent
+    EncumbranceComponent,
+    LiftingAndMovingComponent
   ],
   imports: [
     BrowserModule,
