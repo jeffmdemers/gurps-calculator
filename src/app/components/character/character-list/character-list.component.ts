@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { take } from 'rxjs/operators';
 
 interface Hero {
   id: string;
   name: string;
   imgSrc: string;
   favorite: boolean;
+  campaign: string;
 }
 
 interface HeroCard extends Hero {
@@ -33,7 +35,8 @@ export class CharacterListComponent implements OnInit {
         name: c.Name,
         imgSrc: `http://images.gurpscalculator.com/characters/${c.ID}.png`,
         favorite: false,
-        visible: true
+        visible: true,
+        campaign: c.Campaign.name
       };
 
       return card;
@@ -54,6 +57,10 @@ export class CharacterListComponent implements OnInit {
   favoriteToggle(heroID: string) {
     const hero = this.heroCards.find(h => h.id === heroID);
     hero.favorite = !hero.favorite;
+  }
+
+  updateImage(event) {
+    debugger;
   }
 
 }
