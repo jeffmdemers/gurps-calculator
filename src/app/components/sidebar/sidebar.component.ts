@@ -81,12 +81,12 @@ export class SidebarComponent implements OnInit {
     );
     characters.routerLink = '/characters';
 
-    const bugReport = new MenuItem(
-      'Submit a Bug',
-      'bug_report',
-      MenuItemType.ExternalLink
-    );
-    bugReport.link = 'https://github.com/jeffmdemers/gurps-calculator/issues';
+    // const bugReport = new MenuItem(
+    //   'Submit a Bug',
+    //   'bug_report',
+    //   MenuItemType.ExternalLink
+    // );
+    // bugReport.link = 'https://github.com/jeffmdemers/gurps-calculator/issues';
 
     const donate = new MenuItem(
       'Donate',
@@ -111,7 +111,7 @@ export class SidebarComponent implements OnInit {
 
     const homeGroup = [home, characters, login];
     const settingsGroup = [settings, account, logout];
-    const miscGroup = [bugReport, donate];
+    const miscGroup = [donate];
 
     this.menuGroups = [
       new MenuGroup('', homeGroup),
