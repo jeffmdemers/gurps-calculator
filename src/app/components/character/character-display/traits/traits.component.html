@@ -1,10 +1,8 @@
 <div class="traits">
-  <div
-    class="traitItem"
-    *ngFor="let trait of traits"
-    role="listitem"
-    style="text-align:left;"
-  >
+  <mat-form-field>
+    <input matInput type="text" placeholder="Filter" (keyup)="filter($event)" />
+  </mat-form-field>
+  <div class="traitItem" *ngFor="let trait of filteredTraits" role="listitem">
     <div class="content noselect">
       <div class="name">{{ trait.name }}</div>
       <div>{{ trait.referencePage }} | {{ trait.pointsSpent }}</div>

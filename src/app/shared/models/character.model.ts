@@ -1,5 +1,5 @@
-import { DiceRoll } from './dice-roll.model';
 import { Status, StatusIncrement } from './status.model';
+import * as _ from 'lodash';
 
 export interface Identity {
   name: string;
@@ -108,18 +108,20 @@ export class Character {
   }
 
   private loadTraits() {
-    this.traits = this.characterJson.AdvantagesAndDisadvantages.sort(
-      (a, b) => b.Points - a.Points
-    ).map(t => {
+    const traits = this.characterJson.AdvantagesAndDisadvantages.map(t => {
       const trait: Trait = {
         name: t.DescriptionPrimary,
         pointsSpent: t.Points,
         referencePage: t.Ref,
         modifierDescription: t.DescriptionModifierNotes
       };
-
       return trait;
     });
+
+    const pos = traits.filter(x=> x.pointsSpent > -1);
+    const neg = traits.filter(x=> x.pointsSpent < 0);
+
+    this.traits = [..._.sortBy(pos, 'name'), ..._.sortBy(neg, 'name')];
   }
 
   private loadIdentity() {
