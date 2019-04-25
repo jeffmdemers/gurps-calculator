@@ -9,7 +9,7 @@ export class ApiService {
   api = 'http://qa.gurpscalculator.com/api/';
   //api = 'http://localhost:52527/api/';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   private headers() {
     return {
@@ -25,7 +25,14 @@ export class ApiService {
   get(apiPath: string) {
     return this.http
       .get(`${this.api}${apiPath}`, this.headers())
-      .pipe(map(c => JSON.parse(c.toString())));
+      .pipe(map(c => {
+        try {
+          return JSON.parse(c.toString());
+        } catch (e) {
+          console.log(c);
+          return null;
+        }
+      }));
   }
 
   post(apiPath: string, body: any) {
