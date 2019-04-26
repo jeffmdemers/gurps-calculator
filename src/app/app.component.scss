@@ -7,9 +7,9 @@ $toolbarHeight: 45px;
   mat-toolbar {
     mat-toolbar-row {
       position: relative;
-      .btnApps {
-        position: absolute;
-        right: 5px;
+      .btnMenu {
+          position: absolute;
+          right: 5px;
       }
     }
   }

@@ -8,8 +8,8 @@
 </div>
 
 <ng-template #hpfp>
-  <div fxLayout="row" fxLayout.xs="column" fxFlex="100" fxLayoutGap="20px" style="font-size:1.5em">
-    <div fxFlex="50">
+  <div fxLayout="column" style="font-size:1.5em">
+    <div fxFlex="100">
       <app-incrementer
         placeholder="Hit Points"
         [(value)]="status.HP.Current"
@@ -18,7 +18,7 @@
       ></app-incrementer>
       <ng-container *ngTemplateOutlet="statusLevel; context: {statusIncrement:status.HP}"></ng-container>
     </div>
-    <div fxFlex="50">
+    <div fxFlex="100">
       <app-incrementer
         placeholder="Fatigue Points"
         [(value)]="status.FP.Current"

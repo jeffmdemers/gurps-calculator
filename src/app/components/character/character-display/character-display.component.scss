@@ -3,4 +3,13 @@
         margin: 0 auto  !important;
         width: 100%;
     }
+
+    #menuDrawer.mat-drawer {
+        width: 100vw;
+        max-width: 500px;
+        padding: 5px 10px;
+        @media screen and (max-width: 499px) {
+          max-width: 100vw;
+        }
+      }
 }
