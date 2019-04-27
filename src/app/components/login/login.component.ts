@@ -15,10 +15,14 @@ export class LoginComponent implements OnInit {
     private authService: AuthorizeService,
     private formBuilder: FormBuilder,
     private router: Router
-    ) { }
+  ) { }
 
   ngOnInit() {
-    this.buildForm();
+    if (this.authService.isAuthorized()) {
+      this.router.navigate(['characters']);
+    } else {
+      this.buildForm();
+    }
   }
 
   get f() { return this.loginForm.controls; }
@@ -29,6 +33,7 @@ export class LoginComponent implements OnInit {
       password: [''],
     });
   }
+
   onSubmit() {
     if (this.loginForm.invalid) {
       return;

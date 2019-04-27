@@ -5,8 +5,13 @@
       <mat-icon>apps</mat-icon>
     </button>
 
-
     <span> GURPS Calculator </span>
+
+    <div style="flex: 1 1 auto"></div>
+
+    <button mat-icon-button class="btnSettingsMenu" (click)="openBottomSheet()">
+      <mat-icon>person</mat-icon>
+    </button>
 
     <button mat-icon-button class="btnMenu" (click)="btnMenuClicked()" *ngIf="menuService.showMenuIcon">
       <mat-icon>menu</mat-icon>
@@ -14,6 +19,7 @@
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-sidenav-container>
+
   <mat-sidenav id="utilityDrawer" #utilityDrawer mode="over" position="start" [fixedInViewport]="true" [fixedTopGap]="0"
     [fixedBottomGap]="0">
     <app-app-sidebar></app-app-sidebar>

@@ -19,6 +19,8 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSliderModule} from '@angular/material/slider';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatMenuModule } from '@angular/material/menu';
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -48,6 +50,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AttributesComponent } from './components/character/character-display/attributes/attributes.component';
 import { EncumbranceComponent } from './components/character/character-display/encumbrance/encumbrance.component';
 import { LiftingAndMovingComponent } from './components/character/character-display/lifting-and-moving/lifting-and-moving.component';
+import { UserBottomSheetComponent } from './components/user-bottom-sheet/user-bottom-sheet.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +77,8 @@ import { LiftingAndMovingComponent } from './components/character/character-disp
     RowRollerComponent,
     LoginComponent,
     EncumbranceComponent,
-    LiftingAndMovingComponent
+    LiftingAndMovingComponent,
+    UserBottomSheetComponent
   ],
   imports: [
     BrowserModule,
@@ -98,8 +102,11 @@ import { LiftingAndMovingComponent } from './components/character/character-disp
     MatButtonToggleModule,
     MatSelectModule,
     MatSliderModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatMenuModule,
+    MatBottomSheetModule
   ],
+  entryComponents: [UserBottomSheetComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

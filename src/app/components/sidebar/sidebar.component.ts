@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AuthorizeService } from 'src/app/services/authorize.service';
+import { Router } from '@angular/router';
 
 enum MenuItemType {
   RouterLink,
@@ -46,7 +47,7 @@ export class SidebarComponent implements OnInit {
     return MenuItemType;
   }
 
-  constructor(private authService: AuthorizeService) {}
+  constructor(private authService: AuthorizeService, private router: Router) { }
 
   ngOnInit() {
     this.loadMenuItems();
@@ -96,7 +97,10 @@ export class SidebarComponent implements OnInit {
     donate.link = 'https://www.paypal.me/codebyclockwork/5';
 
     const logout = new MenuItem('Logout', 'exit_to_app', MenuItemType.Command);
-    logout.command = () => this.authService.deauthorized();
+    logout.command = () => {
+      this.authService.deauthorized();
+      this.router.navigate(['login']);
+    };
 
     const login = new MenuItem('Login', 'lock_open', MenuItemType.RouterLink);
     login.routerLink = '/login';
@@ -109,7 +113,7 @@ export class SidebarComponent implements OnInit {
     logout.isVisible = () => this.authService.isAuthorized();
     login.isVisible = () => !this.authService.isAuthorized();
 
-    const homeGroup = [home, characters, login];
+    const homeGroup = [characters, login];
     const settingsGroup = [settings, account, logout];
     const miscGroup = [donate];
 
