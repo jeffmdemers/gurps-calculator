@@ -13,7 +13,7 @@ export class AppComponent {
   title = 'gurps-calculator';
   showMenuIcon: boolean;
 
-  constructor(private menuService: MenuService, private bottomSheet: MatBottomSheet) { }
+  constructor(public menuService: MenuService, private bottomSheet: MatBottomSheet) { }
 
   btnMenuClicked() {
     this.menuService.emitToggleEvent(null);
