@@ -101,6 +101,10 @@ This will create a folder called gurps-calculator where the code will be stored.
 need to perform command line operations when they are called for, as well as the folder you need to open in VS Code to
 work on the project.
 
+Navigate to the gurps-calculator folder and run `npm install` from the terminal. This will download Angular and any
+other libraries required by the application. This command should also be executed whenever a new library is added
+to the project, or when an existing library is updated.
+
 ## Running the development server and accessing the application
 
 In order to access GurpsCalculator in your browser, you will need to run a so called dev server. This compiles the code,
