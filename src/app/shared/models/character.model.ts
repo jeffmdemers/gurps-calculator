@@ -1,5 +1,5 @@
-import { Status, StatusIncrement } from './status.model';
 import * as _ from 'lodash';
+import { Status, StatusIncrement } from './status.model';
 
 export interface Identity {
   name: string;

@@ -1,5 +1,5 @@
-import { DiceRoll } from './dice-roll.model';
 import { Strength } from './character.model';
+import { DiceRoll } from './dice-roll.model';
 
 export class Damage implements Strength {
     value: number;

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { DiceRoll } from "src/app/shared/models/dice-roll.model";
 
 export enum RollerType {

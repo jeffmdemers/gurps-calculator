@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { MenuService } from './services/menu.service';
+import { Component } from '@angular/core';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { UserBottomSheetComponent } from './components/user-bottom-sheet/user-bottom-sheet.component';
+import { MenuService } from './services/menu.service';
 
 
 @Component({

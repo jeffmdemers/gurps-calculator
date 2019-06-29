@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
-import { CharacterListComponent } from './components/character/character-list/character-list.component';
+import { RouterModule, Routes } from '@angular/router';
 import { CharacterDisplayComponent } from './components/character/character-display/character-display.component';
-import { CharacterResolver, MyCharactersResolver } from './resolvers/character.resolver';
+import { CharacterListComponent } from './components/character/character-list/character-list.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthorizedGuard } from './guards/authorized.guard';
 import { UnauthorizedGuard } from './guards/unauthorized.guard';
+import { CharacterResolver, MyCharactersResolver } from './resolvers/character.resolver';
 
 
 const routes: Routes = [

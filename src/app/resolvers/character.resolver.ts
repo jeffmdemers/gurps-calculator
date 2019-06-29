@@ -1,11 +1,6 @@
 import { Injectable } from '@angular/core';
-import {
-  Resolve,
-  ActivatedRouteSnapshot,
-  RouterStateSnapshot,
-} from '@angular/router';
+import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 import { CharacterService } from '../services/character.service';
-import { resolve } from 'url';
 
 @Injectable({
   providedIn: 'root'

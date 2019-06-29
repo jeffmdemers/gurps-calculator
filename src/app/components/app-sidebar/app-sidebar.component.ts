@@ -1,5 +1,4 @@
-import { Component, OnInit, Output, ViewChild, EventEmitter } from '@angular/core';
-import { MatSelect } from '@angular/material/select';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { RodeoItem } from '../shared/rodeo/rodeo.component';
 
 @Component({

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Attributes } from 'src/app/shared/models/character.model';
 import { Damage } from 'src/app/shared/models/damage.model';
 

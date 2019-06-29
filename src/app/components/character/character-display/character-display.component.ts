@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CharacterService } from 'src/app/services/character.service';
-import { Skill, Character, Trait, Identity } from 'src/app/shared/models/character.model';
-import { Status, StatusIncrement } from 'src/app/shared/models/status.model';
-import { RodeoItem } from '../../shared/rodeo/rodeo.component';
 import { MenuService } from 'src/app/services/menu.service';
+import { Character } from 'src/app/shared/models/character.model';
+import { RodeoItem } from '../../shared/rodeo/rodeo.component';
 
 @Component({
   selector: 'app-character-display',

@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { AuthorizeService } from 'src/app/services/authorize.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-home',

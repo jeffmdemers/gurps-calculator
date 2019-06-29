@@ -1,6 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Trait } from '../../../../shared/models/character.model';
-import * as _ from 'lodash'; 
 
 @Component({
   selector: 'app-character-traits',

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { AuthorizeService } from 'src/app/services/authorize.service';
 import { Router } from '@angular/router';
-import { routerNgProbeToken } from '@angular/router/src/router_module';
+import { AuthorizeService } from 'src/app/services/authorize.service';
 
 @Component({
   selector: 'app-login',

@@ -1,6 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { AuthorizeService } from 'src/app/services/authorize.service';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthorizeService } from 'src/app/services/authorize.service';
 
 enum MenuItemType {
   RouterLink,
