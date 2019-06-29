@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 })
 export class ApiService {
   api = 'http://qa.gurpscalculator.com/api/';
-  //api = 'http://localhost:52527/api/';
+  // api = 'http://localhost:52527/api/';
 
   constructor(private http: HttpClient) {}
 

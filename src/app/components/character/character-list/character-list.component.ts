@@ -63,7 +63,5 @@ export class CharacterListComponent implements OnInit {
     hero.favorite = !hero.favorite;
   }
 
-  updateImage(event) {
-    debugger;
-  }
+  updateImage(event) {}
 }
