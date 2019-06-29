@@ -1,0 +1,29 @@
+{
+  "useTabs": false,
+  "tabWidth": 2,
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "semi": true,
+  "bracketSpacing": true,
+  "arrowParens": "avoid",
+  "overrides": [
+    {
+      "files": "src/**/*.ts",
+      "options": {
+        "parser": "typescript"
+      }
+    },
+    {
+      "files": "src/**/*.scss",
+      "options": {
+        "parser": "scss"
+      }
+    },
+    {
+      "files": "src/**/*.html",
+      "options": {
+        "parser": "angular"
+      }
+    }
+  ]
+}

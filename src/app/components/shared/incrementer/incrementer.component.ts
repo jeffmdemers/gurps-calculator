@@ -3,10 +3,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 @Component({
   selector: 'app-incrementer',
   templateUrl: './incrementer.component.html',
-  styleUrls: ['./incrementer.component.scss']
+  styleUrls: ['./incrementer.component.scss'],
 })
 export class IncrementerComponent implements OnInit {
-
   @Output() valueChange = new EventEmitter<number>();
   @Input() placeholder: string;
   @Input() min: number;

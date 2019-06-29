@@ -5,32 +5,34 @@ import { CharacterListComponent } from './components/character/character-list/ch
 import { LoginComponent } from './components/login/login.component';
 import { AuthorizedGuard } from './guards/authorized.guard';
 import { UnauthorizedGuard } from './guards/unauthorized.guard';
-import { CharacterResolver, MyCharactersResolver } from './resolvers/character.resolver';
-
+import {
+  CharacterResolver,
+  MyCharactersResolver,
+} from './resolvers/character.resolver';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   {
     path: 'login',
     component: LoginComponent,
-    canActivate: [UnauthorizedGuard]
+    canActivate: [UnauthorizedGuard],
   },
   {
     path: 'characters',
     component: CharacterListComponent,
     resolve: { characters: MyCharactersResolver },
-    canActivate: [AuthorizedGuard]
+    canActivate: [AuthorizedGuard],
   },
   {
     path: 'characters/:id',
     component: CharacterDisplayComponent,
     resolve: { character: CharacterResolver },
-    canActivate: [AuthorizedGuard]
-  }
+    canActivate: [AuthorizedGuard],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

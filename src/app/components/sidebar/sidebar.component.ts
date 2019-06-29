@@ -5,7 +5,7 @@ import { AuthorizeService } from 'src/app/services/authorize.service';
 enum MenuItemType {
   RouterLink,
   ExternalLink,
-  Command
+  Command,
 }
 
 class MenuItem {
@@ -37,7 +37,7 @@ class MenuGroup {
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss']
+  styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent implements OnInit {
   menuGroups: MenuGroup[];
@@ -47,7 +47,7 @@ export class SidebarComponent implements OnInit {
     return MenuItemType;
   }
 
-  constructor(private authService: AuthorizeService, private router: Router) { }
+  constructor(private authService: AuthorizeService, private router: Router) {}
 
   ngOnInit() {
     this.loadMenuItems();
@@ -120,7 +120,7 @@ export class SidebarComponent implements OnInit {
     this.menuGroups = [
       new MenuGroup('', homeGroup),
       new MenuGroup('', settingsGroup),
-      new MenuGroup('', miscGroup)
+      new MenuGroup('', miscGroup),
     ];
   }
 }

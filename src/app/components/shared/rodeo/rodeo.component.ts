@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { MatSelect } from '@angular/material/select';
 
 export class RodeoItem {
@@ -14,14 +20,15 @@ export class RodeoItem {
 @Component({
   selector: 'app-rodeo',
   templateUrl: './rodeo.component.html',
-  styleUrls: ['./rodeo.component.scss']
+  styleUrls: ['./rodeo.component.scss'],
 })
 export class RodeoComponent {
-
   selected: string;
 
   @Input()
-  get selectedItem(): string { return this.selected; }
+  get selectedItem(): string {
+    return this.selected;
+  }
   set selectedItem(val: string) {
     this.selected = val;
     this.selectedItemChange.emit(this.selected);
@@ -46,5 +53,4 @@ export class RodeoComponent {
     }
     this.selectedItem = this.items[curIndex].value;
   }
-
 }

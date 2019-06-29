@@ -8,9 +8,8 @@ describe('JumpingComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ JumpingComponent ]
-    })
-    .compileComponents();
+      declarations: [JumpingComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

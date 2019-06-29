@@ -1,13 +1,16 @@
 <div class="content noselect">
   <mat-accordion>
-    <mat-expansion-panel *ngFor="let eLevel of encumbranceLevels" [expanded]="eLevel.isCurrentLevel">
+    <mat-expansion-panel
+      *ngFor="let eLevel of encumbranceLevels"
+      [expanded]="eLevel.isCurrentLevel"
+    >
       <mat-expansion-panel-header>
         <span [innerHtml]="eLevel.level"></span>
       </mat-expansion-panel-header>
       <div style="padding-left:10px">
-        <div>Move: {{eLevel.move}}</div>
-        <div>Dodge: {{eLevel.dodge}}</div>
-        <div>Max Load: {{eLevel.maxLoad}}</div>
+        <div>Move: {{ eLevel.move }}</div>
+        <div>Dodge: {{ eLevel.dodge }}</div>
+        <div>Max Load: {{ eLevel.maxLoad }}</div>
       </div>
     </mat-expansion-panel>
   </mat-accordion>

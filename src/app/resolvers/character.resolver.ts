@@ -1,9 +1,13 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
+import {
+  ActivatedRouteSnapshot,
+  Resolve,
+  RouterStateSnapshot,
+} from '@angular/router';
 import { CharacterService } from '../services/character.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CharacterResolver implements Resolve<any> {
   constructor(private characterService: CharacterService) {}
@@ -13,7 +17,7 @@ export class CharacterResolver implements Resolve<any> {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MyCharactersResolver implements Resolve<any> {
   constructor(private characterService: CharacterService) {}

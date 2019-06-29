@@ -4,13 +4,11 @@ import { Encumbrance } from 'src/app/shared/models/character.model';
 @Component({
   selector: 'app-encumbrance',
   templateUrl: './encumbrance.component.html',
-  styleUrls: ['./encumbrance.component.scss']
+  styleUrls: ['./encumbrance.component.scss'],
 })
 export class EncumbranceComponent implements OnInit {
   @Input() encumbranceLevels: Encumbrance[];
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

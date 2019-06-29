@@ -3,7 +3,11 @@
     <input matInput type="text" placeholder="Filter" (keyup)="filter($event)" />
   </mat-form-field>
   <ng-container *ngFor="let skill of filteredSkills">
-    <app-row-roller [name]="skill.name" [notes]="skill.note" [target]="skill.level"></app-row-roller>
+    <app-row-roller
+      [name]="skill.name"
+      [notes]="skill.note"
+      [target]="skill.level"
+    ></app-row-roller>
     <mat-divider></mat-divider>
   </ng-container>
 </div>

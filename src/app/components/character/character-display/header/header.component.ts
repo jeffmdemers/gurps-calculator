@@ -4,16 +4,13 @@ import { Status } from 'src/app/shared/models/status.model';
 @Component({
   selector: 'app-character-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-
   @Input() identity: Identity;
   @Input() status: Status;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

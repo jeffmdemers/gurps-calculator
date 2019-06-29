@@ -4,7 +4,7 @@ import { RodeoItem } from '../shared/rodeo/rodeo.component';
 @Component({
   selector: 'app-app-sidebar',
   templateUrl: './app-sidebar.component.html',
-  styleUrls: ['./app-sidebar.component.scss']
+  styleUrls: ['./app-sidebar.component.scss'],
 })
 export class AppSidebarComponent implements OnInit {
   @Output() closeClicked = new EventEmitter();
@@ -27,5 +27,4 @@ export class AppSidebarComponent implements OnInit {
       new RodeoItem('throwing', 'Throwing'),
     ];
   }
-
 }

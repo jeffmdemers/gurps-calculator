@@ -2,11 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DiceRoll } from 'src/app/shared/models/dice-roll.model';
 
-
 @Component({
   selector: 'app-dice-roller',
   templateUrl: './dice-roller.component.html',
-  styleUrls: ['./dice-roller.component.scss']
+  styleUrls: ['./dice-roller.component.scss'],
 })
 export class DiceRollerComponent implements OnInit {
   diceForm: FormGroup;
@@ -14,7 +13,7 @@ export class DiceRollerComponent implements OnInit {
   resultSuccess: number;
   resultFailure: number;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
     this.buildForm();
@@ -26,11 +25,13 @@ export class DiceRollerComponent implements OnInit {
       modifier: [0],
       multiple: [1],
       numberOfRolls: [1],
-      target: [10]
+      target: [10],
     });
   }
 
-  get f() { return this.diceForm.controls; }
+  get f() {
+    return this.diceForm.controls;
+  }
 
   onSubmit() {
     if (this.diceForm.invalid) {

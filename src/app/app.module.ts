@@ -48,10 +48,6 @@ import { StandardCardComponent } from './components/standard-card/standard-card.
 import { ThrowingComponent } from './components/throwing/throwing.component';
 import { UserBottomSheetComponent } from './components/user-bottom-sheet/user-bottom-sheet.component';
 
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,7 +74,7 @@ import { UserBottomSheetComponent } from './components/user-bottom-sheet/user-bo
     LoginComponent,
     EncumbranceComponent,
     LiftingAndMovingComponent,
-    UserBottomSheetComponent
+    UserBottomSheetComponent,
   ],
   imports: [
     BrowserModule,
@@ -104,10 +100,10 @@ import { UserBottomSheetComponent } from './components/user-bottom-sheet/user-bo
     MatSliderModule,
     MatExpansionModule,
     MatMenuModule,
-    MatBottomSheetModule
+    MatBottomSheetModule,
   ],
   entryComponents: [UserBottomSheetComponent],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

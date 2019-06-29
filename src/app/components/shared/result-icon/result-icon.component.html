@@ -1,9 +1,9 @@
-<ng-container *ngIf="success;else resultFail">
+<ng-container *ngIf="success; else resultFail">
   <mat-icon style="color:green;">check_circle</mat-icon>
 </ng-container>
 <ng-template #resultFail>
   <mat-icon style="color:red">cancel</mat-icon>
 </ng-template>
 <span class="value" *ngIf="value !== undefined">
-  {{value}}
+  {{ value }}
 </span>

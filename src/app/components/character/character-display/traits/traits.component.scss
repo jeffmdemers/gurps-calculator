@@ -1,19 +1,19 @@
 .traits {
-    .traitItem {
-        position: relative;
-        text-align:left;
-        .name {
-            font-weight: 500;
-        }
-        .content {
-            padding: 5px 0;
-            .icon {
-                mat-icon {
-                    position: absolute;
-                    top: 5px;
-                    right:0;
-                }
-            }
-        }
+  .traitItem {
+    position: relative;
+    text-align: left;
+    .name {
+      font-weight: 500;
     }
+    .content {
+      padding: 5px 0;
+      .icon {
+        mat-icon {
+          position: absolute;
+          top: 5px;
+          right: 0;
+        }
+      }
+    }
+  }
 }

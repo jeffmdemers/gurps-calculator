@@ -1,7 +1,12 @@
 <div id="characterList">
   <div class="titleBar">
     <mat-form-field>
-      <input matInput type="text" placeholder="Filter" (keyup)="filterCards($event)" />
+      <input
+        matInput
+        type="text"
+        placeholder="Filter"
+        (keyup)="filterCards($event)"
+      />
     </mat-form-field>
   </div>
   <ng-container *ngTemplateOutlet="cards"></ng-container>
@@ -11,22 +16,36 @@
   <div #cardView>
     <div class="popular" fxLayout="row wrap">
       <ng-container *ngFor="let card of heroCards">
-        <ng-container *ngTemplateOutlet="tmplCard; context: { card: card, large: heroCards.length <= 6 }"></ng-container>
+        <ng-container
+          *ngTemplateOutlet="
+            tmplCard;
+            context: { card: card, large: heroCards.length <= 6 }
+          "
+        ></ng-container>
       </ng-container>
-      
     </div>
   </div>
 </ng-template>
 
 <ng-template #tmplCard let-card="card" let-large="large">
-  <div class="imageContainer" fxFlex.gt-sm="calc(33.33% - 15px)" fxFlex.sm="calc(50% - 15px)" fxGlex.xs="100"
-    [fxHide]="!card.visible">
+  <div
+    class="imageContainer"
+    fxFlex.gt-sm="calc(33.33% - 15px)"
+    fxFlex.sm="calc(50% - 15px)"
+    fxGlex.xs="100"
+    [fxHide]="!card.visible"
+  >
     <a [routerLink]="['/characters', card.id]" [title]="card.name">
       <mat-card class="example-card">
         <mat-card-header>
-          <div mat-card-avatar
-            [ngStyle]="{'background-image': 'url(' + card.imgSrc + '), url(/assets/images/blankHero.png)','background-size': 'cover'}">
-          </div>
+          <div
+            mat-card-avatar
+            [ngStyle]="{
+              'background-image':
+                'url(' + card.imgSrc + '), url(/assets/images/blankHero.png)',
+              'background-size': 'cover'
+            }"
+          ></div>
           <mat-card-title>
             <div [innerHtml]="card.name"></div>
           </mat-card-title>
@@ -34,10 +53,13 @@
             <div [innerHtml]="card.campaign"></div>
           </mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image *ngIf="large" [src]="card.imgSrc" onError="this.src='/assets/images/blankHero.png'">
-        <mat-card-content>
-
-        </mat-card-content>
+        <img
+          mat-card-image
+          *ngIf="large"
+          [src]="card.imgSrc"
+          onError="this.src='/assets/images/blankHero.png'"
+        />
+        <mat-card-content> </mat-card-content>
       </mat-card>
     </a>
   </div>

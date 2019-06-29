@@ -101,7 +101,7 @@ export class Character {
         relativeLevel: s.RelativeSkillLevel,
         pointsSpent: s.Points,
         referencePage: s.Ref,
-        note: s.DescriptionNotes
+        note: s.DescriptionNotes,
       };
       return skill;
     });
@@ -113,13 +113,13 @@ export class Character {
         name: t.DescriptionPrimary,
         pointsSpent: t.Points,
         referencePage: t.Ref,
-        modifierDescription: t.DescriptionModifierNotes
+        modifierDescription: t.DescriptionModifierNotes,
       };
       return trait;
     });
 
-    const pos = traits.filter(x=> x.pointsSpent > -1);
-    const neg = traits.filter(x=> x.pointsSpent < 0);
+    const pos = traits.filter(x => x.pointsSpent > -1);
+    const neg = traits.filter(x => x.pointsSpent < 0);
 
     this.traits = [..._.sortBy(pos, 'name'), ..._.sortBy(neg, 'name')];
   }
@@ -128,7 +128,7 @@ export class Character {
     this.identity = <Identity>{
       name: this.characterJson.Identity.Name,
       title: this.characterJson.Identity.Title,
-      religion: this.characterJson.Identity.Religion
+      religion: this.characterJson.Identity.Religion,
     };
   }
 
@@ -159,15 +159,15 @@ export class Character {
       strength: <Strength>{
         value: c.Strength,
         swing: c.Swing,
-        thrust: c.Thrust
+        thrust: c.Thrust,
       },
       perception: <Perception>{
         value: c.Perception,
         hearing: c.Hearing,
         touch: c.Touch,
         tasteSmell: c.TasteAndSmell,
-        vision: c.Vision
-      }
+        vision: c.Vision,
+      },
     };
   }
 
@@ -179,16 +179,19 @@ export class Character {
         level: e.Level,
         maxLoad: e.MaxLoad,
         move: +e.Move,
-        isCurrentLevel: e.isActive
+        isCurrentLevel: e.isActive,
       };
     });
   }
 
   private loadLiftingAndMoving() {
     const c = this.characterJson.LiftingAndMovingThings;
-    this.liftingAndMovingItems = Object.keys(c).map(e => <LiftingAndMovingItem>{
-      label: e.replace(/([A-Z])/g, ' $1').trim(),
-      value: c[e]
-    });
+    this.liftingAndMovingItems = Object.keys(c).map(
+      e =>
+        <LiftingAndMovingItem>{
+          label: e.replace(/([A-Z])/g, ' $1').trim(),
+          value: c[e],
+        }
+    );
   }
 }

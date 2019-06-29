@@ -1,6 +1,6 @@
 <div class="character-header">
   <app-standard-card>
-    <div class="standard-card-title" innerHtml='{{ identity.name }}'></div>
+    <div class="standard-card-title" innerHtml="{{ identity.name }}"></div>
     <div class="standard-card-content">
       <ng-container *ngTemplateOutlet="hpfp"></ng-container>
     </div>
@@ -16,7 +16,9 @@
         [max]="status.HP.Max"
         displayMax="true"
       ></app-incrementer>
-      <ng-container *ngTemplateOutlet="statusLevel; context: {statusIncrement:status.HP}"></ng-container>
+      <ng-container
+        *ngTemplateOutlet="statusLevel; context: { statusIncrement: status.HP }"
+      ></ng-container>
     </div>
     <div fxFlex="100">
       <app-incrementer
@@ -25,14 +27,16 @@
         [max]="status.FP.Max"
         displayMax="true"
       ></app-incrementer>
-      <ng-container *ngTemplateOutlet="statusLevel; context: {statusIncrement:status.FP}"></ng-container>
+      <ng-container
+        *ngTemplateOutlet="statusLevel; context: { statusIncrement: status.FP }"
+      ></ng-container>
     </div>
   </div>
 </ng-template>
 
 <ng-template let-statusIncrement="statusIncrement" #statusLevel>
   <div class="statusLevel" *ngIf="statusIncrement.getStatusLevel()">
-        {{ statusIncrement.getStatusLevel()?.name }}:
-        {{ statusIncrement.getStatusLevel()?.description }}
+    {{ statusIncrement.getStatusLevel()?.name }}:
+    {{ statusIncrement.getStatusLevel()?.description }}
   </div>
 </ng-template>

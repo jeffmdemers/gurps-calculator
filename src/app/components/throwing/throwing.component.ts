@@ -5,13 +5,13 @@ import { ThrowingModel } from 'src/app/shared/models/throwing.model';
 @Component({
   selector: 'app-throwing',
   templateUrl: './throwing.component.html',
-  styleUrls: ['./throwing.component.scss']
+  styleUrls: ['./throwing.component.scss'],
 })
 export class ThrowingComponent implements OnInit {
   throwingForm: FormGroup;
   result: ThrowingModel;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
     this.throwingForm = this.formBuilder.group({
@@ -21,7 +21,9 @@ export class ThrowingComponent implements OnInit {
     });
   }
 
-  get f() { return this.throwingForm.controls; }
+  get f() {
+    return this.throwingForm.controls;
+  }
 
   onSubmit() {
     this.result = new ThrowingModel();
@@ -31,5 +33,4 @@ export class ThrowingComponent implements OnInit {
       this.f.extraEffort.value
     );
   }
-
 }
