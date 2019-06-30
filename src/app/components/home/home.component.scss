@@ -1,47 +1,47 @@
 #home {
-    margin: 0 auto;
-    .titleBar {
-        padding-left: 15px;
-        padding-top: 5px;
-    }
-    .popular {
-        .imageContainer {
-            height: 60vh;
-            @media screen and (max-width: 959px) {
-                height: 30vh;
-            }
-        }
-    }
+  margin: 0 auto;
+  .titleBar {
+    padding-left: 15px;
+    padding-top: 5px;
+  }
+  .popular {
     .imageContainer {
-        position: relative;
-        width:100%;
-        min-height: 150px;
-        overflow: hidden;
-        img {
-            min-width:100%;
-            min-height:100%;
-            margin-left:50%;
-            transform: translateX(-50%);
-            object-fit:cover;
-        }
-        .name{
-            position:absolute;
-            bottom:0;
-            left:0;
-            right:0;
-            text-align:center;
-            color:white;
-            background-color: rgba(0,0,0, .60)
-        }
-        .favorite{
-            position:absolute;
-            top: 5px;
-            right:5px;
-            color: black;
-            cursor: pointer;
-            &.active{
-                color:gold;
-            }
-        }
+      height: 60vh;
+      @media screen and (max-width: 959px) {
+        height: 30vh;
+      }
     }
+  }
+  .imageContainer {
+    position: relative;
+    width: 100%;
+    min-height: 150px;
+    overflow: hidden;
+    img {
+      min-width: 100%;
+      min-height: 100%;
+      margin-left: 50%;
+      transform: translateX(-50%);
+      object-fit: cover;
+    }
+    .name {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      text-align: center;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+    .favorite {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      color: black;
+      cursor: pointer;
+      &.active {
+        color: gold;
+      }
+    }
+  }
 }

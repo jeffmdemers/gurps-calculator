@@ -5,15 +5,28 @@ export class DiceRoll {
   absoluteMargin: number; // pos representation
   success: boolean;
 
-  rollDiceSet(numberOfDice: number, modifier: number, multiple: number, numberOfRolls: number, target: number): DiceRoll[] {
+  rollDiceSet(
+    numberOfDice: number,
+    modifier: number,
+    multiple: number,
+    numberOfRolls: number,
+    target: number
+  ): DiceRoll[] {
     const results: DiceRoll[] = [];
-    if (!numberOfRolls) { numberOfRolls = 1; }
+    if (!numberOfRolls) {
+      numberOfRolls = 1;
+    }
     for (let i = 0; i < numberOfRolls; i++) {
       results.push(this.rollDice(numberOfDice, modifier, multiple, target));
     }
     return results;
   }
-  rollDice(numberOfDice: number, modifier?: number, multiple?: number, target?: number): DiceRoll {
+  rollDice(
+    numberOfDice: number,
+    modifier?: number,
+    multiple?: number,
+    target?: number
+  ): DiceRoll {
     let result = 0;
     const dice = new Array(numberOfDice);
     for (let i = 1; i <= numberOfDice; i++) {
@@ -39,6 +52,6 @@ export class DiceRoll {
     return model;
   }
   rollDie() {
-    return Math.floor((Math.random() * 6) + 1);
+    return Math.floor(Math.random() * 6 + 1);
   }
 }

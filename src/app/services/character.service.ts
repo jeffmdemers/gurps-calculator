@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ApiService } from './api.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CharacterService {
   characterList: any[];
@@ -13,9 +12,7 @@ export class CharacterService {
   constructor(private apiService: ApiService) {}
 
   private get(urlPart) {
-    return this.apiService.get(
-      `${this.controller}/${urlPart}`
-    );
+    return this.apiService.get(`${this.controller}/${urlPart}`);
   }
 
   getCharacter(characterID: string): Observable<any> {
@@ -23,6 +20,8 @@ export class CharacterService {
   }
 
   getMyCharacters(): Observable<any> {
-    return this.characterList ? of(this.characterList) : this.get(`GetMyCharacters`).pipe(map(c => this.characterList = c));
+    return this.characterList
+      ? of(this.characterList)
+      : this.get(`GetMyCharacters`).pipe(map(c => (this.characterList = c)));
   }
 }

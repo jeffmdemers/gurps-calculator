@@ -1,46 +1,81 @@
 <div id="diceRoller">
-    <app-standard-card>
-        <div class="standard-card-title">Dice Roller</div>
-        <div class="standard-card-content">
-            <form [formGroup]="diceForm" (ngSubmit)="onSubmit()" fxLayout="column">
-                <mat-form-field>
-                    <input matInput type="tel" placeholder="# of Dice" formControlName="numberOfDice" maxLength="2"/>
-                </mat-form-field>
-                <mat-form-field>
-                    <input matInput type="number" formControlName="modifier" placeholder="Modifier" />
-                </mat-form-field>
-                <mat-form-field>
-                    <input matInput type="number" formControlName="multiple" placeholder="Multiple" />
-                </mat-form-field>
-                <mat-form-field>
-                    <input matInput type="number" formControlName="numberOfRolls" placeholder="# of Rolls" />
-                </mat-form-field>
-                <mat-form-field>
-                    <input matInput type="number" formControlName="target" placeholder="Target" />
-                </mat-form-field>
-                <button mat-raised-button color="primary">Roll</button>
-            </form>
-            <div id="resultsPanel">
-                <div *ngIf="resultSuccess || resultFailure" style="text-align:left; margin-top:20px">
-                    <mat-icon [matBadge]="resultSuccess" style="color:green;margin-right:10px;">check_circle</mat-icon>
-                    <mat-icon [matBadge]="resultFailure" style="color:red;">cancel</mat-icon>
-                </div>
-                <div class="resultRow" *ngFor="let result of results; let last=last;">
-                    <mat-chip-list>
-                        <mat-chip class="primeResult">
-                            <app-result-icon [success]="result.success"></app-result-icon>
-                            {{result.result}}
-                        </mat-chip>
-                        <mat-chip *ngIf="result.absoluteMargin !== null">
-                            {{(result.success ? '+' : '-')+ result.absoluteMargin}}
-                        </mat-chip>
-                        <mat-chip *ngFor="let die of result.dieResults">
-                            {{die}}
-                        </mat-chip>
-                    </mat-chip-list>
-                    <mat-divider *ngIf="!last"></mat-divider>
-                </div>
-            </div>
+  <app-standard-card>
+    <div class="standard-card-title">Dice Roller</div>
+    <div class="standard-card-content">
+      <form [formGroup]="diceForm" (ngSubmit)="onSubmit()" fxLayout="column">
+        <mat-form-field>
+          <input
+            matInput
+            type="tel"
+            placeholder="# of Dice"
+            formControlName="numberOfDice"
+            maxLength="2"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            type="number"
+            formControlName="modifier"
+            placeholder="Modifier"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            type="number"
+            formControlName="multiple"
+            placeholder="Multiple"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            type="number"
+            formControlName="numberOfRolls"
+            placeholder="# of Rolls"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            type="number"
+            formControlName="target"
+            placeholder="Target"
+          />
+        </mat-form-field>
+        <button mat-raised-button color="primary">Roll</button>
+      </form>
+      <div id="resultsPanel">
+        <div
+          *ngIf="resultSuccess || resultFailure"
+          style="text-align:left; margin-top:20px"
+        >
+          <mat-icon
+            [matBadge]="resultSuccess"
+            style="color:green;margin-right:10px;"
+            >check_circle</mat-icon
+          >
+          <mat-icon [matBadge]="resultFailure" style="color:red;"
+            >cancel</mat-icon
+          >
         </div>
-    </app-standard-card>
+        <div class="resultRow" *ngFor="let result of results; let last = last">
+          <mat-chip-list>
+            <mat-chip class="primeResult">
+              <app-result-icon [success]="result.success"></app-result-icon>
+              {{ result.result }}
+            </mat-chip>
+            <mat-chip *ngIf="result.absoluteMargin !== null">
+              {{ (result.success ? '+' : '-') + result.absoluteMargin }}
+            </mat-chip>
+            <mat-chip *ngFor="let die of result.dieResults">
+              {{ die }}
+            </mat-chip>
+          </mat-chip-list>
+          <mat-divider *ngIf="!last"></mat-divider>
+        </div>
+      </div>
+    </div>
+  </app-standard-card>
 </div>

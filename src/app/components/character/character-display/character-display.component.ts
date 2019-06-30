@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CharacterService } from 'src/app/services/character.service';
-import { Skill, Character, Trait, Identity } from 'src/app/shared/models/character.model';
-import { Status, StatusIncrement } from 'src/app/shared/models/status.model';
-import { RodeoItem } from '../../shared/rodeo/rodeo.component';
 import { MenuService } from 'src/app/services/menu.service';
+import { Character } from 'src/app/shared/models/character.model';
+import { RodeoItem } from '../../shared/rodeo/rodeo.component';
 
 @Component({
   selector: 'app-character-display',
   templateUrl: './character-display.component.html',
-  styleUrls: ['./character-display.component.scss']
+  styleUrls: ['./character-display.component.scss'],
 })
 export class CharacterDisplayComponent implements OnInit {
   character: Character;
@@ -17,8 +15,10 @@ export class CharacterDisplayComponent implements OnInit {
   screenSelections: RodeoItem[];
   menuOpen = true;
 
-  constructor(private route: ActivatedRoute,
-    private menuService: MenuService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private menuService: MenuService
+  ) {}
 
   ngOnInit() {
     this.setupMenu();
@@ -38,8 +38,7 @@ export class CharacterDisplayComponent implements OnInit {
     this.screenSelections = [
       new RodeoItem('details', 'Details'),
       new RodeoItem('skills', 'Skills'),
-      new RodeoItem('traits', 'Traits')
+      new RodeoItem('traits', 'Traits'),
     ];
   }
-
 }

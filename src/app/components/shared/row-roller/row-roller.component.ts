@@ -1,15 +1,15 @@
-import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
-import { DiceRoll } from "src/app/shared/models/dice-roll.model";
+import { Component, Input } from '@angular/core';
+import { DiceRoll } from 'src/app/shared/models/dice-roll.model';
 
 export enum RollerType {
   Default,
-  StrengthDamage
+  StrengthDamage,
 }
 
 @Component({
-  selector: "app-row-roller",
-  templateUrl: "./row-roller.component.html",
-  styleUrls: ["./row-roller.component.scss"]
+  selector: 'app-row-roller',
+  templateUrl: './row-roller.component.html',
+  styleUrls: ['./row-roller.component.scss'],
 })
 export class RowRollerComponent {
   @Input() name: string;
@@ -28,7 +28,7 @@ export class RowRollerComponent {
         result: value,
         marginOfSuccess: null,
         absoluteMargin: null,
-        success: null
+        success: null,
       };
     } else {
       this.rollDefault();

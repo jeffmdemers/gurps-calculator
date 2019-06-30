@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { take } from 'rxjs/operators';
 
 interface Hero {
   id: string;
@@ -17,12 +16,12 @@ interface HeroCard extends Hero {
 @Component({
   selector: 'app-character-list',
   templateUrl: './character-list.component.html',
-  styleUrls: ['./character-list.component.scss']
+  styleUrls: ['./character-list.component.scss'],
 })
 export class CharacterListComponent implements OnInit {
   heroCards: HeroCard[];
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.get();
@@ -36,7 +35,7 @@ export class CharacterListComponent implements OnInit {
         imgSrc: `http://images.gurpscalculator.com/characters/${c.ID}.png`,
         favorite: false,
         visible: true,
-        campaign: c.Campaign.name
+        campaign: c.Campaign.name,
       };
 
       return card;
@@ -46,10 +45,15 @@ export class CharacterListComponent implements OnInit {
   filterCards(event) {
     const val = event.target.value.trim().toLowerCase();
     if (val.length === 0) {
-      this.heroCards.forEach(card => {card.visible = true; });
+      this.heroCards.forEach(card => {
+        card.visible = true;
+      });
     } else {
       this.heroCards.forEach(card => {
-        card.visible = card.name.toLowerCase().trim().includes(val);
+        card.visible = card.name
+          .toLowerCase()
+          .trim()
+          .includes(val);
       });
     }
   }
@@ -59,8 +63,5 @@ export class CharacterListComponent implements OnInit {
     hero.favorite = !hero.favorite;
   }
 
-  updateImage(event) {
-    debugger;
-  }
-
+  updateImage(event) {}
 }

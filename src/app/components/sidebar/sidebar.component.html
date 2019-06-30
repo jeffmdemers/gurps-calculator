@@ -31,7 +31,7 @@
         </ng-container>
 
         <ng-container *ngSwitchCase="menuItemType.Command">
-          <a mat-list-item (click)="this.itemSelected();item.command();">
+          <a mat-list-item (click)="this.itemSelected(); item.command()">
             <ng-container
               *ngTemplateOutlet="iconName; context: { $implicit: item }"
             ></ng-container>

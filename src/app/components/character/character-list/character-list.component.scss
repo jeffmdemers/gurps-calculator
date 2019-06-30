@@ -1,80 +1,80 @@
 #characterList {
-    margin: 0 auto;
+  margin: 0 auto;
 
-    .titleBar {
-        padding-left: 15px;
-        padding-top: 5px;
+  .titleBar {
+    padding-left: 15px;
+    padding-top: 5px;
+  }
+
+  .imageContainer {
+    position: relative;
+    width: 100%;
+    margin-bottom: 15px;
+    margin-right: 15px;
+
+    a {
+      text-decoration: none;
     }
 
-    .imageContainer {
-        position: relative;
+    ::ng-deep mat-card {
+      overflow: hidden;
+      mat-card-header {
         width: 100%;
-        margin-bottom: 15px;
-        margin-right: 15px;
 
-        a {
-            text-decoration: none;
-        }
+        .mat-card-header-text {
+          width: 100%;
 
-        ::ng-deep mat-card {
-            overflow: hidden;
-            mat-card-header {
-                width: 100%;
+          mat-card-title {
+            width: 100%;
 
-                .mat-card-header-text {
-                    width: 100%;
-
-                    mat-card-title {
-                        width: 100%;
-
-                        div {
-                            width: calc(100% - 32px);
-                            overflow: hidden;
-                            white-space: nowrap;
-                            text-overflow: ellipsis;
-                        }
-                    }
-                }
+            div {
+              width: calc(100% - 32px);
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
             }
+          }
         }
-
-        img {
-            min-width: 100%;
-            min-height:150px;
-            height:30vh;
-            margin-left: 50%;
-            transform: translateX(-50%);
-            object-fit: cover;
-            object-position: top;
-            @media screen and (max-width: 959px) {
-                display:none;
-            }
-        }
-
-        .name {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            text-align: center;
-            color: white;
-            background-color: #3f51b5;
-            font-weight: 300;
-            z-index: 50;
-            font-size: 1.7em;
-            padding: 10px 0;
-        }
-
-        .favorite {
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            color: black;
-            cursor: pointer;
-
-            &.active {
-                color: gold;
-            }
-        }
+      }
     }
+
+    img {
+      min-width: 100%;
+      min-height: 150px;
+      height: 30vh;
+      margin-left: 50%;
+      transform: translateX(-50%);
+      object-fit: cover;
+      object-position: top;
+      @media screen and (max-width: 959px) {
+        display: none;
+      }
+    }
+
+    .name {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      text-align: center;
+      color: white;
+      background-color: #3f51b5;
+      font-weight: 300;
+      z-index: 50;
+      font-size: 1.7em;
+      padding: 10px 0;
+    }
+
+    .favorite {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      color: black;
+      cursor: pointer;
+
+      &.active {
+        color: gold;
+      }
+    }
+  }
 }

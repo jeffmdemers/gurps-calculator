@@ -1,24 +1,36 @@
 <div style="margin-top:25px">
-    <app-standard-card>
-        <div class="standard-card-title">
-            Login
+  <app-standard-card>
+    <div class="standard-card-title">
+      Login
+    </div>
+    <div class="standard-card-content">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" *ngIf="loginForm">
+        <div>
+          <mat-form-field>
+            <input
+              matInput
+              type="text"
+              placeholder="Username"
+              name="username"
+              formControlName="username"
+            />
+          </mat-form-field>
         </div>
-        <div class="standard-card-content">
-            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" *ngIf="loginForm">
-                <div>
-                    <mat-form-field>
-                        <input matInput type="text" placeholder="Username" name="username" formControlName="username" />
-                    </mat-form-field>
-                </div>
-                <div>
-                    <mat-form-field>
-                        <input matInput type="password" name="password" placeholder="Password" formControlName="password" />
-                    </mat-form-field>
-                </div>
-                <div>
-                    <button mat-raised-button color="primary">Login</button>
-                </div>
-            </form>
+        <div>
+          <mat-form-field>
+            <input
+              matInput
+              type="password"
+              name="password"
+              placeholder="Password"
+              formControlName="password"
+            />
+          </mat-form-field>
         </div>
-    </app-standard-card>
+        <div>
+          <button mat-raised-button color="primary">Login</button>
+        </div>
+      </form>
+    </div>
+  </app-standard-card>
 </div>

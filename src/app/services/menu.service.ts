@@ -1,17 +1,16 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root',
 })
 export class MenuService {
-    showMenuIcon: boolean;
+  showMenuIcon: boolean;
 
-    private toggle: Subject<boolean> = new Subject();
-    toggleStream$ = this.toggle.asObservable();
+  private toggle: Subject<boolean> = new Subject();
+  toggleStream$ = this.toggle.asObservable();
 
-
-    emitToggleEvent(event: boolean) {
-        this.toggle.next(event);
-    }
+  emitToggleEvent(event: boolean) {
+    this.toggle.next(event);
+  }
 }

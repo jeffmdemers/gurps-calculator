@@ -1,11 +1,10 @@
-import { Component, OnInit, Output, ViewChild, EventEmitter } from '@angular/core';
-import { MatSelect } from '@angular/material/select';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { RodeoItem } from '../shared/rodeo/rodeo.component';
 
 @Component({
   selector: 'app-app-sidebar',
   templateUrl: './app-sidebar.component.html',
-  styleUrls: ['./app-sidebar.component.scss']
+  styleUrls: ['./app-sidebar.component.scss'],
 })
 export class AppSidebarComponent implements OnInit {
   @Output() closeClicked = new EventEmitter();
@@ -28,5 +27,4 @@ export class AppSidebarComponent implements OnInit {
       new RodeoItem('throwing', 'Throwing'),
     ];
   }
-
 }

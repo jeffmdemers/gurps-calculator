@@ -30,18 +30,18 @@ export class StatusIncrement implements IStatusIncrement {
       <IStatusLevel>{
         name: 'Tired',
         threshold: FpMax / 3,
-        description: '1/2 move, dodge, and ST'
+        description: '1/2 move, dodge, and ST',
       },
       <IStatusLevel>{
         name: 'Collapse',
         threshold: 0,
-        description: 'WL each turn or fall unconcious.'
+        description: 'WL each turn or fall unconcious.',
       },
       <IStatusLevel>{
         name: 'Unconcious',
         threshold: -FpMax,
-        description: 'Recover FP as though resting.'
-      }
+        description: 'Recover FP as though resting.',
+      },
     ];
   }
 
@@ -50,43 +50,43 @@ export class StatusIncrement implements IStatusIncrement {
       <IStatusLevel>{
         name: 'Reeling',
         threshold: HpMax / 3,
-        description: '1/2 move and dodge'
+        description: '1/2 move and dodge',
       },
       <IStatusLevel>{
         name: 'Collapse',
         threshold: 0,
-        description: 'HT each turn or fall unconcious'
+        description: 'HT each turn or fall unconcious',
       },
       <IStatusLevel>{
         name: 'Death Check 1',
         threshold: -HpMax,
-        description: 'Immediate Health roll or die'
+        description: 'Immediate Health roll or die',
       },
       <IStatusLevel>{
         name: 'Death Check 2',
         threshold: -HpMax * 2,
-        description: 'Immediate Health roll or die'
+        description: 'Immediate Health roll or die',
       },
       <IStatusLevel>{
         name: 'Death Check 3',
         threshold: -HpMax * 3,
-        description: 'Immediate Health roll or die'
+        description: 'Immediate Health roll or die',
       },
       <IStatusLevel>{
         name: 'Death Check 4',
         threshold: -HpMax * 4,
-        description: 'Immediate Health roll or die'
+        description: 'Immediate Health roll or die',
       },
       <IStatusLevel>{
         name: 'Death',
         threshold: -HpMax * 5,
-        description: 'Death and Total Bodily Destruction'
-      }
+        description: 'Death and Total Bodily Destruction',
+      },
     ];
   }
 
   getStatusLevel(): IStatusLevel {
-      return this.Levels.filter(x => this.Current <= x.threshold).pop();
+    return this.Levels.filter(x => this.Current <= x.threshold).pop();
   }
 }
 

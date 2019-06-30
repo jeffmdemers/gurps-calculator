@@ -1,12 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { AuthorizeService } from 'src/app/services/authorize.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent {
-
-}
+export class HomeComponent {}

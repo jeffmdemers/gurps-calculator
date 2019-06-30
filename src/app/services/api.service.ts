@@ -1,15 +1,15 @@
-import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiService {
   api = 'http://qa.gurpscalculator.com/api/';
-  //api = 'http://localhost:52527/api/';
+  // api = 'http://localhost:52527/api/';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   private headers() {
     return {
@@ -17,22 +17,22 @@ export class ApiService {
         'Content-Type': 'application/json',
         Accept: 'application/json',
         'Access-Control-Allow-Headers': 'Content-Type',
-        Authorization: localStorage.getItem('Authorization') || ''
-      })
+        Authorization: localStorage.getItem('Authorization') || '',
+      }),
     };
   }
 
   get(apiPath: string) {
-    return this.http
-      .get(`${this.api}${apiPath}`, this.headers())
-      .pipe(map(c => {
+    return this.http.get(`${this.api}${apiPath}`, this.headers()).pipe(
+      map(c => {
         try {
           return JSON.parse(c.toString());
         } catch (e) {
           console.log(c);
           return null;
         }
-      }));
+      })
+    );
   }
 
   post(apiPath: string, body: any) {
