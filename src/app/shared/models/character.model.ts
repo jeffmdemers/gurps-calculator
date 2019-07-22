@@ -1,5 +1,9 @@
 import * as _ from 'lodash';
 import { Status, StatusIncrement } from './status.model';
+import {
+  MeleeAttackFactory,
+  RangedAttackFactory,
+} from './attack/attack-factory.model';
 
 export interface Identity {
   name: string;
@@ -78,6 +82,7 @@ export class Character {
   liftingAndMovingItems: LiftingAndMovingItem[];
 
   private characterJson: any;
+
   constructor(characterJson: any) {
     this.characterJson = characterJson;
     this.LoadCharacter();
@@ -91,6 +96,7 @@ export class Character {
     this.loadAttributes();
     this.loadEncumbrance();
     this.loadLiftingAndMoving();
+    this.loadAttacks();
   }
 
   private loadSkills() {
@@ -193,5 +199,17 @@ export class Character {
           value: c[e],
         }
     );
+  }
+
+  private loadAttacks() {
+    const meleeAttackFactory = new MeleeAttackFactory();
+    const meleeAttacks = this.characterJson.MeleeRows.map(row => {
+      return meleeAttackFactory.fromLegacyJson(row);
+    });
+
+    const rangedAttackFactory = new RangedAttackFactory();
+    const rangedAttacks = this.characterJson.RangedRows.map(row => {
+      return rangedAttackFactory.fromLegacyJson(row);
+    });
   }
 }
