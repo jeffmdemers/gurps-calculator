@@ -1,5 +1,8 @@
 # GurpsCalculator
 
+Come join us in the Gurps Discord on the Apps channel, where we talk about GURPS Calculator development and share ideas.
+https://discord.gg/gnkQEap
+
 This project is written in the [Angular](https://angular.io/) framework and [TypeScript](https://www.typescriptlang.org/),
  a dialect of Javascript. You can learn more about both on their respective documentation pages.
 
