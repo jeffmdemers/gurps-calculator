@@ -1,5 +1,7 @@
 import { Strength } from './character.model';
 import { DiceRoll } from './dice-roll.model';
+import { HitLocation } from './attack/hit-location.model';
+import { InjuryTolerance } from './attack/injury-tolerance.model';
 
 export class Damage implements Strength {
   value: number;
@@ -308,4 +310,60 @@ export class Damage implements Strength {
       },
     ];
   }
+}
+
+// TODO consider extracting DamageType as an interface and having one concrete class for each type
+export class DamageType {
+  static readonly CRUSHING = 'cr';
+  static readonly CUTTING = 'cut';
+  static readonly IMPALING = 'imp';
+  static readonly PIERCING = 'pi';
+  static readonly PIERCING_LARGE = 'pi+';
+  static readonly PIERCING_HUGE = 'pi++';
+  static readonly PIERCING_SMALL = 'pi-';
+  static readonly BURNING = 'burn';
+  static readonly CORROSIVE = 'cor';
+  static readonly FATIGUE = 'fat';
+  static readonly TOXIC = 'tox';
+
+  private static readonly ALLOWED_VALUES = [
+    DamageType.CRUSHING,
+    DamageType.CUTTING,
+    DamageType.IMPALING,
+    DamageType.PIERCING,
+    DamageType.PIERCING_HUGE,
+    DamageType.PIERCING_LARGE,
+    DamageType.PIERCING_SMALL,
+    DamageType.BURNING,
+    DamageType.CORROSIVE,
+    DamageType.FATIGUE,
+    DamageType.TOXIC,
+  ];
+
+  private readonly _name: string;
+
+  constructor(name: string) {
+    if (DamageType.ALLOWED_VALUES.find(value => value === name) === undefined) {
+      throw new Error(
+        `Damage type ${name} is not supported, supported types are: ${DamageType.ALLOWED_VALUES.join(
+          ', '
+        )}`
+      );
+    }
+
+    this._name = name;
+  }
+
+  get name(): string {
+    return this._name;
+  }
+
+  woundModifier(
+    location: HitLocation,
+    injuryTolerance: InjuryTolerance
+  ): number {
+    return 1;
+  }
+
+  // TODO add mapping of damage types to wounding modifiers vs hit locations
 }
