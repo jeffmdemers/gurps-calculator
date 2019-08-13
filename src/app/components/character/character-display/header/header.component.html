@@ -15,6 +15,7 @@
         [(value)]="status.HP.Current"
         [max]="status.HP.Max"
         displayMax="true"
+        (valueChange)="statusChanged()"
       ></app-incrementer>
       <ng-container
         *ngTemplateOutlet="statusLevel; context: { statusIncrement: status.HP }"
@@ -26,6 +27,7 @@
         [(value)]="status.FP.Current"
         [max]="status.FP.Max"
         displayMax="true"
+        (valueChange)="statusChanged()"
       ></app-incrementer>
       <ng-container
         *ngTemplateOutlet="statusLevel; context: { statusIncrement: status.FP }"

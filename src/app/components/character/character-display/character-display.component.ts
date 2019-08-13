@@ -24,8 +24,7 @@ export class CharacterDisplayComponent implements OnInit {
     this.setupMenu();
     this.getScreenSelections();
 
-    const c = this.route.snapshot.data.character;
-    this.character = new Character(c);
+    this.character = this.route.snapshot.data.character;
   }
 
   setupMenu() {

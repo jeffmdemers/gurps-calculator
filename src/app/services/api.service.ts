@@ -6,10 +6,11 @@ import { map } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class ApiService {
-  api = 'http://qa.gurpscalculator.com/api/';
+  raw_api = 'http://qa.gurpscalculator.com/';
+  api = this.raw_api + 'api/';
   // api = 'http://localhost:52527/api/';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   private headers() {
     return {
@@ -37,5 +38,9 @@ export class ApiService {
 
   post(apiPath: string, body: any) {
     return this.http.post(`${this.api}${apiPath}`, body, this.headers());
+  }
+
+  post_raw(apiPath: string, body: any) {
+    return this.http.post(`${this.raw_api}${apiPath}`, body, this.headers());
   }
 }

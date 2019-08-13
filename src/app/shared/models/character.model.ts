@@ -11,10 +11,12 @@ export interface Identity {
   religion: string;
 }
 
-export interface MetaIdentity {
+export interface MetaInformation {
+  id: string;
   player: string;
   campaign: string;
   createdOn: Date;
+  notes: string;
 }
 
 export interface Attributes {
@@ -80,6 +82,7 @@ export class Character {
   skills: Skill[];
   encumbranceLevels: Encumbrance[];
   liftingAndMovingItems: LiftingAndMovingItem[];
+  metaInformation: MetaInformation;
 
   private characterJson: any;
 
@@ -97,6 +100,7 @@ export class Character {
     this.loadEncumbrance();
     this.loadLiftingAndMoving();
     this.loadAttacks();
+    this.loadMetaInformation();
   }
 
   private loadSkills() {
@@ -211,5 +215,15 @@ export class Character {
     const rangedAttacks = this.characterJson.RangedRows.map(row => {
       return rangedAttackFactory.fromLegacyJson(row);
     });
+  }
+
+  private loadMetaInformation() {
+    this.metaInformation = <MetaInformation>{
+      id: this.characterJson.id,
+      player: '',
+      campaign: '',
+      createdOn: new Date(),
+      notes: this.characterJson.persistentData.notes
+    };
   }
 }
