@@ -9,6 +9,7 @@
                 <mat-form-field>
                     <input matInput type="number" formControlName="velocity" placeholder="Velocity" />
                 </mat-form-field>
+                <mat-checkbox [(ngModel)]="checked" formControlName="isHardObject">Hard Object</mat-checkbox>
                 <button mat-raised-button color="primary">Collide</button>
             </form>
             <div *ngIf="result" id="results">

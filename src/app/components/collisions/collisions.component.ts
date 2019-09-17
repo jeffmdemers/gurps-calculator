@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup} from '@angular/forms';
 import {CollisionModel, CollisionModelResult} from 'src/app/shared/models/collision.model';
 
 @Component({
@@ -30,7 +30,7 @@ export class CollisionsComponent implements OnInit {
     this.result = CollisionModel.calculate(
       this.f.hp.value, 
       this.f.velocity.value, 
-      false);
+      this.f.isHardObject.value);
     this.result.hitLocation = "Torso";
   }
 }
