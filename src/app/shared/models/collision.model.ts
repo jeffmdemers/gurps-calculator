@@ -2,7 +2,7 @@ import { DiceRoll } from './dice-roll.model';
 
 export class CollisionModelResult {
   damage: number;
-  hitLocation: any;
+  hitLocation: string;
   diceOutput: string;
 }
 
