@@ -1,7 +1,7 @@
 # GurpsCalculator
 
-Come join us in the Gurps Discord on the Apps channel, where we talk about GURPS Calculator development and share ideas.
-https://discord.gg/gnkQEap
+Come join us in the Gurps Discord on the Apps-Dev channel, where we talk about GURPS Calculator development and share ideas.
+https://discord.gg/GJpu7q
 
 This project is written in the [Angular](https://angular.io/) framework and [TypeScript](https://www.typescriptlang.org/),
  a dialect of Javascript. You can learn more about both on their respective documentation pages.
@@ -86,7 +86,7 @@ Node.js - although originally a tool designed to run webservers powered by Javas
  It comes together with npm, the Node Package Manager, which is used to manage Javascript libraries (such as Angular)
  used in a project.
  
-The Node.js installer can be downloaded from the [official website](https://nodejs.org) (the "Current" version will do).
+The Node.js installer can be downloaded from the [official website](https://nodejs.org) (use the latest build of version 10 LTS, NOT the "current" build of 11 or later).
  Once you have completed it, you will be able to use node, npm and npx from your terminal.
 
 ## Checking out GurpsCalculator from GitHub
