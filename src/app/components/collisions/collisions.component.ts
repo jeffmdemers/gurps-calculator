@@ -28,8 +28,8 @@ export class CollisionsComponent implements OnInit {
   onSubmit() {
     this.result = new CollisionModelResult;
     this.result = CollisionModel.calculate(
-      this.f.hp.value, 
-      this.f.velocity.value, 
+      this.f.hp.value,
+      this.f.velocity.value,
       this.f.isHardObject.value);
     this.result.hitLocation = "Torso";
   }
