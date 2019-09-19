@@ -10,6 +10,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
@@ -99,6 +100,7 @@ import { UserBottomSheetComponent } from './components/user-bottom-sheet/user-bo
     MatSelectModule,
     MatSliderModule,
     MatExpansionModule,
+    MatCheckboxModule,
     MatMenuModule,
     MatBottomSheetModule,
   ],

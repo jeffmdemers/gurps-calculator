@@ -1,8 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {
-  CollisionModel,
-  CollisionModelResult,
-} from 'src/app/shared/models/collision.model';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {CollisionModel, CollisionModelResult} from 'src/app/shared/models/collision.model';
 
 @Component({
   selector: 'app-collisions',
@@ -10,15 +8,29 @@ import {
   styleUrls: ['./collisions.component.scss'],
 })
 export class CollisionsComponent implements OnInit {
+  collisionForm: FormGroup;
   result: CollisionModelResult;
 
-  constructor() {}
+  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
-    this.onSubmit();
+    this.collisionForm = this.formBuilder.group({
+      hp: [10],
+      velocity: [1],
+      isHardObject: false,
+    });
+  }
+
+  get f() {
+    return this.collisionForm.controls;
   }
 
   onSubmit() {
-    this.result = CollisionModel.calculate(10, 200, true);
+    this.result = new CollisionModelResult;
+    this.result = CollisionModel.calculate(
+      this.f.hp.value, 
+      this.f.velocity.value, 
+      this.f.isHardObject.value);
+    this.result.hitLocation = "Torso";
   }
 }

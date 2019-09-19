@@ -1,3 +1,27 @@
-<p>
-  collisions works!
-</p>
+<div id="collisions">
+    <app-standard-card>
+        <div class="standard-card-title">Collisions</div>
+        <div class="standard-card-content">
+            <form [formGroup]="collisionForm" (ngSubmit)="onSubmit()" fxLayout="column">
+                <mat-form-field>
+                    <input matInput type="number" formControlName="hp" placeholder="HP" />
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="number" formControlName="velocity" placeholder="Velocity" />
+                </mat-form-field>
+                <mat-checkbox [(ngModel)]="checked" formControlName="isHardObject">Hard Object</mat-checkbox>
+                <button mat-raised-button color="primary">Collide</button>
+            </form>
+            <div *ngIf="result" id="results">
+                <h3>Damage</h3>
+                <p>{{result.damage}}</p>
+                <mat-divider></mat-divider>
+                <h3>Hit Location</h3>
+                <p>{{result.hitLocation}}</p>
+                <mat-divider></mat-divider>
+                <h3>Formula</h3>
+                <p>{{result.diceOutput}}</p>
+            </div>
+        </div>
+    </app-standard-card>
+</div>
