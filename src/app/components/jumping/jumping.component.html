@@ -1,94 +1,58 @@
 <div class="jumping">
-  <app-standard-card>
-    <div class="standard-card-title">Jumping</div>
-    <div class="standard-card-content">
-      <form [formGroup]="jumpingForm" (ngSubmit)="onSubmit()" fxLayout="column">
-        <mat-form-field>
-          <input
-            matInput
-            type="number"
-            placeholder="Basic Move"
-            formControlName="basicMove"
-          />
-        </mat-form-field>
-        <mat-form-field>
-          <input
-            matInput
-            type="number"
-            formControlName="jumpingSkill"
-            placeholder="Jumping Skill"
-          />
-        </mat-form-field>
-        <mat-form-field>
-          <input
-            matInput
-            type="number"
-            formControlName="yardsRun"
-            placeholder="Yards Run"
-          />
-        </mat-form-field>
-        <mat-form-field>
-          <input
-            matInput
-            type="number"
-            formControlName="enhancedMoveLevels"
-            placeholder="Enhanced Move (Ground) Levels"
-          />
-        </mat-form-field>
-        <mat-form-field>
-          <input
-            matInput
-            type="number"
-            formControlName="superJumpLevels"
-            placeholder="Super Jump Levels"
-          />
-        </mat-form-field>
-        <button mat-raised-button color="primary" class="">Jump!</button>
-      </form>
-      <div *ngIf="result">
-        <mat-list>
-          <ng-container
-            *ngTemplateOutlet="
+    <app-standard-card>
+        <div class="standard-card-title">Jumping</div>
+        <div class="standard-card-content">
+            <form [formGroup]="jumpingForm" (ngSubmit)="onSubmit()" fxLayout="column">
+                <mat-form-field>
+                    <input matInput type="number" placeholder="Basic Move" formControlName="basicMove" />
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="number" formControlName="jumpingSkill" placeholder="Jumping Skill" />
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="number" formControlName="yardsRun" placeholder="Yards Run" />
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="number" formControlName="enhancedMoveLevels" placeholder="Enhanced Move (Ground) Levels" />
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="number" formControlName="superJumpLevels" placeholder="Super Jump Levels" />
+                </mat-form-field>
+                <button mat-raised-button color="primary" class="">Jump!</button>
+            </form>
+            <div *ngIf="result">
+                <mat-list>
+                    <ng-container *ngTemplateOutlet="
               resultItem;
               context: {
                 title: 'Broad Jump',
                 value: result.BroadJump.value,
                 descriptor: result.BroadJump.descriptor
               }
-            "
-          ></ng-container>
-          <ng-container
-            *ngTemplateOutlet="
+            "></ng-container>
+                    <ng-container *ngTemplateOutlet="
               resultItem;
               context: {
                 title: 'High Jump',
                 value: result.HighJump.value,
                 descriptor: result.HighJump.descriptor
               }
-            "
-          ></ng-container>
-          <ng-container
-            *ngTemplateOutlet="
+            "></ng-container>
+                    <ng-container *ngTemplateOutlet="
               resultItem;
               context: {
                 title: 'Air Speed',
                 value: result.AirSpeed.value,
                 descriptor: result.AirSpeed.descriptor
               }
-            "
-          ></ng-container>
-        </mat-list>
-        <ng-template
-          #resultItem
-          let-title="title"
-          let-value="value"
-          let-descriptor="descriptor"
-        >
-          <mat-list-item>
-            <h3>{{ title }}: {{ value }} {{ descriptor }}</h3>
-          </mat-list-item>
-        </ng-template>
-      </div>
-    </div>
-  </app-standard-card>
+            "></ng-container>
+                </mat-list>
+                <ng-template #resultItem let-title="title" let-value="value" let-descriptor="descriptor">
+                    <mat-list-item>
+                        <h3>{{ title }}: {{ value }} {{ descriptor }}</h3>
+                    </mat-list-item>
+                </ng-template>
+            </div>
+        </div>
+    </app-standard-card>
 </div>

@@ -25,6 +25,7 @@ export class AppSidebarComponent implements OnInit {
       new RodeoItem('collisions', 'Collisions'),
       new RodeoItem('jumping', 'Jumping'),
       new RodeoItem('throwing', 'Throwing'),
+      new RodeoItem('hiking', 'Hiking'),
     ];
   }
 }

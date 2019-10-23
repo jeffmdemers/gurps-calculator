@@ -1,7 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, FormArray } from '@angular/forms';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatButtonModule } from '@angular/material/button';
@@ -18,7 +18,10 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSliderModule } from '@angular/material/slider';
-import { MatTableModule } from '@angular/material/table';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatTableModule, MatTable } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -48,6 +51,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { StandardCardComponent } from './components/standard-card/standard-card.component';
 import { ThrowingComponent } from './components/throwing/throwing.component';
 import { UserBottomSheetComponent } from './components/user-bottom-sheet/user-bottom-sheet.component';
+import { HikingComponent } from './components/hiking/hiking.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +80,7 @@ import { UserBottomSheetComponent } from './components/user-bottom-sheet/user-bo
     EncumbranceComponent,
     LiftingAndMovingComponent,
     UserBottomSheetComponent,
+    HikingComponent,
   ],
   imports: [
     BrowserModule,
@@ -103,9 +108,12 @@ import { UserBottomSheetComponent } from './components/user-bottom-sheet/user-bo
     MatCheckboxModule,
     MatMenuModule,
     MatBottomSheetModule,
+    MatRadioModule,
+    MatSlideToggleModule,
+    MatStepperModule,
   ],
   entryComponents: [UserBottomSheetComponent],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
