@@ -17,11 +17,9 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    if (this.authService.isAuthorized()) {
-      this.router.navigate(['characters']);
-    } else {
+
       this.buildForm();
-    }
+
   }
 
   get f() {
@@ -42,8 +40,7 @@ export class LoginComponent implements OnInit {
 
     this.authService
       .login(this.f.username.value, this.f.password.value)
-      .subscribe(x => {
-        localStorage.setItem('Authorization', x.toString());
+      .subscribe(() => {
         this.router.navigate(['characters']);
       });
   }
