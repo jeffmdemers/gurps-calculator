@@ -73,10 +73,10 @@ export class HikingComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) { }
 
   // table for hiker interface
-  @ViewChild(MatTable) table: MatTable<any>;
+  //@ViewChild(MatTable) table: MatTable<any>;
   displayedColumns: string[] = ['move', 'skill', 'will', 'extraEffort', 'equipment', 'rollResult', 'delete'];
   columnsToDisplay: string[] = ['move', 'skill', 'equipment', 'delete']
-  dataSource = new MatTableDataSource(this.hikerList.controls);
+ // dataSource = new MatTableDataSource(this.hikerList.controls);
 
   ngOnInit() {
     this.displayedColumns = this.columnsToDisplay;
@@ -160,8 +160,7 @@ export class HikingComponent implements OnInit {
       cumulativeBonus: 1,
     });
     this.hikerList.push(row);
-    this.hikerList.value.length === 1 ? undefined :
-    this.table.renderRows();
+    //this.hikerList.value.length === 1 ? undefined : this.table.renderRows();
   }
   hideEquipment() {
     this.hikingForm.value.weather === 2 ||
@@ -173,6 +172,6 @@ export class HikingComponent implements OnInit {
   }
   deleteEntry(index) {
     this.hikerList.controls.splice(index, 1);
-    this.table.renderRows();
+   // this.table.renderRows();
   }
 }

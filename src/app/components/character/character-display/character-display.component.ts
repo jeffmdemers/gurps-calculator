@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MenuService } from 'src/app/services/menu.service';
 import { Character } from 'src/app/shared/models/character.model';
-import { RodeoItem } from '../../shared/rodeo/rodeo.component';
 
 @Component({
   selector: 'app-character-display',
@@ -12,7 +11,6 @@ import { RodeoItem } from '../../shared/rodeo/rodeo.component';
 export class CharacterDisplayComponent implements OnInit {
   character: Character;
   screenSelected = 'details';
-  screenSelections: RodeoItem[];
   menuOpen = true;
 
   constructor(
@@ -22,7 +20,7 @@ export class CharacterDisplayComponent implements OnInit {
 
   ngOnInit() {
     this.setupMenu();
-    this.getScreenSelections();
+    //this.getScreenSelections();
 
     const c = this.route.snapshot.data.character;
     this.character = new Character(c);
@@ -33,12 +31,5 @@ export class CharacterDisplayComponent implements OnInit {
     this.menuService.toggleStream$.subscribe(x => {
       this.menuOpen = !this.menuOpen;
     });
-  }
-  getScreenSelections() {
-    this.screenSelections = [
-      new RodeoItem('details', 'Details'),
-      new RodeoItem('skills', 'Skills'),
-      new RodeoItem('traits', 'Traits'),
-    ];
   }
 }

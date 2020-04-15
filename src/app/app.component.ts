@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
-import { UserBottomSheetComponent } from './components/user-bottom-sheet/user-bottom-sheet.component';
 import { MenuService } from './services/menu.service';
 
 @Component({
@@ -13,15 +12,10 @@ export class AppComponent {
   showMenuIcon: boolean;
 
   constructor(
-    public menuService: MenuService,
-    private bottomSheet: MatBottomSheet
+    public menuService: MenuService
   ) {}
 
   btnMenuClicked() {
     this.menuService.emitToggleEvent(null);
-  }
-
-  openBottomSheet() {
-    this.bottomSheet.open(UserBottomSheetComponent);
   }
 }
